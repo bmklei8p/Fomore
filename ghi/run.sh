@@ -1,2 +1,3 @@
-npm install
-npm start
+#!/usr/bin/env bash
+
+npm install && npm start
