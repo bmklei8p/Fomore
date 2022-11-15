@@ -1,6 +1,8 @@
 ## 11/15/22
 - reviewed API paths to finalize routes for urls
 - confirmed pulling events for itineraries from events vs itineraries endpoint
+- began working with FastAPI and MongoDB as group
+- confirmed Docker containers running for all group members with updated yaml file
 
 ## 11/14/22
 - repo cloned and docker yaml file updated to create gamma volume
