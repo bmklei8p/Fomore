@@ -1,7 +1,7 @@
 from bson.objectid import ObjectId
 from pydantic import BaseModel
 from typing import List
-from datetime import date
+from datetime import datetime
 
 
 class PydanticObjectId(ObjectId):
@@ -45,8 +45,8 @@ class AccountOut(BaseModel):
 
 class ItineraryIn(BaseModel):
    name: str
-   start_date: date
-   end_date: date
+   start_date: datetime
+   end_date: datetime
    location: str
 #    events: List[EventOut]
 
@@ -65,7 +65,7 @@ class ItineraryList(BaseModel):
 
 class EventIn(BaseModel):
     name: str
-    date: date
+    date: datetime
     location: str
     category: str
     venue: str
