@@ -19,7 +19,7 @@ services:
       WAIT_BEFORE: 5
       WAIT_TIMEOUT: 60
   mongo:
-    image: mongo:6
+    image: mongo:5
     volumes:
       - ./setup/mongodb:/docker-entrypoint-initdb.d
       - fomore-mongo-data:/data/db
