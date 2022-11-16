@@ -5,7 +5,7 @@ from typing import Optional
 
 
 class SessionQueries(Queries):
-    DB_NAME = "fomore-mongo-data"
+    DB_NAME = "library"
     COLLECTION = "sessions"
 
     def get(self, jti: str):

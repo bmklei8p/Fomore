@@ -5,7 +5,7 @@ from models import ItineraryIn, ItineraryOut, Event, EventIn
 
 
 class ItineraryQueries(Queries):
-    DB_NAME = "fomore-db"
+    DB_NAME = "library"
     COLLECTION = "itineraries"
 
     def create(self, itinerary: ItineraryIn) -> ItineraryOut:

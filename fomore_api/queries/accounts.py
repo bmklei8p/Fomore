@@ -8,7 +8,7 @@ class DuplicateAccountError(ValueError):
 
 
 class AccountQueries(Queries):
-    DB_NAME = "fomore-mongo-data"
+    DB_NAME = "library"
     COLLECTION = "accounts"
 
     def get(self, email: str) -> Account:
