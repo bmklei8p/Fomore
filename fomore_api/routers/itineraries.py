@@ -44,7 +44,6 @@ async def delete_itinerary(
 ):
     await socket_manager.broadcast_refetch()
     repo.delete(id=itinerary_id)
-    print(itinerary_id)
     return True
 
 
