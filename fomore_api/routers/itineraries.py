@@ -20,8 +20,7 @@ async def create_itinerary(
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     account = AccountOut(**account_data)
-    if "librarian" not in account.roles:
-        raise not_authorized
+    setattr(itinerary, "account_id", account.id)
     itinerary = repo.create(itinerary)
     await socket_manager.broadcast_refetch()
     return itinerary
@@ -38,8 +37,15 @@ def get_itineraries(repo: ItineraryQueries = Depends()):
 
 
 
-# @router.delete("/itineraries/{itinerary_id}", response_model=ItineraryIn)
-
+@router.delete("/itineraries/{itinerary_id}", response_model=bool)
+async def delete_itinerary(
+    itinerary_id: str,
+    repo: ItineraryQueries = Depends(),
+):
+    await socket_manager.broadcast_refetch()
+    repo.delete(id=itinerary_id)
+    print(itinerary_id)
+    return True
 
 
 # @router.put("/itineraries/{itinerary_id}", response_model=ItineraryIn)

@@ -18,7 +18,7 @@ class AccountQueries(Queries):
         props["id"] = str(props["_id"])
         return Account(**props)
 
-    def create(self, info: AccountIn, hashed_password: str, roles=["patron"]) -> Account:
+    def create(self, info: AccountIn, hashed_password: str, roles=["user"]) -> Account:
         props = info.dict()
         props["password"] = hashed_password
         props["roles"] = roles
