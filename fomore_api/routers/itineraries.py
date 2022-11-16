@@ -20,6 +20,8 @@ async def create_itinerary(
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     account = AccountOut(**account_data)
+    if "librarian" not in account.roles:
+        raise not_authorized
     itinerary = repo.create(itinerary)
     await socket_manager.broadcast_refetch()
     return itinerary

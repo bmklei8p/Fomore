@@ -57,11 +57,11 @@ class Itinerary(ItineraryIn):
 
 
 class ItineraryOut(ItineraryIn):
-    id: int
+    id: str
 
 
 class ItineraryList(BaseModel):
-    itinerary: List[ItineraryOut]
+    itineraries: List[ItineraryOut]
 
 class EventIn(BaseModel):
     name: str
