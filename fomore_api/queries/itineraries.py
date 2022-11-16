@@ -3,7 +3,6 @@ from typing import List
 from .client import Queries
 from models import ItineraryIn, ItineraryOut, Event, EventIn
 
-
 class ItineraryQueries(Queries):
     DB_NAME = "library"
     COLLECTION = "itineraries"
@@ -13,6 +12,12 @@ class ItineraryQueries(Queries):
         self.collection.insert_one(props)
         props["id"] = str(props["_id"])
         return ItineraryOut(**props)
+
+    def delete(self, id: str):
+        self.collection.delete_one({
+            "_id": ObjectId(id)
+            })
+
 
     def get_all(self) -> List[ItineraryOut]:
         result = self.collection.aggregate(
