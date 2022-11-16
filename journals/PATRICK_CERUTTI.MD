@@ -1,3 +1,10 @@
+11/16/22
+
+11/15/22
+
+- Finished template formatting as a team and now have a better understanding of that process
+- also was able to start a container for working with mongoDB as a team
+
 11/14/22
 
 - Worked on templates and trying to understand terminology that we all agree on and the general form of writing these templates
