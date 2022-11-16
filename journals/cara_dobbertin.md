@@ -1,3 +1,6 @@
+## 11/16/22
+- worked on updating fomore_api file to Project Setup resource for MongoDB and FastAPI
+
 ## 11/15/22
 - reviewed API paths to finalize routes for urls
 - confirmed pulling events for itineraries from events vs itineraries endpoint
