@@ -18,6 +18,7 @@ class EventQueries(Queries):
         # props["account_id"] = str(props["account_id"])
         # props["itinerary_id"] = str(props["itinerary_id"])
         # return Event(**props)
+        return Event
 
     def delete(self, itinerary_id: str, account_id: str):
         self.collection.delete_one(
