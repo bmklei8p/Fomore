@@ -1,3 +1,13 @@
+## 11/17/22
+- Worked on Event APIs: get, create, delete, update
+- Updated routers and query files.
+- Had team discussion about React components.
+
+## 11/16/22
+- Started working on itinerary API calls.
+- Worked on get list of itineraries, create an itinerary and delete an itinerary.
+- Updated Mongo dockerfile to include events and itinerary databases.
+
 ## 11/15/22
 - Reviewed end points and updated paths.
 - Utilized Trello for task management. Reviewed deliverables.
