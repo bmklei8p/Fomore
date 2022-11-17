@@ -18,6 +18,11 @@ class ItineraryQueries(Queries):
             "_id": ObjectId(id)
             })
 
+    def find_one(self, id: str):
+        return self.collection.find_one({"_id": ObjectId(id)})
+
+
+
 
     def get_all(self) -> List[ItineraryOut]:
         result = self.collection.aggregate(

@@ -34,7 +34,6 @@ class Account(AccountIn):
     id: PydanticObjectId
 
 
-
 class AccountOut(BaseModel):
     id: str
     email: str

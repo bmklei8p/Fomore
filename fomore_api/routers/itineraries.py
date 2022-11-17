@@ -32,8 +32,12 @@ def get_itineraries(repo: ItineraryQueries = Depends()):
 
 
 
-# @router.get("/itineraries/{itinerary_id}", response_model=ItineraryIn):
-
+@router.get("/itineraries/{itinerary_id}", response_model=ItineraryOut)
+def get_itinerary(
+    itinerary_id: str,
+    repo: ItineraryQueries = Depends(),
+    ):
+    return repo.collection.find_one(id=itinerary_id)
 
 
 
