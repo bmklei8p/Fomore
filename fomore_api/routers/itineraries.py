@@ -33,12 +33,11 @@ def get_itineraries(repo: ItineraryQueries = Depends()):
 
 
 @router.get("/itineraries/{itinerary_id}", response_model=ItineraryOut)
-async def get_itinerary(
+def get_itinerary(
     itinerary_id: str,
     repo: ItineraryQueries = Depends(),
     ):
     itinerary = repo.get_one(itinerary_id)
-    await socket_manager.broadcast_refetch()
     return itinerary
 
 

@@ -46,26 +46,3 @@ class ItineraryQueries(Queries):
                 str(props["account_id"]) for props in itineraryProps["events"]
             ]
         return [ItineraryOut(**itinerary) for itinerary in itineraryPropsList]
-
-
-class EventQueries(Queries):
-    DB_NAME = "fomore-db"
-    COLLECTION = "events"
-
-    def create(self, event: EventIn) -> Event:
-        props = event.dict()
-        props["account_id"] = ObjectId(props["account_id"])
-        props["itinerary_id"] = ObjectId(props["itinerary_id"])
-        self.collection.insert_one(props)
-        props["id"] = str(props["_id"])
-        props["account_id"] = str(props["account_id"])
-        props["itinerary_id"] = str(props["itinerary_id"])
-        return Event(**props)
-
-    def delete(self, itinerary_id: str, account_id: str):
-        self.collection.delete_one(
-            {
-                "account_id": ObjectId(account_id),
-                "itinerary_id": ObjectId(itinerary_id),
-            }
-        )
