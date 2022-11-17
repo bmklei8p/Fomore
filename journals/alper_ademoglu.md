@@ -2,6 +2,7 @@
 - Worked on Event APIs: get, create, delete, update
 - Updated routers and query files.
 - Had team discussion about React components.
+- Created a separate branch for frontend.
 
 ## 11/16/22
 - Started working on itinerary API calls.
