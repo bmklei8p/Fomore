@@ -10,7 +10,6 @@ class EventQueries(Queries):
 
     def create(self, event: EventIn) -> EventOut:
         props = event.dict()
-        print(props)
         props["itinerary_id"] = ObjectId(props["itinerary_id"])
         self.collection.insert_one(props)
         props["id"] = str(props["_id"])
@@ -31,3 +30,15 @@ class EventQueries(Queries):
             event_props["id"] = str(event_props["_id"])
             event_props["itinerary_id"] = str(event_props["itinerary_id"])
         return [EventOut(**event) for event in event_props_list]
+
+    def update(self, id, body):
+        filter = {
+                "_id": ObjectId(id),
+            }
+        event = self.collection.find_one(filter)
+        print(event)
+        event["name"] = "funny"
+        print(event)
+        res = self.collection.find_one_and_update(event, {"$set":event})
+        print(res)
+        return EventOut(**res)
