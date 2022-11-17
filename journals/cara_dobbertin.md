@@ -1,3 +1,6 @@
+## 11/17/22
+- working on get request for single itinerary; receiving error message for id passing to query
+
 ## 11/16/22
 - worked on updating fomore_api file to Project Setup resource for MongoDB and FastAPI
 
