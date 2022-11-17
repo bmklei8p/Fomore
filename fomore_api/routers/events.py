@@ -48,4 +48,11 @@ async def delete_event(
     return True
 
 
-# @router.put("/itineraries/{itinerary_id}", response_model=ItineraryIn)
+@router.put("/events/{events_id}", response_model=EventOut)
+def updated_event(
+    props: str,
+    event_id: str,
+    repo: EventQueries = Depends(),
+):
+    pass
+    return EventOut(**props)
