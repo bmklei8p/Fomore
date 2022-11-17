@@ -19,10 +19,9 @@ class ItineraryQueries(Queries):
             })
 
     def get_one(self, id: str):
-        result = self.collection.find({"_id": ObjectId(id)})
-        print(result)
-        return result
-
+        itinerary = self.collection.find_one({"_id": ObjectId(id)})
+        itinerary["id"] = str(itinerary["_id"])
+        return ItineraryOut(**itinerary)
 
 
 
