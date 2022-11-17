@@ -70,15 +70,14 @@ class EventIn(BaseModel):
     category: str
     venue: str
     description:str
-    # itinerary_id: str
-    # account_id: str
+    itinerary_id: str
 
 class Event(EventIn):
     id: PydanticObjectId
 
 
 class EventOut(EventIn):
-    id: int
+    id: str
 
 class EventList(BaseModel):
     events: List[EventOut]

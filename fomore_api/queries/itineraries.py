@@ -4,7 +4,7 @@ from .client import Queries
 from models import ItineraryIn, ItineraryOut, Event, EventIn
 
 class ItineraryQueries(Queries):
-    DB_NAME = "library"
+    DB_NAME = "fomore-db"
     COLLECTION = "itineraries"
 
     def create(self, itinerary: ItineraryIn) -> ItineraryOut:
@@ -17,6 +17,12 @@ class ItineraryQueries(Queries):
         self.collection.delete_one({
             "_id": ObjectId(id)
             })
+
+
+
+
+
+
 
     def get_one(self, id: str):
         itinerary = self.collection.find_one({"_id": ObjectId(id)})

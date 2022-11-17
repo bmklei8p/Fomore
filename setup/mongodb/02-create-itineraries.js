@@ -1,5 +1,5 @@
 conn = Mongo();
-db = conn.getDB("library");
+db = conn.getDB("fomore-db");
 
 db.itineraries.insertMany([
   {
