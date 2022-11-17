@@ -18,8 +18,10 @@ class ItineraryQueries(Queries):
             "_id": ObjectId(id)
             })
 
-    def find_one(self, id: str):
-        return self.collection.find_one({"_id": ObjectId(id)})
+    def get_one(self, id: str):
+        result = self.collection.find({"_id": ObjectId(id)})
+        print(result)
+        return result
 
 
 

@@ -37,7 +37,9 @@ def get_itinerary(
     itinerary_id: str,
     repo: ItineraryQueries = Depends(),
     ):
-    return repo.collection.find_one(id=itinerary_id)
+    itinerary = repo.get_one(itinerary_id)
+    return itinerary
+
 
 
 
