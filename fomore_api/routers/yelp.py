@@ -1,7 +1,9 @@
 from fastapi import APIRouter, HTTPException, status
 from datetime import datetime
 import requests
-from ...keys import yelp_api_key
+import os
+
+YELP_API_KEY = os.environ["YELP_API_KEY"]
 
 router = APIRouter()
 
@@ -25,7 +27,7 @@ def get_external_restaurant(
         "sort_by": "rating",
         "limit": 5,
     }
-    headers = {"Authorization": yelp_api_key}
+    headers = {"Authorization": YELP_API_KEY}
     response = requests.get(url, params=params, headers=headers)
     data = response.json()
     res = [{
@@ -54,7 +56,7 @@ def get_external_event(
         "sort_on": "popularity",
         "limit": 5,
        }
-    headers = {"Authorization": yelp_api_key}
+    headers = {"Authorization": YELP_API_KEY}
     response = requests.get(url, params=params, headers=headers)
     data = response.json()
     res = [{
@@ -84,7 +86,7 @@ def get_external_event(
 #         "sort_by": "rating",
 #         "limit": 5,
 #     }
-#     headers = {"Authorization": yelp_api_key}
+#     headers = {"Authorization": YELP_API_KEY}
 #     response = requests.get(url, params=params, headers=headers)
 #     data = response.json()
 #     res = [{
