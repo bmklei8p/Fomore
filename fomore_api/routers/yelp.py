@@ -13,12 +13,14 @@ not_authorized = HTTPException(
     headers={"WWW-Authenticate": "Bearer"},
 )
 
+
 @router.get("/restaurant_search/")
 def get_external_restaurant(
     location: str,
     date: datetime,
     itinerary_id: str
 ):
+    location = location.replace(" ", "%")
     url = 'https://api.yelp.com/v3/businesses/search'
     params = {
         "term": 'restaurant',
@@ -31,16 +33,17 @@ def get_external_restaurant(
     response = requests.get(url, params=params, headers=headers)
     data = response.json()
     res = [{
-        "name": resturant["name"],
+        "name": restaurant["name"],
         "date": date,
-        "location": location,
+        "location": restaurant["location"]["city"],
         "category": "resturant",
         "venue": "N/A",
-        "description":resturant["categories"][0]["title"],
+        "description":restaurant["categories"][0]["title"],
         "itinerary_id": itinerary_id,
-        "image_url": resturant["image_url"]
-    } for resturant in data["businesses"]]
+        "image_url": restaurant["image_url"]
+    } for restaurant in data["businesses"]]
     return res
+
 
 @router.get("/event_search/")
 def get_external_event(
@@ -48,6 +51,7 @@ def get_external_event(
     date: datetime,
     itinerary_id: str
 ):
+    location = location.replace(" ", "%")
     date_epoch = int(date.timestamp())
     url = 'https://api.yelp.com/v3/events'
     params = {
@@ -72,31 +76,32 @@ def get_external_event(
     return res
 
 
-# @router.get("/attraction_search/")
-# def get_external_attracion(
-# #     location: str,
-#     date: datetime,
-#     itinerary_id: str
-# ):
-#     url = 'https://api.yelp.com/v3/businesses/search'
-#     params = {
-#         "term": 'restaurant',
-#         "location": location,
-#         "radius": 5000,
-#         "sort_by": "rating",
-#         "limit": 5,
-#     }
-#     headers = {"Authorization": YELP_API_KEY}
-#     response = requests.get(url, params=params, headers=headers)
-#     data = response.json()
-#     res = [{
-#         "name": resturant["name"],
-#         "date": date,
-#         "location": location,
-#         "category": "resturant",
-#         "venue": "N/A",
-#         "description":resturant["categories"][0]["title"],
-#         "itinerary_id": itinerary_id,
-#         "image_url": resturant["image_url"]
-#     } for resturant in data["businesses"]]
-#     return res
+@router.get("/attraction_search/")
+def get_external_attracion(
+    location: str,
+    date: datetime,
+    itinerary_id: str
+):
+    location = location.replace(" ", "%")
+    url = 'https://api.yelp.com/v3/businesses/search'
+    params = {
+        "term": 'tourist%attractions',
+        "location": location,
+        "radius": 5000,
+        "sort_by": "rating",
+        "limit": 5,
+    }
+    headers = {"Authorization": YELP_API_KEY}
+    response = requests.get(url, params=params, headers=headers)
+    data = response.json()
+    res = [{
+        "name": attraction["name"],
+        "date": date,
+        "location": attraction["location"]["city"],
+        "category": "attraction",
+        "venue": "N/A",
+        "description":attraction["categories"][0]["title"],
+        "itinerary_id": itinerary_id,
+        "image_url": attraction["image_url"]
+    } for attraction in data["businesses"]]
+    return res

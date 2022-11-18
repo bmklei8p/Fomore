@@ -21,8 +21,6 @@ async def create_itinerary(
 ):
     account = AccountOut(**account_data)
     setattr(itinerary, "account_id", account.id)
-    #itinerary["start_date"] = str(itinerary.start_date)
-    print(itinerary.start_date.month)
     itinerary = repo.create(itinerary)
     await socket_manager.broadcast_refetch()
     return itinerary
