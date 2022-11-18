@@ -7,6 +7,7 @@ from routers import accounts
 from routers import itineraries
 from routers import sockets
 from routers import events
+from routers import yelp
 
 app = FastAPI()
 
@@ -28,3 +29,4 @@ app.include_router(accounts.router)
 app.include_router(sockets.router)
 app.include_router(events.router, prefix="/api")
 app.include_router(itineraries.router, prefix="/api")
+app.include_router(yelp.router, prefix="/api")
