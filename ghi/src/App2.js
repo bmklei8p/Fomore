@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./Main";
 import Nav from "./Nav";
 import ItineraryForm from "./ItineraryForm";
+import RestaurantList from "./searchEvent";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/app" element={<Main />} />
           <Route path="/ItineraryForm" element={<ItineraryForm />} />
+          <Route path="/searchEvent" element={<RestaurantList />} />
         </Routes>
       </div>
     </BrowserRouter>

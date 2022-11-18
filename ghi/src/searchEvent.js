@@ -9,7 +9,7 @@ class RestaurantList extends React.Component {
     };
   }
   async componentDidMount() {
-    // const url = "http://localhost:8100/api/models/";
+    const url = "http://localhost:8000/api/restaurant_search/?location=Chicago&date=2022-11-18T18%3A43%3A56.706Z&itinerary_id=12343a8014829a865bbf700d";
 
     try {
       const response = await fetch(url);
@@ -44,26 +44,15 @@ class RestaurantList extends React.Component {
                   <td>{restaurant.location}</td>
                   <td>{restaurant.category}</td>
                   <td>{restaurant.venue}</td>
-                  <td>{}</td>
-                  <td>
-                    <img style={{ width: 100 }} src={model.picture_url} />
-                  </td>
+                  <td>{restaurant.description}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-        <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <Link
-            to="/models/new"
-            className="btn btn-outline-primary btn-lg px-4 gap-3"
-          >
-            Add a New Vehicle Model
-          </Link>
-        </div>
       </div>
     );
   }
 }
 
-export default VehicleModelsList;
+export default RestaurantList;
