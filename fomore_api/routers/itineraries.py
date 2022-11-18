@@ -21,6 +21,8 @@ async def create_itinerary(
 ):
     account = AccountOut(**account_data)
     setattr(itinerary, "account_id", account.id)
+    #itinerary["start_date"] = str(itinerary.start_date)
+    print(itinerary.start_date.month)
     itinerary = repo.create(itinerary)
     await socket_manager.broadcast_refetch()
     return itinerary
@@ -51,4 +53,11 @@ async def delete_itinerary(
     return True
 
 
-# @router.put("/itineraries/{itinerary_id}", response_model=ItineraryIn)
+@router.put("/itinerary/{itinerary_id}", response_model=ItineraryOut)
+def update_event(
+    body: dict,
+    itinerary_id: str,
+    repo: ItineraryQueries = Depends(),
+):
+    itinerary = repo.update(itinerary_id, body)
+    return itinerary

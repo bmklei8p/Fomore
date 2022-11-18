@@ -1,3 +1,9 @@
+## 11/17/22
+- working on get request for single itinerary; receiving error message for id passing to query which was resolved with:
+itinerary["id"] = str(itinerary["_id"])
+return ItineraryOut(**itinerary)
+- began work on frontend with researching and learning about React hooks, worked with team member on having a template main page rendering on localhost, successful with addition of reactor-router-dom to dependency, will continue to assess and modify to use React hooks methods
+
 ## 11/16/22
 - worked on updating fomore_api file to Project Setup resource for MongoDB and FastAPI
 

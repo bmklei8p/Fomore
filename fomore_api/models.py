@@ -40,12 +40,10 @@ class AccountOut(BaseModel):
     full_name: str
 
 
-
-
 class ItineraryIn(BaseModel):
    name: str
-   start_date: str
-   end_date: str
+   start_date: datetime
+   end_date: datetime
    location: str
    account_id: Optional[str]
 #    events: List[EventOut]
@@ -70,15 +68,15 @@ class EventIn(BaseModel):
     category: str
     venue: str
     description:str
-    # itinerary_id: str
-    # account_id: str
+    itinerary_id: str
+    image_url: str
 
 class Event(EventIn):
     id: PydanticObjectId
 
 
 class EventOut(EventIn):
-    id: int
+    id: str
 
 class EventList(BaseModel):
     events: List[EventOut]
