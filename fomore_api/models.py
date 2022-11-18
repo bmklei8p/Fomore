@@ -69,6 +69,7 @@ class EventIn(BaseModel):
     venue: str
     description:str
     itinerary_id: str
+    image_url: str
 
 class Event(EventIn):
     id: PydanticObjectId

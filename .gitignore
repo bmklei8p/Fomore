@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
+#keys:
+./fomore_api/keys.py
+
 # C extensions
 *.so
 
