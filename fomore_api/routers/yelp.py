@@ -46,8 +46,6 @@ def get_external_restaurant(
         "itinerary_id": itinerary_id,
         "image_url": restaurant["image_url"]
     } for restaurant in data["businesses"]]
-    a = copy.deepcopy(data)
-    print(a)
     return res
 
 

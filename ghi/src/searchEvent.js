@@ -14,7 +14,8 @@ class RestaurantList extends React.Component {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
-        this.setState({ restaurants: data.restaurants });
+        console.log(data)
+        this.setState({ restaurants: data });
       }
     } catch (e) {
       console.error(e);
@@ -39,6 +40,7 @@ class RestaurantList extends React.Component {
             {this.state.restaurants.map((restaurant) => {
               return (
                 <tr key={restaurant.id}>
+                  <td>{restaurant.name}</td>
                   <td>{restaurant.date}</td>
                   <td>{restaurant.location}</td>
                   <td>{restaurant.category}</td>
