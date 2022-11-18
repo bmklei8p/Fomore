@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException, status
 from datetime import datetime
 import requests
 import os
+import copy
 
 YELP_API_KEY = os.environ["YELP_API_KEY"]
 
@@ -20,6 +21,9 @@ def get_external_restaurant(
     date: datetime,
     itinerary_id: str
 ):
+    print(location)
+    print(date)
+    print(itinerary_id)
     location = location.replace(" ", "%")
     url = 'https://api.yelp.com/v3/businesses/search'
     params = {
@@ -42,6 +46,8 @@ def get_external_restaurant(
         "itinerary_id": itinerary_id,
         "image_url": restaurant["image_url"]
     } for restaurant in data["businesses"]]
+    a = copy.deepcopy(data)
+    print(a)
     return res
 
 

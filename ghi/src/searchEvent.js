@@ -9,8 +9,7 @@ class RestaurantList extends React.Component {
     };
   }
   async componentDidMount() {
-    const url = "http://localhost:8000/api/restaurant_search/?location=Chicago&date=2022-11-18T18%3A43%3A56.706Z&itinerary_id=12343a8014829a865bbf700d";
-
+    const url = "http://localhost:8000/api/restaurant_search/?location=Chicago&date=2022-11-18T18%3A43%3A56.706Z&itinerary_id=12343a8014829a865bbf700d"
     try {
       const response = await fetch(url);
       if (response.ok) {
