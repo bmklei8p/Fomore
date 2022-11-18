@@ -48,9 +48,9 @@ async def delete_event(
     return True
 
 
-@router.put("/events/{events_id}", response_model=EventOut)
+@router.put("/events/{event_id}", response_model=EventOut)
 def update_event(
-    body: str,
+    body: dict,
     event_id: str,
     repo: EventQueries = Depends(),
 ):

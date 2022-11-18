@@ -40,12 +40,10 @@ class AccountOut(BaseModel):
     full_name: str
 
 
-
-
 class ItineraryIn(BaseModel):
    name: str
-   start_date: str
-   end_date: str
+   start_date: datetime
+   end_date: datetime
    location: str
    account_id: Optional[str]
 #    events: List[EventOut]

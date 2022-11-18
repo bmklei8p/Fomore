@@ -2,6 +2,7 @@ from bson.objectid import ObjectId
 from typing import List
 from .client import Queries
 from models import Event, EventIn, EventOut
+from pymongo.collection import ReturnDocument
 
 
 class EventQueries(Queries):
@@ -36,9 +37,6 @@ class EventQueries(Queries):
                 "_id": ObjectId(id),
             }
         event = self.collection.find_one(filter)
-        print(event)
-        event["name"] = "funny"
-        print(event)
-        res = self.collection.find_one_and_update(event, {"$set":event})
-        print(res)
-        return EventOut(**res)
+        updated_event = self.collection.find_one_and_update(event, {"$set":body}, return_document=ReturnDocument.AFTER)
+        updated_event["id"] = str(updated_event["_id"])
+        return EventOut(**updated_event)
