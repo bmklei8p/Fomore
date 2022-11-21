@@ -10,7 +10,7 @@ function App() {
       <Nav />
       <div className="container">
         <Routes>
-          <Route path="/app" element={<Main />} />
+          <Route path="/" element={<Main />} />
           <Route path="/ItineraryForm" element={<ItineraryForm />} />
           <Route path="/searchEvent" element={<RestaurantList />} />
         </Routes>

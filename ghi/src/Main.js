@@ -1,11 +1,24 @@
+import SearchTabs from "./tabs";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 function Main() {
   return (
-    <div className="px-4 py-5 my-5 text-center">
-      <h1 className="display-5 fw-bold">FOMORE</h1>
-      <div className="col-lg-6 mx-auto">
-        <p className="lead mb-4">Find Amazing Events Across the USA</p>
-      </div>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <div>
+            <SearchTabs/>
+          </div>
+        </Col>
+        <Col>
+          <div>
+            <SearchTabs/>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
