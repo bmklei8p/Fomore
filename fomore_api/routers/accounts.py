@@ -61,6 +61,7 @@ async def create_account(
     request: Request,
     response: Response,
     repo: AccountQueries = Depends(),
+    session: SessionQueries = Depends(),
 ):
     hashed_password = authenticator.hash_password(info.password)
     try:
@@ -71,7 +72,7 @@ async def create_account(
             detail="Cannot create an account with those credentials",
         )
     form = AccountForm(username=info.email, password=info.password)
-    token = await authenticator.login(response, request, form, repo)
+    token = await authenticator.login(response, request, form, repo, session)
     return AccountToken(account=account, **token.dict())
 
 

@@ -20,7 +20,7 @@ class SessionQueries(Queries):
         )
         if result and result.inserted_id:
             return SessionOut(jti=jti, account_id=account.id)
-        return None
+        return "Succeeessss"
 
     def delete(self, jti: str):
         self.collection.delete_many({"jti": jti})
