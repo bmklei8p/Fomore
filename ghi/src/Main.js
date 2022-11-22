@@ -1,4 +1,4 @@
-import SearchTabs from "./Tabs";
+import SearchTabs from "./tabs";
 import ItineraryList from "./Itinerary";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
