@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Tab } from 'react-bootstrap';
 import { Tabs } from 'react-bootstrap';
 import RestaurantList from './SearchRestaurant';
+import EventList from './SearchEvent';
+import AttractionList from './SearchAttraction';
 
 function SearchTabs() {
     const [key, setKey] = useState('home');
@@ -14,10 +16,10 @@ function SearchTabs() {
             <RestaurantList/>
         </Tab>
         <Tab eventKey="events" title="Events">
-            <p> </p>
+            <EventList/>
         </Tab>
         <Tab eventKey="attractions" title="Attractions">
-            <p> </p>
+            <AttractionList/>
         </Tab>
         </Tabs>
     </div>

@@ -6,22 +6,22 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
-class RestaurantList extends React.Component {
+class AttractionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      restaurants: [],
+      attractions: [],
     };
   }
   async componentDidMount() {
     const url =
-      "http://localhost:8000/api/restaurant_search/?location=Chicago&date=2022-11-18T18%3A43%3A56.706Z&itinerary_id=12343a8014829a865bbf700d";
+      "http://localhost:8000/api/attraction_search/?location=Seattle&date=2022-11-22T18%3A20%3A17.388Z&itinerary_id=12343a8014829a865bbf700d";
     try {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
         console.log(data)
-        this.setState({ restaurants: data });
+        this.setState({ attractions: data });
       }
     } catch (e) {
       console.error(e);
@@ -30,19 +30,19 @@ class RestaurantList extends React.Component {
   render() {
     return (
       <div>
-        {this.state.restaurants.map((restaurant) => {
+        {this.state.attractions.map((attraction) => {
           return (
             <Card className="item-border" border="light" style={{ width: '40rem' }}>
               <Container>
                 <Row>
                   <Col>
-                    <Card.Img className="card-image" src={restaurant.image_url}/>
+                    <Card.Img className="card-image" src={attraction.image_url}/>
                   </Col>
                   <Col>
                     <Card.Body>
-                      <Card.Title>{restaurant.name}</Card.Title>
-                      <Card.Text>{restaurant.location}</Card.Text>
-                      <Card.Text>{restaurant.description}</Card.Text>
+                      <Card.Title>{attraction.name}</Card.Title>
+                      <Card.Text>{attraction.location}</Card.Text>
+                      <Card.Text>{attraction.description}</Card.Text>
                     </Card.Body>
                   </Col>
                 </Row>
@@ -54,4 +54,4 @@ class RestaurantList extends React.Component {
     );
   }
 }
-export default RestaurantList;
+export default AttractionList;
