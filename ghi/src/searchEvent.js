@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { Link } from "react-router-dom";
-import ListGroup from "react-bootstrap/Button";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 class RestaurantList extends React.Component {
@@ -19,7 +20,6 @@ class RestaurantList extends React.Component {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         this.setState({ restaurants: data });
       }
     } catch (e) {
@@ -31,22 +31,21 @@ class RestaurantList extends React.Component {
       <div>
         {this.state.restaurants.map((restaurant) => {
           return (
-            <Card className="text-center" border="primary" style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={restaurant.image_url} className="card-img-top"/>
-              <Card.Body>
-                <Card.Title>{restaurant.name}</Card.Title>
-                <Card.Text>{restaurant.location}</Card.Text>
-                <Card.Text>{restaurant.description}</Card.Text>
-              </Card.Body>
-              {/* <ListGroup className="list-group-flush">
-                <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-              </ListGroup> */}
-              <Card.Body>
-                <Button variant="primary">Add to Itinerary</Button>
-                {/* <Card.Link href="#">Another Link</Card.Link> */}
-              </Card.Body>
+            <Card className="item-border" border="light" style={{ width: '40rem' }}>
+              <Container>
+                <Row>
+                  <Col>
+                    <Card.Img className="card-image" src={restaurant.image_url}/>
+                  </Col>
+                  <Col>
+                    <Card.Body>
+                      <Card.Title>{restaurant.name}</Card.Title>
+                      <Card.Text>{restaurant.location}</Card.Text>
+                      <Card.Text>{restaurant.description}</Card.Text>
+                    </Card.Body>
+                  </Col>
+                </Row>
+              </Container>
             </Card>
           );
         })}
