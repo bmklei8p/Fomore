@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Tab } from 'react-bootstrap';
 import { Tabs } from 'react-bootstrap';
-import RestaurantList from './SearchEvent';
+import RestaurantList from './SearchRestaurant';
 
 function SearchTabs() {
     const [key, setKey] = useState('home');

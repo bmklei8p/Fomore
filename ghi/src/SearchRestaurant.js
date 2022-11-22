@@ -35,7 +35,7 @@ class RestaurantList extends React.Component {
               <Container>
                 <Row>
                   <Col>
-                    <Card.Img className="card-image" src={restaurant.image_url}/>
+                    <Card.Img className="card-image" src={restaurant.image_url} style={{"border-color": '#FA7F08'}} />
                   </Col>
                   <Col>
                     <Card.Body>
@@ -43,6 +43,9 @@ class RestaurantList extends React.Component {
                       <Card.Text>{restaurant.location}</Card.Text>
                       <Card.Text>{restaurant.description}</Card.Text>
                     </Card.Body>
+                  </Col>
+                  <Col>
+                    <button>Test</button>
                   </Col>
                 </Row>
               </Container>

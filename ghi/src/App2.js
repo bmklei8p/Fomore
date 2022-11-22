@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./Main";
 import Nav from "./Nav";
 import ItineraryForm from "./ItineraryForm";
-import RestaurantList from "./SearchEvent";
+import RestaurantList from "./SearchRestaurant";
 import CreateEvent from "./EventForm";
 
 function App() {
