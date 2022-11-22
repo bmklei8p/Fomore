@@ -11,3 +11,69 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.section-border {
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(250, 250, 250);
+}
+
+.item-border {
+  padding: 5px;
+  margin: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-image {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  object-fit: cover;
+  height: 130px;
+}
+
+.bg-color {
+  background-color: #348888;
+}
+
+.nav-color {
+  background-color: #22BABB;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.nav-text {
+  color: white;
+}
+
+.add-btn {
+  border-radius: 5px;
+  background-color: #FA7F08;
+  margin-left: 5px;
+  border-style: none;
+  color: white;
+  text-align: center;
+}
+
+.add-btn.hover {
+  background-color: #F24405;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top-margin {
+  margin-top: 10px;
+}
+
+.padding {
+  padding: 5px;
+  text-align: center;
+}

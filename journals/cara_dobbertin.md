@@ -1,3 +1,12 @@
+## 11/22/22
+
+## 11/21/22
+- reviewed changes with SearchEvent form to populate data from API call to Yelp
+- back-end will work on updating account data for authorization and returning AccountID
+- today front-end will work on forms and structure of layout and use React Bootstrap
+- implemented card layout with tabs for search results with frontend team
+- will begin work on itinerary list and separate containers for main page
+
 ## 11/17/22
 - working on get request for single itinerary; receiving error message for id passing to query which was resolved with:
 itinerary["id"] = str(itinerary["_id"])
