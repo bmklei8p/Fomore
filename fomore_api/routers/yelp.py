@@ -33,11 +33,14 @@ def get_external_restaurant(
     headers = {"Authorization": YELP_API_KEY}
     response = requests.get(url, params=params, headers=headers)
     data = response.json()
+    print(data)
     res = [{
         "name": restaurant["name"],
         "date": date,
         "location": restaurant["location"]["city"],
         "category": "resturant",
+        "address": restaurant["location"]["address1"],
+        "rating": restaurant["rating"],
         "venue": "N/A",
         "description":restaurant["categories"][0]["title"],
         "itinerary_id": itinerary_id,
@@ -102,6 +105,8 @@ def get_external_attracion(
         "location": attraction["location"]["city"],
         "category": "attraction",
         "venue": "N/A",
+        "rating": "N/A",
+        "address": "N/A",
         "description":attraction["categories"][0]["title"],
         "itinerary_id": itinerary_id,
         "image_url": attraction["image_url"]

@@ -9,6 +9,8 @@ db.events.insertMany([
     category: "event",
     venue: "string",
     description: "too expensive",
+    rating: "N/A",
+    address: "N/A",
     itinerary_id: "63755aa26282cfade5af40f9",
     image_url:
       "https://media.npr.org/assets/img/2022/11/21/gettyimages-484816706-8838823b36e61ecf9459debab7c14d769ab83205-s800-c85.webp",
@@ -19,6 +21,8 @@ db.events.insertMany([
     location: "Durham",
     category: "resturant",
     venue: "N/A",
+    rating: "N/A",
+    address: "N/A",
     description: "good sushi",
     itinerary_id: "63755aa26282cfade5af40f9",
     image_url:
@@ -30,6 +34,8 @@ db.events.insertMany([
     location: "string",
     category: "resturant",
     venue: "N/A",
+    rating: "N/A",
+    address: "N/A",
     description: "too expensive",
     itinerary_id: "63755aa26282cfade5af40f9",
     image_url:
@@ -41,6 +47,8 @@ db.events.insertMany([
     location: "new york",
     category: "attraction",
     venue: "string",
+    rating: "N/A",
+    address: "N/A",
     description: "very big statue",
     itinerary_id: "63755aa26282cfade5af40f9",
     image_url:
