@@ -21,9 +21,6 @@ def get_external_restaurant(
     date: datetime,
     itinerary_id: str
 ):
-    print(location)
-    print(date)
-    print(itinerary_id)
     location = location.replace(" ", "%")
     url = 'https://api.yelp.com/v3/businesses/search'
     params = {
@@ -63,6 +60,7 @@ def get_external_event(
         "start_date": date_epoch,
         "sort_on": "popularity",
         "limit": 5,
+        "radius": 5000,
        }
     headers = {"Authorization": YELP_API_KEY}
     response = requests.get(url, params=params, headers=headers)
@@ -70,7 +68,7 @@ def get_external_event(
     res = [{
         "name": event["name"],
         "date": date,
-        "location": location,
+        "location": event["location"]["city"],
         "category": "event",
         "venue": event["business_id"],
         "description":event["description"],
