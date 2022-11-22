@@ -1,3 +1,13 @@
+## 11/21/22
+- Worked on authentication and account creation.
+- Got familiar with jwtdown_fastapi library and did trouble shooting on logging in after creating an account.
+- Front end started working on forms and page layout.
+
+## 11/18/22
+- Started working on the front end. Set up a temporary app.js and a searchevent component.
+- Created a simple table on frontend to show restaurant results from Yelp.
+- Set up three 'search' endpoints for Yelp API: restaurants, attractions and event.
+
 ## 11/17/22
 - Worked on Event APIs: get, create, delete, update
 - Updated routers and query files.
