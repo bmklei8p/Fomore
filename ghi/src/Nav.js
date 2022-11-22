@@ -17,7 +17,7 @@ function FomoreNav() {
             navbarScroll
           >
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#action2">My Itineraries</Nav.Link>
+            <Nav.Link href="/ItineraryForm">Create Itinerary</Nav.Link>
             <Nav.Link href="/EventForm">Create Event</Nav.Link>
           </Nav>
           <Form className="d-flex">

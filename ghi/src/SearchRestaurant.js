@@ -44,6 +44,7 @@ class RestaurantList extends React.Component {
                       <Card.Text>{restaurant.location}</Card.Text>
                       <Card.Text>{restaurant.description}</Card.Text>
                       <Card.Text>{restaurant.address}</Card.Text>
+                      <Card.Text>{restaurant.rating}</Card.Text>
                     </Card.Body>
                   </Col>
                 </Row>
