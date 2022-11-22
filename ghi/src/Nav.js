@@ -16,9 +16,9 @@ function FomoreNav() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#action2">My Itineraries</Nav.Link>
-            <Nav.Link href="#action2">My Events</Nav.Link>
+            <Nav.Link href="/EventForm">Create Event</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Button variant="outline-success">Login</Button>
