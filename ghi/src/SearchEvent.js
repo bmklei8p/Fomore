@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -20,7 +19,6 @@ class EventList extends React.Component {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
         this.setState({ events: data });
       }
     } catch (e) {

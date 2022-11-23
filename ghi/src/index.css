@@ -77,3 +77,9 @@ code {
   padding: 5px;
   text-align: center;
 }
+
+.add-link{
+  text-align: right;
+  color: #F24405;
+  font-style: italic;
+}
