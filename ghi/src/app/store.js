@@ -1,15 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { apiSlice } from './api';
-import { accountSlice } from './accountSlice';
+import { itineraryApi } from './yelpApi';
+// import { accountSlice } from './accountSlice';
 
 export const store = configureStore({
   reducer: {
-    [apiSlice.reducerPath]: apiSlice.reducer,
-    [accountSlice.name]: accountSlice.reducer,
+    [itineraryApi.reducerPath]: itineraryApi.reducer,
+    // [accountSlice.name]: accountSlice.reducer,
   },
   middleware: getDefaultMiddleware => {
-    return getDefaultMiddleware().concat(apiSlice.middleware);
+    return getDefaultMiddleware().concat(itineraryApi.middleware);
   },
 });
 
