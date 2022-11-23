@@ -1,10 +1,9 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 class RestaurantList extends React.Component {
   constructor(props) {
@@ -20,7 +19,7 @@ class RestaurantList extends React.Component {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
+        console.log(data);
         this.setState({ restaurants: data });
       }
     } catch (e) {
@@ -32,17 +31,26 @@ class RestaurantList extends React.Component {
       <div>
         {this.state.restaurants.map((restaurant) => {
           return (
-            <Card className="item-border" border="light" style={{ width: '40rem' }}>
+            <Card
+              className="item-border"
+              border="light"
+              style={{ width: "40rem" }}
+            >
               <Container>
                 <Row>
                   <Col>
-                    <Card.Img className="card-image" src={restaurant.image_url}/>
+                    <Card.Img
+                      className="card-image"
+                      src={restaurant.image_url}
+                    />
                   </Col>
                   <Col>
                     <Card.Body>
                       <Card.Title>{restaurant.name}</Card.Title>
                       <Card.Text>{restaurant.location}</Card.Text>
                       <Card.Text>{restaurant.description}</Card.Text>
+                      <Card.Text>{restaurant.address}</Card.Text>
+                      <Card.Text>{restaurant.rating}</Card.Text>
                     </Card.Body>
                   </Col>
                 </Row>
