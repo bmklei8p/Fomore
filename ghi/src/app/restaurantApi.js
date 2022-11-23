@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { clearForm } from './accountSlice';
 
-export const itineraryApi = createApi({
-  reducerPath: 'itineraries',
+export const restaurantApi = createApi({
+  reducerPath: 'restaurants',
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_FOMORE_API_HOST,
 //     prepareHeaders: (headers, { getState }) => {
@@ -16,8 +16,8 @@ export const itineraryApi = createApi({
   }),
 //   tagTypes: ['Itinerary'],
   endpoints: builder => ({
-    getItineraries: builder.query({
-      query: () => `/api/itineraries`,
+    getRestaurants: builder.query({
+      query: () => `/api/restaurant_search`,
     })
     //   providesTags: data => {
     //     const tags = [{type: 'Itineraries', id: 'LIST'}];
@@ -33,4 +33,4 @@ export const itineraryApi = createApi({
 
 export const {
   useGetItinerariesQuery,
-} = itineraryApi;
+} = restaurantApi;

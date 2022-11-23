@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { itineraryApi } from './yelpApi';
+import { itineraryApi } from './itineraryApi';
 // import { accountSlice } from './accountSlice';
 
 export const store = configureStore({

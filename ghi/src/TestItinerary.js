@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useGetItinerariesQuery } from './app/yelpApi';
+import { useGetItinerariesQuery } from './app/itineraryApi';
 import ErrorNotification from './ErrorNotification';
 
 function ItineraryTest() {
   const { data, error, isLoading } = useGetItinerariesQuery();
-  console.log(data)
   if (isLoading) {
     return (
       <progress className="progress is-primary" max="100"></progress>
