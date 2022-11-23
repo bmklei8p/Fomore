@@ -4,6 +4,9 @@
 - Getting more familiar using css with react-bootstrap and finding the advantages and disadvantages with this tech
 - Starting to think about implementing redux and hooks in our already made pages.
 
+- Finished project recommended startup procedure
+- Got the create, delete, and get for itineraries working on mongoDB
+
 11/15/22
 
 - Finished template formatting as a team and now have a better understanding of that process
