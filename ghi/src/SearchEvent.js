@@ -1,10 +1,8 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 class EventList extends React.Component {
   constructor(props) {
@@ -20,7 +18,6 @@ class EventList extends React.Component {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
         this.setState({ events: data });
       }
     } catch (e) {
@@ -32,11 +29,15 @@ class EventList extends React.Component {
       <div>
         {this.state.events.map((event) => {
           return (
-            <Card className="item-border" border="light" style={{ width: '40rem' }}>
+            <Card
+              className="item-border"
+              border="light"
+              style={{ width: "40rem" }}
+            >
               <Container>
                 <Row>
                   <Col>
-                    <Card.Img className="card-image" src={event.image_url}/>
+                    <Card.Img className="card-image" src={event.image_url} />
                   </Col>
                   <Col>
                     <Card.Body>
@@ -44,6 +45,7 @@ class EventList extends React.Component {
                       <Card.Text>{event.address}</Card.Text>
                       <Card.Text>{event.location}</Card.Text>
                       <Card.Text>{event.description}</Card.Text>
+                      <Card.Text>{event.address}</Card.Text>
                       <Card.Text>{event.rating}</Card.Text>
                     </Card.Body>
                   </Col>
@@ -56,6 +58,5 @@ class EventList extends React.Component {
     );
   }
 }
-
 
 export default EventList;

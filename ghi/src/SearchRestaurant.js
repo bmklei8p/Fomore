@@ -1,10 +1,9 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { NavLink } from "react-bootstrap";
 
 class RestaurantList extends React.Component {
   constructor(props) {
@@ -20,7 +19,6 @@ class RestaurantList extends React.Component {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
         this.setState({ restaurants: data });
       }
     } catch (e) {
@@ -30,28 +28,58 @@ class RestaurantList extends React.Component {
   render() {
     return (
       <div>
-        {this.state.restaurants.map((restaurant) => {
-          return (
-            <Card className="item-border" border="light" style={{ width: '40rem' }}>
-              <Container>
-                <Row>
-                  <Col>
-                    <Card.Img className="card-image" src={restaurant.image_url}/>
-                  </Col>
-                  <Col>
-                    <Card.Body>
-                      <Card.Title>{restaurant.name}</Card.Title>
-                      <Card.Text>{restaurant.address}</Card.Text>
-                      <Card.Text>{restaurant.location}</Card.Text>
-                      <Card.Text>{restaurant.description}</Card.Text>
-                      <Card.Text>Rating:  {restaurant.rating}</Card.Text>
-                    </Card.Body>
-                  </Col>
-                </Row>
-              </Container>
-            </Card>
-          );
-        })}
+        {this.state.restaurants.map((restaurant) => (
+          <Card
+            className="item-border"
+            border="light"
+            style={{ width: "50rem" }}
+          >
+            <Container>
+              <Row>
+                <Col>
+                  <Card.Img className="card-image" src={restaurant.image_url} />
+                </Col>
+                <Col>
+                  <Card.Body>
+                    <Row>
+                      <Col sm={10}>
+                        <Card.Title>{restaurant.name}</Card.Title>
+                      </Col>
+                      <Col sm={2}>
+                        <NavLink
+                          style={{ "text-align": "right", color: "#FA7F08" }}
+                        >
+                          &#10010;
+                        </NavLink>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Card.Text>{restaurant.location}</Card.Text>
+                      </Col>
+                      <Col>
+                        <Card.Text style={{ "text-align": "right" }}>
+                          Rating: {restaurant.rating}
+                        </Card.Text>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Card.Text className="text-muted">
+                          {restaurant.description}
+                        </Card.Text>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Card.Text as="small">{restaurant.address}</Card.Text>
+                    </Row>
+                  </Card.Body>
+                </Col>
+              </Row>
+            </Container>
+          </Card>
+        ))}
+        ;
       </div>
     );
   }
