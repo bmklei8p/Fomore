@@ -41,8 +41,10 @@ class EventList extends React.Component {
                   <Col>
                     <Card.Body>
                       <Card.Title>{event.name}</Card.Title>
+                      <Card.Text>{event.address}</Card.Text>
                       <Card.Text>{event.location}</Card.Text>
                       <Card.Text>{event.description}</Card.Text>
+                      <Card.Text>{event.rating}</Card.Text>
                     </Card.Body>
                   </Col>
                 </Row>

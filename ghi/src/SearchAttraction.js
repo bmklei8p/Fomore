@@ -41,8 +41,10 @@ class AttractionList extends React.Component {
                   <Col>
                     <Card.Body>
                       <Card.Title>{attraction.name}</Card.Title>
+                      <Card.Text>{attraction.address}</Card.Text>
                       <Card.Text>{attraction.location}</Card.Text>
                       <Card.Text>{attraction.description}</Card.Text>
+                      <Card.Text>{attraction.rating}</Card.Text>
                     </Card.Body>
                   </Col>
                 </Row>
