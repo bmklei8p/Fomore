@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Card, Form, Container, Row, Col, Button} from 'react-bootstrap';
 
 function ItineraryForm() {
   const [values, setValues] = useState({
@@ -46,66 +47,59 @@ function ItineraryForm() {
   };
 
   return (
-    <div className="form-container text-center">
-      <form className="register-form" onSubmit={handleSubmit}>
-        {submitted && valid ? (
-          <div className="success-message">You created an Itinerary!!</div>
-        ) : null}
-        <input
-          onChange={handleNameInputChange}
-          value={values.name}
-          className="form-field"
-          placeholder="Itinerary Name"
-          name="name"
-        />
-        {submitted && !values.name ? (
-          <span>Please enter an Itinerary Name</span>
-        ) : null}
-        <input
-          onChange={handleStartDateInputChange}
-          value={values.startDate}
-          className="form-field"
-          placeholder="Start Date"
-          name="startDate"
-        />
-        {submitted && !values.startDate ? (
-          <span>Please enter a Start Date</span>
-        ) : null}
-        <input
-          onChange={handleEndDateInputChange}
-          value={values.endDate}
-          className="form-field"
-          placeholder="End Date"
-          name="endDate"
-        />
-        {submitted && !values.endDate ? (
-          <span>Please enter an End Date</span>
-        ) : null}
-        <input
-          onChange={handleLocationInputChange}
-          value={values.location}
-          className="form-field"
-          placeholder="Location"
-          name="location"
-        />
-        {submitted && !values.location ? (
-          <span>Please enter a Location</span>
-        ) : null}
-        <input
-          onChange={handleDescriptionInputChange}
-          value={values.description}
-          className="form-field"
-          placeholder="Description"
-          name="description"
-        />
-        {submitted && !values.description ? (
-          <span>Please enter a Description</span>
-        ) : null}
-        <button className="form-field" type="submit">
-          Add Itinerary
-        </button>
-      </form>
-    </div>
+    <Form className="register-form" onSubmit={handleSubmit}>
+      <Container>
+        <Row>
+            <Col sm={8}>
+                <Card className="item-border" border="light" style={{ width: '40rem' }}>
+                    <Card.Title className="centered">Create an Itinerary</Card.Title>
+                    <Card.Body>
+                        <Row>
+                            <Col>
+                                <Form.Label>Itinerary Name</Form.Label>
+                            </Col>
+                            <Col className="mb-3" sm={8}>
+                                <Form.Control type="text" placeholder="Enter itinerary name" />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Form.Label>Location</Form.Label>
+                            </Col>
+                            <Col className="mb-3" sm={8}>
+                                <Form.Control type="text" label="Location (optional)" 
+                                placeholder="Location"/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Form.Label>Date</Form.Label>
+                            </Col>
+                            <Col className="mb-3" sm={8}>
+                                <Form.Control type="date" placeholder="Date" />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Form.Label>Description</Form.Label>
+                            </Col>
+                            <Col className="mb-3" sm={8}>
+                                <Form.Control as="textarea" label="Description" />
+                            </Col>
+                        </Row>
+                            <Button variant="outline-success" type="submit">
+                                Add to Itinerary
+                            </Button>
+                    </Card.Body>
+                </Card>
+            </Col>
+            <Col sm={4}>
+            <div className="section-border">
+            </div>
+            </Col>
+        </Row>
+      </Container>
+    </Form>
   );
 }
 
