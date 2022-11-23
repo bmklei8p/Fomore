@@ -1,4 +1,14 @@
+## 11/23/22
+- working on login and authentication on front_end
+- will look to add link to Yelp from name of event and/or picture
+- created separate branch front_end_auth to track current work
+- sign up and log in modals not populating on page
+
 ## 11/22/22
+- worked on updating main page
+- created event form for events and attractions
+- added rating and address to search results
+- merged development branch with front_end
 
 ## 11/21/22
 - reviewed changes with SearchEvent form to populate data from API call to Yelp
