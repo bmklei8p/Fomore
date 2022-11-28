@@ -8,6 +8,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 export function SearchBar() {
   const [location, setLocation] = useState('');
   const [date, setDate] = useState('');
+  const [endDate, setEndDate] = useState('')
   const dispatch = useDispatch();
 
   function handleSubmit() {
@@ -15,6 +16,7 @@ export function SearchBar() {
     dispatch(action);
     setLocation('');
     setDate('');
+    setEndDate('');
   }
 
   return (
@@ -30,7 +32,7 @@ export function SearchBar() {
             <Form.Control type="date" placeholder="Start Date"
             className="me-0" aria-label="Start Date" value={date} onChange={e => setDate(e.target.value)}/>
             <Form.Control type="date" placeholder="End Date"
-            className="me-0" aria-label="End Date"/>
+            className="me-0" aria-label="End Date" value={endDate} onChange={e => setEndDate(e.target.value)}/>
             </InputGroup>
             <Button variant="outline-light" onClick={handleSubmit}>Search</Button>
         </Form>

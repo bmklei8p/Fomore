@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-// import { addArticle } from './articleSlice';
-import { updateSearch } from "./app/searchSlice";
+import React from "react";
+import { useSelector } from "react-redux";
 import { useGetAttractionsQuery } from "./app/yelpApi";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { NavLink } from "react-bootstrap";
 
 export function Attractions() {
   const search = useSelector((state) => state.search);

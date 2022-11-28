@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useGetItinerariesQuery } from './app/itineraryApi';
 import ErrorNotification from './ErrorNotification';
 

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { useGetEventsQuery } from "./app/yelpApi";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 
 export function Events() {
   const search = useSelector((state) => state);
-  const { data, error, isLoading } = useGetEventsQuery(search.search);
+  const { data, isLoading } = useGetEventsQuery(search.search);
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
