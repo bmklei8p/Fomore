@@ -30,3 +30,7 @@
 - Decided on using Yelp Fusion API to get information on events, restaurants and points of interest.
 - Tested code to get information on Yelp Events API.
 - Worked on End Points documentation. Added end points.
+
+
+## TO - DOs
+- handle no events for city search (ie. baltimore events show no results)
