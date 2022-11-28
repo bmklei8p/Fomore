@@ -7,7 +7,6 @@ import CreateEvent from "./EventForm";
 import EventList from "./SearchEvent";
 import AttractionList from "./SearchAttraction";
 import TestItinerary from "./TestItinerary";
-import TestRestaurantSearch from "./TestRestaurantSearch";
 import Search from "./TestSearch";
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
             <Route path="/SearchEvent" element={<EventList />} />
             <Route path="/SearchAttraction" element={<AttractionList />} />
             <Route path="/TestItinerary" element={<TestItinerary />} />
-            <Route path="/TestRestaurantSearch" element={<TestRestaurantSearch />} />
             <Route path="/Search" element={<Search />} />
           </Routes>
         </div>
