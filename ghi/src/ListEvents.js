@@ -5,6 +5,8 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { NavLink } from "react-bootstrap";
+
 
 export function Events() {
   const search = useSelector((state) => state);
@@ -31,6 +33,11 @@ export function Events() {
                 <Col>
                   <Card.Body>
                     <Card.Title>{event.name}</Card.Title>
+                      <Col sm={2}>
+                        <NavLink style={{ "text-align": "right", color: "#FA7F08" }}>
+                          &#10010;
+                        </NavLink>
+                      </Col>
                     <Card.Text>{event.location}</Card.Text>
                     <Card.Text>{event.description}</Card.Text>
                   </Card.Body>

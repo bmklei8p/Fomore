@@ -34,9 +34,7 @@ export function Restaurants() {
                       <Card.Title>{restaurant.name}</Card.Title>
                     </Col>
                     <Col sm={2}>
-                      <NavLink
-                        style={{ "text-align": "right", color: "#FA7F08" }}
-                      >
+                      <NavLink style={{ "text-align": "right", color: "#FA7F08" }}>
                         &#10010;
                       </NavLink>
                     </Col>

@@ -1,7 +1,7 @@
 import { useGetItinerariesQuery } from './app/itineraryApi';
 import ErrorNotification from './ErrorNotification';
 
-function ItineraryTest() {
+function Itineraries() {
   const { data, error, isLoading } = useGetItinerariesQuery();
   if (isLoading) {
     return (
@@ -54,4 +54,4 @@ function ItineraryTest() {
   );
 }
 
-export default ItineraryTest;
+export default Itineraries;

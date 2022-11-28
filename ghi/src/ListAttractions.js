@@ -5,6 +5,8 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { NavLink } from "react-bootstrap";
+
 
 export function Attractions() {
   const search = useSelector((state) => state.search);
@@ -30,6 +32,11 @@ export function Attractions() {
                 <Col>
                   <Card.Body>
                     <Card.Title>{attraction.name}</Card.Title>
+                      <Col sm={2}>
+                        <NavLink style={{ "text-align": "right", color: "#FA7F08" }}>
+                          &#10010;
+                        </NavLink>
+                      </Col>
                     <Card.Text>{attraction.location}</Card.Text>
                     <Card.Text>{attraction.description}</Card.Text>
                   </Card.Body>

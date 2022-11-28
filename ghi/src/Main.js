@@ -1,9 +1,9 @@
-import SearchTabs from "./tabs";
+import SearchTabs from "./Tabs";
 import ItineraryList from "./Itinerary";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import SearchBar from "./TestSearchBar";
+import SearchBar from "./SearchBar";
 
 function Main() {
   return (
