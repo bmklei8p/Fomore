@@ -5,32 +5,18 @@ export const restaurantApi = createApi({
   reducerPath: 'restaurants',
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_FOMORE_API_HOST,
-//     prepareHeaders: (headers, { getState }) => {
-//       const selector = apiSlice.endpoints.getToken.select();
-//       const { data: tokenData } = selector(getState());
-//       if (tokenData && tokenData.access_token) {
-//         headers.set('Authorization', `Bearer ${tokenData.access_token}`);
-//       }
-//       return headers;
-//     }
   }),
-//   tagTypes: ['Itinerary'],
   endpoints: builder => ({
     getRestaurants: builder.query({
-      query: () => `/api/restaurant_search`,
-    })
-    //   providesTags: data => {
-    //     const tags = [{type: 'Itineraries', id: 'LIST'}];
-    //     if (!data || !data.itineraries) return tags;
-
-    //     const { itineraries } = data;
-    //     if (itineraries) {
-    //       tags.concat(...itineraries.map(({ id }) => ({type: 'Itineraries', id})));
-    //     }
-    //     return tags;
+      query: (search) => `api/restaurant_search/?location=${search.location}&date=${search.date}T18%3A43%3A56.706Z&itinerary_id=12343a8014829a865bbf700d`,
+      })
     }),
   });
 
+
+
+
+
 export const {
-  useGetItinerariesQuery,
+  useGetRestaurantsQuery,
 } = restaurantApi;
