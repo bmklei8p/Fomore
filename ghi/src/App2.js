@@ -7,7 +7,6 @@ import CreateEvent from "./EventForm";
 import EventList from "./SearchEvent";
 import AttractionList from "./SearchAttraction";
 import TestItinerary from "./TestItinerary";
-import Search from "./TestSearch";
 
 function App() {
   return (
@@ -19,11 +18,10 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/ItineraryForm" element={<ItineraryForm />} />
             <Route path="/SearchRestaurant" element={<RestaurantList />} />
-            <Route path="/EventForm" element={<CreateEvent/>} />
+            <Route path="/EventForm" element={<CreateEvent />} />
             <Route path="/SearchEvent" element={<EventList />} />
             <Route path="/SearchAttraction" element={<AttractionList />} />
             <Route path="/TestItinerary" element={<TestItinerary />} />
-            <Route path="/Search" element={<Search />} />
           </Routes>
         </div>
       </BrowserRouter>
