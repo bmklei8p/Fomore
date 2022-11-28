@@ -19,7 +19,6 @@ function FomoreNav() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/ItineraryForm">Create Itinerary</Nav.Link>
             <Nav.Link href="/EventForm">Create Event</Nav.Link>
-            <Nav.Link href="/ItineraryForm">Create Itinerary</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Button variant="outline-success">Login</Button>

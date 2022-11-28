@@ -1,4 +1,8 @@
-11/16/22
+11/22/22
+
+- Continued working the group in front end on creating our searchEvent and searchRestaurant pages that will be referenced on the page using tabs
+- Getting more familiar using css with react-bootstrap and finding the advantages and disadvantages with this tech
+- Starting to think about implementing redux and hooks in our already made pages.
 
 - Finished project recommended startup procedure
 - Got the create, delete, and get for itineraries working on mongoDB
