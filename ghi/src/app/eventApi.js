@@ -12,10 +12,9 @@ export const eventApi = createApi({
     addEvent: builder.mutation({
       query: (form) => {
         const formData = new FormData(form);
-        console.log(formData);
         const entries = Array.from(formData.entries());
         const data = entries.reduce((acc, [key, value]) => {
-          acc[key] = Number.parseInt(value) || value;
+          acc[key] = value;
           return acc;
         }, {});
         console.log(data);

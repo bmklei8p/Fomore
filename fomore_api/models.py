@@ -64,14 +64,14 @@ class ItineraryList(BaseModel):
 class EventIn(BaseModel):
     name: str
     date: str
-    location: str
-    category: str
-    venue: str
-    rating: str
-    address: str
-    description:str
+    location: Optional[str]  ##
+    category: Optional[str] ##
+    venue: Optional[str]
+    rating: Optional[str]
+    address: Optional[str]
+    description: str
     itinerary_id: str
-    image_url: str
+    image_url: Optional[str]
 
 class Event(EventIn):
     id: PydanticObjectId

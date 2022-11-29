@@ -1,22 +1,28 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import ItineraryList from "./Itinerary";
 import { useGetItinerariesQuery } from "./app/itineraryApi";
 import { useAddEventMutation } from "./app/eventApi";
-import { useNavigate } from "react-router-dom";
 import { preventDefault } from "./app/utils";
 
 const EventForm = () => {
   const [addEvent, { data }] = useAddEventMutation();
-  const navigate = useNavigate();
-
-  if (data) {
-    navigate("/Events");
-  }
-
   const body = useGetItinerariesQuery();
+
+  // this is a temporary placeholder for either a
+  // redirect using useNavigate or a better looking success alert.
+  if (data) {
+    return (
+      <div>
+        <Alert key="success" variant="success">
+          You have successfully created a new event. Please visit your
+          itineraries page if you would like to see the details.
+        </Alert>
+      </div>
+    );
+  }
 
   if (body.isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -48,7 +54,7 @@ const EventForm = () => {
                       <Form.Label>Select an Itinerary</Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
-                      <Form.Select>
+                      <Form.Select name="itinerary_id">
                         Itinerary
                         <option>itineraries</option>
                         {itineraries.map((itinerary) => {
@@ -75,25 +81,12 @@ const EventForm = () => {
                   </Row>
                   <Row>
                     <Col>
-                      <Form.Label>Location</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <Form.Control
-                        type="text"
-                        label="Location"
-                        name="location"
-                        placeholder="Location"
-                      />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
                       <Form.Label>Date</Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
                         name="date"
-                        type="date"
+                        type="text"
                         placeholder="Date"
                       />
                     </Col>
@@ -110,20 +103,11 @@ const EventForm = () => {
                       />
                     </Col>
                   </Row>
-                  <Button
-                    onClick={() => navigate("/api/events")}
-                    variant="outline-success"
-                    type="submit"
-                  >
+                  <Button variant="outline-success" type="submit">
                     Add to Itinerary
                   </Button>
                 </Card.Body>
               </Card>
-            </Col>
-            <Col sm={4}>
-              <div className="section-border">
-                <ItineraryList />
-              </div>
             </Col>
           </Row>
         </Container>
