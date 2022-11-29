@@ -52,7 +52,7 @@ async def delete_itinerary(
 
 
 @router.put("/itinerary/{itinerary_id}", response_model=ItineraryOut)
-def update_event(
+def update_itinerary(
     body: dict,
     itinerary_id: str,
     repo: ItineraryQueries = Depends(),

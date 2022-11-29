@@ -7,8 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { NavLink } from "react-bootstrap";
 
-
-export function Events() {
+export function ListEvents() {
   const search = useSelector((state) => state);
   const { data, isLoading } = useGetEventsQuery(search.search);
 
@@ -24,6 +23,7 @@ export function Events() {
             className="item-border"
             border="light"
             style={{ width: "40rem" }}
+            key={event.image_url}
           >
             <Container>
               <Row>
@@ -33,11 +33,11 @@ export function Events() {
                 <Col>
                   <Card.Body>
                     <Card.Title>{event.name}</Card.Title>
-                      <Col sm={2}>
-                        <NavLink style={{ "text-align": "right", color: "#FA7F08" }}>
-                          &#10010;
-                        </NavLink>
-                      </Col>
+                    <Col sm={2}>
+                      <NavLink style={{ textAlign: "right", color: "#FA7F08" }}>
+                        &#10010;
+                      </NavLink>
+                    </Col>
                     <Card.Text>{event.location}</Card.Text>
                     <Card.Text>{event.description}</Card.Text>
                   </Card.Body>
@@ -51,4 +51,4 @@ export function Events() {
   );
 }
 
-export default Events;
+export default ListEvents;

@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import { useGetRestaurantsQuery } from "./app/yelpApi";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { NavLink } from "react-bootstrap";
 
-export function Restaurants() {
+export function ListRestaurants() {
   const search = useSelector((state) => state);
   const { data, error, isLoading } = useGetRestaurantsQuery(search.search);
   if (isLoading) {
@@ -21,6 +21,7 @@ export function Restaurants() {
           className="item-border"
           border="light"
           style={{ width: "50rem" }}
+          key={restaurant.image_url}
         >
           <Container>
             <Row>
@@ -34,7 +35,7 @@ export function Restaurants() {
                       <Card.Title>{restaurant.name}</Card.Title>
                     </Col>
                     <Col sm={2}>
-                      <NavLink style={{ "text-align": "right", color: "#FA7F08" }}>
+                      <NavLink style={{ textAlign: "right", color: "#FA7F08" }}>
                         &#10010;
                       </NavLink>
                     </Col>
@@ -44,7 +45,7 @@ export function Restaurants() {
                       <Card.Text>{restaurant.location}</Card.Text>
                     </Col>
                     <Col>
-                      <Card.Text style={{ "text-align": "right" }}>
+                      <Card.Text style={{ textAlign: "right" }}>
                         Rating: {restaurant.rating}
                       </Card.Text>
                     </Col>
@@ -70,4 +71,4 @@ export function Restaurants() {
   );
 }
 
-export default Restaurants;
+export default ListRestaurants;

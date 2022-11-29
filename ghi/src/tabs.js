@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Tab } from "react-bootstrap";
 import { Tabs } from "react-bootstrap";
-import { Restaurants } from "./ListRestaurants";
-import { Attractions } from "./ListAttractions";
-import { Events } from "./ListEvents";
+import { ListRestaurants } from "./ListRestaurants";
+import { ListAttractions } from "./ListAttractions";
+import { ListEvents } from "./ListEvents";
 
 function SearchTabs() {
   const [key, setKey] = useState("home");
@@ -17,13 +17,13 @@ function SearchTabs() {
         className="mb-3"
       >
         <Tab eventKey="home" title="Restaurants">
-          <Restaurants />
+          <ListRestaurants />
         </Tab>
         <Tab eventKey="events" title="Events">
-          <Events />
+          <ListEvents />
         </Tab>
         <Tab eventKey="attractions" title="Attractions">
-          <Attractions />
+          <ListAttractions />
         </Tab>
       </Tabs>
     </div>

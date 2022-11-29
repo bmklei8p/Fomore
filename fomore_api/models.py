@@ -66,12 +66,12 @@ class EventIn(BaseModel):
     date: str
     location: str
     category: str
-    venue: str
-    rating: int
-    address: str
-    description:str
+    venue: Optional[str]
+    rating: Optional[str]
+    address: Optional[str]
+    description: str
     itinerary_id: str
-    image_url: str
+    image_url: Optional[str]
 
 class Event(EventIn):
     id: PydanticObjectId
