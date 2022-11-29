@@ -1,3 +1,7 @@
+## 11/28/22
+- worked on implementing Redux with forms and lists
+- began working on itinerary display on front end, lists and detail pages
+
 ## 11/23/22
 - working on login and authentication on front_end
 - will look to add link to Yelp from name of event and/or picture
