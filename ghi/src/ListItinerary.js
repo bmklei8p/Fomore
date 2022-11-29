@@ -2,14 +2,14 @@ import { useGetItinerariesQuery } from "./app/itineraryApi";
 import ErrorNotification from "./ErrorNotification";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Form from 'react-bootstrap/Form';
+import Form from "react-bootstrap/Form";
 
 function Itineraries() {
   const { data, error, isLoading } = useGetItinerariesQuery();
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
-  console.log({data})
+  console.log({ data });
 
   return (
     // <div className="columns is-centered">
@@ -55,7 +55,6 @@ function Itineraries() {
     // </div>
     <div>
       {data.itineraries.map((itinerary) => {
-
         return (
           <Card
             className="item-border"
@@ -65,7 +64,10 @@ function Itineraries() {
             <Card.Header as="h5">{itinerary.name}</Card.Header>
             <Card.Body>
               <Card.Title>{itinerary.location}</Card.Title>
-              <Card.Text>{new Date(itinerary.start_date).toLocaleDateString()} to {new Date(itinerary.end_date).toLocaleDateString()}</Card.Text>
+              <Card.Text>
+                {new Date(itinerary.start_date).toLocaleDateString()} to{" "}
+                {new Date(itinerary.end_date).toLocaleDateString()}
+              </Card.Text>
               <Button variant="outline-primary">Go to Itinerary</Button>
             </Card.Body>
           </Card>

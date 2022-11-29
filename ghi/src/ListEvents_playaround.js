@@ -1,23 +1,17 @@
 import { useGetEventsQuery, useDeleteEventMutation } from "./app/eventApi";
 import ErrorNotification from "./ErrorNotification";
-// import { useState } from "react";
 
 function Events() {
   const { data, error, isLoading } = useGetEventsQuery();
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
-  const [deleteId, setDeleteId] = useState("");
-
-  // if (deleteId) {
-  //   useDeleteEventMutation(deleteId);
-  // }
 
   return (
     <div className="columns is-centered">
       <div className="column is-narrow">
         <ErrorNotification error={error} />
-        <form onSubmit={handleSubmit}>
+        <form>
           <table className="table is-striped">
             <thead>
               <tr>
@@ -37,9 +31,6 @@ function Events() {
                   <td>{event.location}</td>
                   <td>{event.itinerary_id}</td>
                   <td>{event.image_url}</td>
-                  <td>
-                    {/* <button onClick={() => setDeleteId({})}>Delete</button> */}
-                  </td>
                 </tr>
               ))}
             </tbody>
