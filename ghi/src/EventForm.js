@@ -54,12 +54,15 @@ const EventForm = () => {
                       <Form.Label>Select an Itinerary</Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
-                      <Form.Select name="itinerary_id">
+                      <Form.Select name="itinerary">
                         Itinerary
                         <option>itineraries</option>
                         {itineraries.map((itinerary) => {
                           return (
-                            <option key={itinerary.id} value={itinerary.id}>
+                            <option
+                              key={itinerary.id}
+                              value={[itinerary.id, itinerary.location]}
+                            >
                               {itinerary.name}
                             </option>
                           );

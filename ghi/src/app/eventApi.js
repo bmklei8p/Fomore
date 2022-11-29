@@ -17,7 +17,13 @@ export const eventApi = createApi({
           acc[key] = value;
           return acc;
         }, {});
-        console.log(data);
+        const itinerary_id = data.itinerary.slice(0, 24);
+        const location = data.itinerary.slice(25);
+        data["itinerary_id"] = itinerary_id;
+        data["location"] = location;
+        delete data["itinerary"];
+        data["category"] = "custom";
+        data["rating"] = "N/A";
         return {
           method: "post",
           url: `/api/events`,

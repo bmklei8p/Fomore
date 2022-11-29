@@ -1,18 +1,16 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { clearForm } from './accountSlice';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { clearForm } from "./accountSlice";
 
 export const itineraryApi = createApi({
-  reducerPath: 'itineraries',
+  reducerPath: "itineraries",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_FOMORE_API_HOST,
   }),
-  endpoints: builder => ({
+  endpoints: (builder) => ({
     getItineraries: builder.query({
       query: () => `/api/itineraries`,
-    })
+    }),
   }),
 });
 
-export const {
-  useGetItinerariesQuery,
-} = itineraryApi;
+export const { useGetItinerariesQuery, useGetItineraryQuery } = itineraryApi;

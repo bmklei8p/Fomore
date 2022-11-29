@@ -64,8 +64,8 @@ class ItineraryList(BaseModel):
 class EventIn(BaseModel):
     name: str
     date: str
-    location: Optional[str]  ##
-    category: Optional[str] ##
+    location: str
+    category: str
     venue: Optional[str]
     rating: Optional[str]
     address: Optional[str]
