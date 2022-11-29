@@ -21,7 +21,7 @@ export const eventApi = createApi({
         console.log(data);
         return {
           method: "post",
-          url: "/api/events",
+          url: `/api/events`,
           credentials: "include",
           body: data,
         };

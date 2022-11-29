@@ -13,7 +13,7 @@ const EventForm = () => {
   const navigate = useNavigate();
 
   if (data) {
-    navigate("/");
+    navigate("/Events");
   }
 
   const body = useGetItinerariesQuery();

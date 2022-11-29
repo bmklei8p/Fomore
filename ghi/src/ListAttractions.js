@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { NavLink } from "react-bootstrap";
 
-export function Attractions() {
+export function ListAttractions() {
   const search = useSelector((state) => state.search);
   const { data, error, isLoading } = useGetAttractionsQuery(search);
   if (isLoading) {
@@ -50,4 +50,4 @@ export function Attractions() {
   );
 }
 
-export default Attractions;
+export default ListAttractions;

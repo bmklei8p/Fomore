@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { NavLink } from "react-bootstrap";
 
-export function Restaurants() {
+export function ListRestaurants() {
   const search = useSelector((state) => state);
   const { data, error, isLoading } = useGetRestaurantsQuery(search.search);
   if (isLoading) {
@@ -71,4 +71,4 @@ export function Restaurants() {
   );
 }
 
-export default Restaurants;
+export default ListRestaurants;

@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { NavLink } from "react-bootstrap";
 
-export function Events() {
+export function ListEvents() {
   const search = useSelector((state) => state);
   const { data, isLoading } = useGetEventsQuery(search.search);
 
@@ -51,4 +51,4 @@ export function Events() {
   );
 }
 
-export default Events;
+export default ListEvents;
