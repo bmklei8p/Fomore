@@ -1,31 +1,33 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const eventApi = createApi({
-  reducerPath: 'events',
+  reducerPath: "events",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_FOMORE_API_HOST,
   }),
-  endpoints: builder => ({
+  endpoints: (builder) => ({
     getEvents: builder.query({
       query: () => `/api/events`,
     }),
     addEvent: builder.mutation({
-      query: form => {
+      query: (form) => {
         const formData = new FormData(form);
+        console.log(formData);
         const entries = Array.from(formData.entries());
-        const data = entries.reduce((acc, [key, value]) => {acc[key] = Number.parseInt(value) || value; return acc;}, {});
+        const data = entries.reduce((acc, [key, value]) => {
+          acc[key] = Number.parseInt(value) || value;
+          return acc;
+        }, {});
+        console.log(data);
         return {
-          method: 'post',
-          url: '/api/events',
-          credentials: 'include',
+          method: "post",
+          url: "/api/events",
+          credentials: "include",
           body: data,
-        }
+        };
       },
     }),
   }),
 });
 
-export const {
-  useGetEventsQuery,
-  useAddEventMutation,
-} = eventApi;
+export const { useGetEventsQuery, useAddEventMutation } = eventApi;

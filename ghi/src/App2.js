@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./Main";
 import Nav from "./Nav";
 import ItineraryForm from "./ItineraryForm";
-import CreateEvent from "./EventForm";
+import EventForm from "./EventForm";
 import Itineraries from "./ListItinerary";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/ItineraryForm" element={<ItineraryForm />} />
-            <Route path="/EventForm" element={<CreateEvent />} />
+            <Route path="/EventForm" element={<EventForm />} />
             <Route path="/Itineraries" element={<Itineraries />} />
           </Routes>
         </div>

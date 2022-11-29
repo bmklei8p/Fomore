@@ -8,13 +8,14 @@ import { useAddEventMutation } from "./app/eventApi";
 import { useNavigate } from "react-router-dom";
 import { preventDefault } from "./app/utils";
 
-const CreateEvent = () => {
+const EventForm = () => {
   const [addEvent, { data }] = useAddEventMutation();
   const navigate = useNavigate();
 
   if (data) {
     navigate("/");
   }
+
   const body = useGetItinerariesQuery();
 
   if (body.isLoading) {
@@ -28,7 +29,6 @@ const CreateEvent = () => {
       <Form
         className="register-form"
         method="post"
-        action="/"
         onSubmit={preventDefault(addEvent, (e) => e.target)}
       >
         <Container>
@@ -132,4 +132,4 @@ const CreateEvent = () => {
   );
 };
 
-export default CreateEvent;
+export default EventForm;

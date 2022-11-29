@@ -67,7 +67,7 @@ class EventIn(BaseModel):
     location: str
     category: str
     venue: str
-    rating: int
+    rating: str
     address: str
     description:str
     itinerary_id: str
