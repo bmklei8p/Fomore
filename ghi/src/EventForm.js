@@ -9,8 +9,7 @@ import { preventDefault } from "./app/utils";
 
 const EventForm = () => {
   const [addEvent, { data }] = useAddEventMutation();
-  const body = useGetItinerariesQuery();
-
+  const body = useGetItinerariesQuery()
   // this is a temporary placeholder for either a
   // redirect using useNavigate or a better looking success alert.
   if (data) {
@@ -89,7 +88,7 @@ const EventForm = () => {
                     <Col className="mb-3" sm={8}>
                       <Form.Control
                         name="date"
-                        type="text"
+                        type="date"
                         placeholder="Date"
                       />
                     </Col>

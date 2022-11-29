@@ -63,7 +63,7 @@ class ItineraryList(BaseModel):
 
 class EventIn(BaseModel):
     name: str
-    date: str
+    date: datetime
     location: str
     category: str
     venue: Optional[str]
