@@ -1,52 +1,80 @@
 import React from "react";
+import { useGetItinerariesQuery } from "./app/itineraryApi";
+import ErrorNotification from "./ErrorNotification";
 import { Card } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 
-class ItineraryList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      restaurants: [],
-    };
+function ItineraryList() {
+  const { data, error, isLoading } = useGetItinerariesQuery();
+  if (isLoading) {
+    return <progress className="progress is-primary" max="100"></progress>;
   }
-  async componentDidMount() {
-    const url =
-      "http://localhost:8000/api/restaurant_search/?location=Chicago&date=2022-11-18T18%3A43%3A56.706Z&itinerary_id=12343a8014829a865bbf700d";
-    try {
-      const response = await fetch(url);
-      if (response.ok) {
-        const data = await response.json();
-        this.setState({ restaurants: data });
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  }
-  render() {
-    return (
-        <div>
-            <Navbar className="nav-color" variant="dark">
-                <Nav className="me-auto centered">
-                    <NavDropdown className="nav-text" title="Itineraries" id="basic-nave-dropdown">
-                        <NavDropdown.Item>Itinerary 1</NavDropdown.Item>
-                        <NavDropdown.Item>Itinerary 2</NavDropdown.Item>
-                        <NavDropdown.Item>Itinerary 3</NavDropdown.Item>
-                    </NavDropdown>
-                </Nav>
-            </Navbar>
-            <Card className="item-border" border="light" style={{ width: '20rem' }}>
-              <Card.Body>
-                <Card.Title>Event Name</Card.Title>
-                <Card.Subtitle>Start Date - End Date</Card.Subtitle>
-                <Card.Text>Description</Card.Text>
-              </Card.Body>
-            </Card>
-        </div>
-    );
-  }
+  console.log({data})
+
+  return (
+    //     <div className="columns is-centered">
+    //   <div className="column is-narrow">
+    //     <ErrorNotification error={error} />
+    //     <table className="table is-striped">
+    //       <thead>
+    //         <tr>
+    //           <th>Name</th>
+    //           <th>Start Date</th>
+    //           <th>End Date</th>
+    //           <th>Location</th>
+    //           <th>account_id</th>
+    //           <th>id</th>
+    //         </tr>
+    //       </thead>
+    //       <tbody>
+    //         {data.itineraries.map(itinerary => (
+    //           <tr key={itinerary.id}>
+    //             <td>
+    //               {itinerary.name}
+    //             </td>
+    //             <td className="has-text-centered">
+    //               {itinerary.start_date}
+    //             </td>
+    //             <td>
+    //               {itinerary.end_date}
+    //             </td>
+    //             <td>
+    //               {itinerary.location}
+    //             </td>
+    //             <td>
+    //               {itinerary.account_id}
+    //             </td>
+    //             <td>
+    //               {itinerary.id}
+    //             </td>
+    //           </tr>
+    //         ))}
+    //       </tbody>
+    //     </table>
+    //   </div>
+    // </div>
+    <div>
+      {data.itineraries.map((itinerary) => {
+        return (
+          <Card
+            className="item-border"
+            // border="light"
+            style={{ width: "25rem" }}
+          >
+            <Card.Header as="h6">{itinerary.name} <Button variant="outline-primary" size="sm" style={{ float: "right" }}>Go to Itinerary</Button></Card.Header>
+            <Card.Body>
+              <Card.Text>Location: {itinerary.location}</Card.Text>
+              <Card.Text>Dates: {new Date(itinerary.start_date).toLocaleDateString()} to {new Date(itinerary.end_date).toLocaleDateString()}</Card.Text>
+            </Card.Body>
+          </Card>
+        );
+      })}
+    </div>
+  );
 }
 export default ItineraryList;

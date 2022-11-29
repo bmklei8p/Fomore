@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card, Form, Container, Row, Col, Button} from 'react-bootstrap';
+import ItineraryList from "./Itinerary";
 
 function ItineraryForm() {
   const [values, setValues] = useState({
@@ -67,7 +68,7 @@ function ItineraryForm() {
                                 <Form.Label>Location</Form.Label>
                             </Col>
                             <Col className="mb-3" sm={8}>
-                                <Form.Control type="text" label="Location (optional)" 
+                                <Form.Control type="text" label="Location (optional)"
                                 placeholder="Location"/>
                             </Col>
                         </Row>
@@ -87,7 +88,7 @@ function ItineraryForm() {
                                 <Form.Control as="textarea" label="Description" />
                             </Col>
                         </Row>
-                            <Button variant="outline-success" type="submit">
+                            <Button variant="outline-primary" type="submit">
                                 Add to Itinerary
                             </Button>
                     </Card.Body>
@@ -95,6 +96,8 @@ function ItineraryForm() {
             </Col>
             <Col sm={4}>
             <div className="section-border">
+              <Form.Label className="text-center" as="h5"> My Itineraries</Form.Label>
+              <ItineraryList/>
             </div>
             </Col>
         </Row>
