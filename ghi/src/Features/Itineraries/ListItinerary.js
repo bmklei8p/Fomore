@@ -1,7 +1,7 @@
 import {
   useGetItinerariesQuery,
   useDeleteItineraryMutation,
-} from "./app/itineraryApi";
+} from "../../app/itineraryApi";
 import Card from "react-bootstrap/Card";
 
 function Itineraries() {

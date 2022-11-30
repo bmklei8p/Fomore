@@ -1,9 +1,8 @@
-import { useGetEventsQuery, useDeleteEventMutation } from "./app/eventApi";
-import ErrorNotification from "./ErrorNotification";
-
+import { useGetEventsQuery, useDeleteEventMutation } from "../../app/eventApi";
+import ErrorNotification from "../../ErrorNotification";
 
 function Events() {
-  const [ deleteEvent ] = useDeleteEventMutation();
+  const [deleteEvent] = useDeleteEventMutation();
   const { data, error, isLoading } = useGetEventsQuery();
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -33,7 +32,11 @@ function Events() {
                   <td>{event.location}</td>
                   <td>{event.itinerary_id}</td>
                   <td>{event.image_url}</td>
-                  <td><button onClick={() => deleteEvent(event.id)}>delete</button></td>
+                  <td>
+                    <button onClick={() => deleteEvent(event.id)}>
+                      delete
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>

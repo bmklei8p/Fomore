@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useGetRestaurantsQuery } from "./app/yelpApi";
+import { useGetRestaurantsQuery } from "../../app/yelpApi";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

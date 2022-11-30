@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetEventsQuery } from "./app/eventApi";
+import { useGetEventsQuery } from "../../app/eventApi";
 import { Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import ItinerarySelect from "./ItinerarySelect";

@@ -1,61 +1,58 @@
-import { useGetItinerariesQuery } from "./app/itineraryApi";
-import { useGetEventsQuery } from "./app/eventApi";
-import ErrorNotification from "./ErrorNotification";
+import { useGetItinerariesQuery } from "../../app/itineraryApi";
+import { useGetEventsQuery } from "../../app/eventApi";
+import ErrorNotification from "../../ErrorNotification";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Form from 'react-bootstrap/Form';
+import Form from "react-bootstrap/Form";
 import ItineraryList from "./ItineraryColumn";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { NavLink } from "react-bootstrap";
 
-
 function ItineraryDetail() {
   const { data, error, isLoading } = useGetEventsQuery();
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
-  console.log({data})
+  console.log({ data });
 
-//     return (
-//          <div>
-//       {data.events.map((event) => {
+  //     return (
+  //          <div>
+  //       {data.events.map((event) => {
 
-//         return (
-//           <Card
-//             className="item-border"
-//             border="light"
-//             style={{ width: "40rem" }}
-//           >
-//             <Card.Header as="h5">{event.name}</Card.Header>
-//             <Card.Body>
-//               <Card.Title>{event.category}</Card.Title>
+  //         return (
+  //           <Card
+  //             className="item-border"
+  //             border="light"
+  //             style={{ width: "40rem" }}
+  //           >
+  //             <Card.Header as="h5">{event.name}</Card.Header>
+  //             <Card.Body>
+  //               <Card.Title>{event.category}</Card.Title>
 
-//               <Card.Text>{event.date}</Card.Text>
-//               <Button variant="outline-primary">Go to Itinerary</Button>
-//             </Card.Body>
-//           </Card>
-//         );
-//       })}
-//     </div>
-//   );
-// }
+  //               <Card.Text>{event.date}</Card.Text>
+  //               <Button variant="outline-primary">Go to Itinerary</Button>
+  //             </Card.Body>
+  //           </Card>
+  //         );
+  //       })}
+  //     </div>
+  //   );
+  // }
   return (
     <div>
       <ErrorNotification error={error} />
       {data.events.map((event) => {
         return (
-
           <Card
             className="item-border"
             border="light"
             style={{ width: "40rem" }}
             key={event.image_url}
           >
-
             <Container>
-                <Form.Label>{event.itinerary_id}</Form.Label>
+              <Form.Label>{event.itinerary_id}</Form.Label>
               <Row>
                 <Col>
                   <Card.Img className="card-image" src={event.image_url} />

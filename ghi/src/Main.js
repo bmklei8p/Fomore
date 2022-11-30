@@ -1,27 +1,26 @@
-import SearchTabs from "./tabs";
-import ItineraryList from "./Itinerary";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import SearchBar from "./SearchBar";
-import ItinerarySelect from "./ItinerarySelect";
-
+import SearchTabs from "./Features/Misc features/tabs";
+import ItineraryList from "./Features/Itineraries/Itinerary";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import SearchBar from "./Features/Misc features/SearchBar";
+import ItinerarySelect from "./Features/Itineraries/ItinerarySelect";
 
 function Main() {
   return (
     <Container>
       <Row>
         <Col sm={8}>
-          <SearchBar/>
+          <SearchBar />
           <div className="section-border">
-            <SearchTabs/>
+            <SearchTabs />
           </div>
         </Col>
-            <Col sm={4}>
-            <div className="section-border">
-              <ItineraryList/>
-            </div>
-            </Col>
+        <Col sm={4}>
+          <div className="section-border">
+            <ItineraryList />
+          </div>
+        </Col>
       </Row>
     </Container>
   );

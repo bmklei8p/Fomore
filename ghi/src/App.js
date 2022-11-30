@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./Main";
 import Nav from "./Nav";
-import ItineraryForm from "./ItineraryForm";
-import EventForm from "./EventForm";
-import Itineraries from "./ListItinerary";
-import Events from "./ListEvents_playaround";
-import ItineraryDetail from "./ItineraryDetail";
-import UpdateEventForm from "./UpdateEventForm";
-import UpdateItineraryForm from "./UpdateItineraryForm";
+import ItineraryForm from "./Features/Itineraries/ItineraryForm";
+import EventForm from "./Features/Events/EventForm";
+import Itineraries from "./Features/Itineraries/ListItinerary";
+import Events from "./Features/Events/ListEvents_playaround";
+import ItineraryDetail from "./Features/Itineraries/ItineraryDetail";
+import UpdateEventForm from "./Features/Events/UpdateEventForm";
+import UpdateItineraryForm from "./Features/Itineraries/UpdateItineraryForm";
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 
-import { useGetItinerariesQuery } from "./app/itineraryApi";
+import { useGetItinerariesQuery } from "../../app/itineraryApi";
 import Form from 'react-bootstrap/Form';
 import { useState } from "react";
 

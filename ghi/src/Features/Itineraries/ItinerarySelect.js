@@ -1,6 +1,6 @@
-import { useGetItinerariesQuery } from "./app/itineraryApi";
+import { useGetItinerariesQuery } from "../../app/itineraryApi";
 import Form from "react-bootstrap/Form";
-import { updateItinerary } from "./app/itinerarySlice";
+import { updateItinerary } from "../../app/itinerarySlice";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 
