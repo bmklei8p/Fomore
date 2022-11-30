@@ -17,8 +17,8 @@ export const itineraryApi = createApi({
           acc[key] = value;
           return acc;
         }, {});
-        data["start_date"] = data.start_date + "T00:00:00.000Z"
-        data["end_date"] = data.end_date + "T00:00:00.000Z"
+        data["start_date"] = data.start_date + "T00:00:00.000Z";
+        data["end_date"] = data.end_date + "T00:00:00.000Z";
         return {
           method: "post",
           url: `/api/itineraries`,
@@ -43,19 +43,17 @@ export const itineraryApi = createApi({
           acc[key] = value;
           return acc;
         }, {});
-        data["start_date"] = data.start_date + "T00:00:00.000Z"
-        data["end_date"] = data.end_date + "T00:00:00.000Z"
-        const itineraryId = data["id"];
+        data["start_date"] = data.start_date + "T00:00:00.000Z";
+        data["end_date"] = data.end_date + "T00:00:00.000Z";
+        const itineraryId = data["itinerary"];
         return {
           method: "put",
-          url: `/api/itineraries/${itineraryId}`,
+          url: `/api/itineraries/${itineraryId}`, //this will have to be updated later to intineraries
           credentials: "include",
           body: data,
         };
       },
     }),
-
-
   }),
 });
 
@@ -63,5 +61,5 @@ export const {
   useGetItinerariesQuery,
   useAddItineraryMutation,
   useDeleteItineraryMutation,
-  useUpdateItineraryMutation
+  useUpdateItineraryMutation,
 } = itineraryApi;

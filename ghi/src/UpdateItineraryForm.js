@@ -3,15 +3,16 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import { useGetItinerariesQuery } from "./app/itineraryApi";
-import { useGetEventsQuery, useUpdateEventMutation } from "./app/eventApi";
+import {
+  useUpdateItineraryMutation,
+  useGetItinerariesQuery,
+} from "./app/itineraryApi";
 import { preventDefault } from "./app/utils";
 
-const UpdateEventForm = () => {
-  const [updateEvent, { data }] = useUpdateEventMutation();
+const UpdateItineraryForm = () => {
+  const [updateItinerary, { data }] = useUpdateItineraryMutation();
 
   const body = useGetItinerariesQuery();
-  const eventsBody = useGetEventsQuery();
 
   // this is a temporary placeholder for either a
   // redirect using useNavigate or a better looking success alert.
@@ -19,26 +20,25 @@ const UpdateEventForm = () => {
     return (
       <div>
         <Alert key="success" variant="success">
-          You have successfully updated an event. Please visit your itineraries
-          page if you would like to see the details.
+          You have successfully updated an itinerary. Please visit your
+          itineraries page if you would like to see the details.
         </Alert>
       </div>
     );
   }
 
-  if (body.isLoading || eventsBody.isLoading) {
+  if (body.isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
   const itineraries = body.data.itineraries;
-  const events = eventsBody.data.events;
 
   return (
     <div>
       <Form
         className="register-form"
         method="post"
-        onSubmit={preventDefault(updateEvent, (e) => e.target)}
+        onSubmit={preventDefault(updateItinerary, (e) => e.target)}
       >
         <Container>
           <Row>
@@ -48,28 +48,8 @@ const UpdateEventForm = () => {
                 border="light"
                 style={{ width: "40rem" }}
               >
-                <Card.Title className="centered">
-                  Update a Custom Event
-                </Card.Title>
+                <Card.Title className="centered">Update Itinerary</Card.Title>
                 <Card.Body>
-                  <Row>
-                    <Col sm={4}>
-                      <Form.Label>Select an Event</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <Form.Select name="id">
-                        Event
-                        <option>events</option>
-                        {events.map((event) => {
-                          return (
-                            <option key={event.id} value={[event.id]}>
-                              {event.name}
-                            </option>
-                          );
-                        })}
-                      </Form.Select>
-                    </Col>
-                  </Row>
                   <Row>
                     <Col sm={4}>
                       <Form.Label>Select an Itinerary</Form.Label>
@@ -80,10 +60,7 @@ const UpdateEventForm = () => {
                         <option>itineraries</option>
                         {itineraries.map((itinerary) => {
                           return (
-                            <option
-                              key={itinerary.id}
-                              value={[itinerary.id, itinerary.location]}
-                            >
+                            <option key={itinerary.id} value={itinerary.id}>
                               {itinerary.name}
                             </option>
                           );
@@ -93,7 +70,7 @@ const UpdateEventForm = () => {
                   </Row>
                   <Row>
                     <Col>
-                      <Form.Label>Event Name</Form.Label>
+                      <Form.Label>Itinerary Name</Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
@@ -105,11 +82,11 @@ const UpdateEventForm = () => {
                   </Row>
                   <Row>
                     <Col>
-                      <Form.Label>Date</Form.Label>
+                      <Form.Label>Start Date</Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
-                        name="date"
+                        name="start_date"
                         type="date"
                         placeholder="Date"
                       />
@@ -117,18 +94,30 @@ const UpdateEventForm = () => {
                   </Row>
                   <Row>
                     <Col>
-                      <Form.Label>Description</Form.Label>
+                      <Form.Label>End Date</Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
-                        name="description"
-                        as="textarea"
-                        label="Description"
+                        name="end_date"
+                        type="date"
+                        placeholder="Date"
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Form.Label>Location</Form.Label>
+                    </Col>
+                    <Col className="mb-3" sm={8}>
+                      <Form.Control
+                        type="text"
+                        name="location"
+                        placeholder="Location"
                       />
                     </Col>
                   </Row>
                   <Button variant="outline-success" type="submit">
-                    Update Event
+                    Update Itinerary
                   </Button>
                 </Card.Body>
               </Card>
@@ -140,4 +129,4 @@ const UpdateEventForm = () => {
   );
 };
 
-export default UpdateEventForm;
+export default UpdateItineraryForm;
