@@ -10,6 +10,9 @@ import { NavLink } from "react-bootstrap";
 export function ListEvents() {
   const search = useSelector((state) => state);
   const { data, isLoading } = useGetEventsQuery(search.search);
+  if (isLoading) {
+    return <progress className="progress is-primary" max="100"></progress>;
+  }
   if (data.length === 0) {
     return (
       <p>
@@ -18,10 +21,6 @@ export function ListEvents() {
       </p> //if you want to build something here to be pretty go ahead.
     );
   }
-  if (isLoading) {
-    return <progress className="progress is-primary" max="100"></progress>;
-  }
-
   return (
     <div>
       {data.map((event) => {

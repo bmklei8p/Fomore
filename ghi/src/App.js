@@ -1,39 +1,37 @@
-// import { useEffect, useState } from "react";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Construct from "./Construct.js";
-// import ErrorNotification from "./ErrorNotification";
-// import "./App.css";
-// import ItineraryForm from "./ItineraryForm";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./Main";
+import Nav from "./Nav";
+import ItineraryForm from "./ItineraryForm";
+import EventForm from "./EventForm";
+import Itineraries from "./ListItinerary";
+import Events from "./ListEvents_playaround";
+import ItineraryDetail from "./ItineraryDetail";
+import UpdateEventForm from "./UpdateEventForm";
+import UpdateItineraryForm from "./UpdateItineraryForm";
 
-// function App() {
-//   const [launch_info, setLaunchInfo] = useState([]);
-//   const [error, setError] = useState(null);
+function App() {
+  return (
+    <div className="bg-color">
+      <BrowserRouter>
+        <Nav />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/ItineraryForm" element={<ItineraryForm />} />
+            <Route path="/EventForm" element={<EventForm />} />
+            <Route path="/UpdateEvent" element={<UpdateEventForm />} />
+            <Route path="/Itineraries" element={<Itineraries />} />
+            <Route path="/Events" element={<Events />} />
+            <Route path="/ItineraryDetail" element={<ItineraryDetail />} />
+            <Route
+              path="/UpdateItineraryForm"
+              element={<UpdateItineraryForm />}
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
+  );
+}
 
-//   useEffect(() => {
-//     async function getData() {
-//       let url = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/launch-details`;
-//       console.log("fastapi url: ", url);
-//       let response = await fetch(url);
-//       console.log("------- hello? -------");
-//       let data = await response.json();
-
-//       if (response.ok) {
-//         console.log("got launch data!");
-//         setLaunchInfo(data.launch_details);
-//       } else {
-//         console.log("drat! something happened");
-//         setError(data.message);
-//       }
-//     }
-//     getData();
-//   }, []);
-
-//   return (
-//     <div>
-//       <ErrorNotification error={error} />
-//       <Construct info={launch_info} />
-//     </div>
-//   );
-// }
-
-// export default App;
+export default App;

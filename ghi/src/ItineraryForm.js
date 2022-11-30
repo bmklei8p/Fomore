@@ -1,109 +1,105 @@
-import React, { useState } from "react";
-import { Card, Form, Container, Row, Col, Button} from 'react-bootstrap';
-import ItineraryList from "./ItineraryColumn";
+import React from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import { useAddItineraryMutation } from "./app/itineraryApi";
+import { preventDefault } from "./app/utils";
 
-function ItineraryForm() {
-  const [values, setValues] = useState({
-    name: [],
-    startDate: "",
-    endDate: "",
-    location: "",
-    description: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [valid, setValid] = useState(false);
+const ItineraryForm = () => {
+  const [addItinerary, { data }] = useAddItineraryMutation();
 
-  const handleNameInputChange = (event) => {
-    setValues({ ...values, name: event.target.value });
-  };
-
-  const handleStartDateInputChange = (event) => {
-    setValues({ ...values, startDate: event.target.value });
-  };
-
-  const handleEndDateInputChange = (event) => {
-    setValues({ ...values, endDate: event.target.value });
-  };
-
-  const handleLocationInputChange = (event) => {
-    setValues({ ...values, location: event.target.value });
-  };
-
-  const handleDescriptionInputChange = (event) => {
-    setValues({ ...values, description: event.target.value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (
-      values.name &&
-      values.startDate &&
-      values.endDate &&
-      values.location &&
-      values.description
-    ) {
-      setValid(true);
-    }
-    setSubmitted(true);
-  };
+  // this is a temporary placeholder for either a
+  // redirect using useNavigate or a better looking success alert.
+  if (data) {
+    return (
+      <div>
+        <Alert key="success" variant="success">
+          You have successfully created a new itinerary. Please visit your
+          itineraries page if you would like to see the details.
+        </Alert>
+      </div>
+    );
+  }
 
   return (
-    <Form className="register-form" onSubmit={handleSubmit}>
-      <Container>
-        <Row>
+    <div>
+      <Form
+        className="register-form"
+        method="post"
+        onSubmit={preventDefault(addItinerary, (e) => e.target)}
+      >
+        <Container>
+          <Row>
             <Col sm={8}>
-                <Card className="item-border" border="light" style={{ width: '40rem' }}>
-                    <Card.Title className="centered">Create an Itinerary</Card.Title>
-                    <Card.Body>
-                        <Row>
-                            <Col>
-                                <Form.Label>Itinerary Name</Form.Label>
-                            </Col>
-                            <Col className="mb-3" sm={8}>
-                                <Form.Control type="text" placeholder="Enter itinerary name" />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Form.Label>Location</Form.Label>
-                            </Col>
-                            <Col className="mb-3" sm={8}>
-                                <Form.Control type="text" label="Location (optional)"
-                                placeholder="Location"/>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Form.Label>Date</Form.Label>
-                            </Col>
-                            <Col className="mb-3" sm={8}>
-                                <Form.Control type="date" placeholder="Date" />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <Form.Label>Description</Form.Label>
-                            </Col>
-                            <Col className="mb-3" sm={8}>
-                                <Form.Control as="textarea" label="Description" />
-                            </Col>
-                        </Row>
-                            <Button variant="outline-primary" type="submit">
-                                Add to Itinerary
-                            </Button>
-                    </Card.Body>
-                </Card>
+              <Card
+                className="item-border"
+                border="light"
+                style={{ width: "40rem" }}
+              >
+                <Card.Title className="centered">
+                  Create an Itinerary
+                </Card.Title>
+                <Card.Body>
+                  <Row>
+                    <Col>
+                      <Form.Label>Itinerary Name</Form.Label>
+                    </Col>
+                    <Col className="mb-3" sm={8}>
+                      <Form.Control
+                        type="text"
+                        name="name"
+                        placeholder="Enter itinerary name"
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Form.Label> Start Date</Form.Label>
+                    </Col>
+                    <Col className="mb-3" sm={8}>
+                      <Form.Control
+                        name="start_date"
+                        type="date"
+                        placeholder="Start Date"
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Form.Label> End Date </Form.Label>
+                    </Col>
+                    <Col className="mb-3" sm={8}>
+                      <Form.Control
+                        name="end_date"
+                        type="date"
+                        placeholder="End Date"
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Form.Label>Location </Form.Label>
+                    </Col>
+                    <Col className="mb-3" sm={8}>
+                      <Form.Control
+                        name="location"
+                        as="textarea"
+                        label="Location"
+                      />
+                    </Col>
+                  </Row>
+                  <Button variant="outline-success" type="submit">
+                    Create Itinerary
+                  </Button>
+                </Card.Body>
+              </Card>
             </Col>
-            <Col sm={4}>
-            <div className="section-border">
-              <Form.Label className="text-center" as="h5"> My Itineraries</Form.Label>
-              <ItineraryList/>
-            </div>
-            </Col>
-        </Row>
-      </Container>
-    </Form>
+          </Row>
+        </Container>
+      </Form>
+    </div>
   );
-}
+};
 
 export default ItineraryForm;

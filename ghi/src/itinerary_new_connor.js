@@ -40,7 +40,7 @@ function ItineraryList() {
         return <progress className="progress is-primary" max="100"></progress>;
     }
     return (
-    <div>
+    <>
         <ItinerarySelect/>
         {data.events.map((event) => {
             if (event.itinerary_id == "63755aa26282cfade5af40f9") {
@@ -68,5 +68,7 @@ function ItineraryList() {
                 </Card.Text>
                 </Card.Body>
             </Card>
+
             );
     }})}
+    </>
