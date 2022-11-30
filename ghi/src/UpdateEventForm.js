@@ -4,11 +4,12 @@ import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { useGetItinerariesQuery } from "./app/itineraryApi";
-import { useAddEventMutation } from "./app/eventApi";
+import { useAddEventMutation, useUpdateEventMutation } from "./app/eventApi";
 import { preventDefault } from "./app/utils";
 
 const EventForm = () => {
   const [ addEvent, { data }] = useAddEventMutation();
+  const [ updateEvent ] = useUpdateEventMutation();
 
   const body = useGetItinerariesQuery()
   // this is a temporary placeholder for either a

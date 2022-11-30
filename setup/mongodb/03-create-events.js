@@ -4,7 +4,7 @@ db = conn.getDB("fomore-db");
 db.events.insertMany([
   {
     name: "taylor swift concert $28000",
-    date: "string",
+    date: "2022-11-18T00:00:00.000Z",
     location: "string",
     category: "event",
     venue: "string",
@@ -17,7 +17,7 @@ db.events.insertMany([
   },
   {
     name: "M- Sushi",
-    date: "11/23/2022",
+    date: "2022-11-18T00:00:00.000Z",
     location: "Durham",
     category: "resturant",
     venue: "N/A",
@@ -30,7 +30,7 @@ db.events.insertMany([
   },
   {
     name: "Capitol Grille",
-    date: "11/22/2022",
+    date: "2022-11-18T00:00:00.000Z",
     location: "string",
     category: "resturant",
     venue: "N/A",
@@ -43,7 +43,7 @@ db.events.insertMany([
   },
   {
     name: "statue of liberty",
-    date: "string",
+    date: "2022-11-18T00:00:00.000Z",
     location: "new york",
     category: "attraction",
     venue: "string",

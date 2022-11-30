@@ -41,6 +41,33 @@ export const eventApi = createApi({
         };
       },
     }),
+    updateEvent: builder.mutation({
+      query: (eventId, form) => {
+        const formData = new FormData(form);
+        const entries = Array.from(formData.entries());
+        const data = entries.reduce((acc, [key, value]) => {
+          acc[key] = value;
+          return acc;
+        }, {});
+        const itinerary_id = data.itinerary.slice(0, 24);
+        const location = data.itinerary.slice(25);
+        data["itinerary_id"] = itinerary_id;
+        data["location"] = location;
+        data["date"] = data.date + "T00:00:00.000Z"
+        delete data["itinerary"];
+        data["category"] = "custom";
+        data["rating"] = "N/A";
+        data["id"] = eventId
+        return {
+          method: "put",
+          url: `/api/events/${eventId}`,
+          credentials: "include",
+          body: data,
+        };
+      },
+    }),
+
+
   }),
 });
 
@@ -48,4 +75,5 @@ export const {
   useGetEventsQuery,
   useAddEventMutation,
   useDeleteEventMutation,
+  useUpdateEventMutation
 } = eventApi;
