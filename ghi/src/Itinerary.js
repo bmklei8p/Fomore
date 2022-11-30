@@ -3,18 +3,16 @@ import { useGetItinerariesQuery } from "./app/itineraryApi";
 import ErrorNotification from "./ErrorNotification";
 import { Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-
-
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 function ItineraryList() {
   const { data, error, isLoading } = useGetItinerariesQuery();
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
-  console.log({data})
+  // console.log({ data });
 
   return (
     //     <div className="columns is-centered">
@@ -60,16 +58,30 @@ function ItineraryList() {
     // </div>
     <div>
       {data.itineraries.map((itinerary) => {
+        console.log(itinerary);
         return (
           <Card
+            key={itinerary.id}
             className="item-border"
             // border="light"
             style={{ width: "25rem" }}
           >
-            <Card.Header as="h6">{itinerary.name} <Button variant="outline-primary" size="sm" style={{ float: "right" }}>Go to Itinerary</Button></Card.Header>
+            <Card.Header as="h6">
+              {itinerary.name}{" "}
+              <Button
+                variant="outline-primary"
+                size="sm"
+                style={{ float: "right" }}
+              >
+                Go to Itinerary
+              </Button>
+            </Card.Header>
             <Card.Body>
               <Card.Text>Location: {itinerary.location}</Card.Text>
-              <Card.Text>Dates: {new Date(itinerary.start_date).toLocaleDateString()} to {new Date(itinerary.end_date).toLocaleDateString()}</Card.Text>
+              <Card.Text>
+                Dates: {new Date(itinerary.start_date).toLocaleDateString()} to{" "}
+                {new Date(itinerary.end_date).toLocaleDateString()}
+              </Card.Text>
             </Card.Body>
           </Card>
         );
