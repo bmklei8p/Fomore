@@ -42,7 +42,7 @@ export const eventApi = createApi({
       },
     }),
     updateEvent: builder.mutation({
-      query: (eventId, form) => {
+      query: (form) => {
         const formData = new FormData(form);
         const entries = Array.from(formData.entries());
         const data = entries.reduce((acc, [key, value]) => {
@@ -57,7 +57,8 @@ export const eventApi = createApi({
         delete data["itinerary"];
         data["category"] = "custom";
         data["rating"] = "N/A";
-        data["id"] = eventId
+        const eventId = data["id"];
+        console.log(data)
         return {
           method: "put",
           url: `/api/events/${eventId}`,

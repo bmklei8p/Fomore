@@ -34,3 +34,4 @@
 
 ## TO - DOs
 - handle no events for city search (ie. baltimore events show no results)
+- upgrade 'update event form': save event id to store global state (instead of choosing event from a dropdown)
