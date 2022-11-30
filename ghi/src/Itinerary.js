@@ -32,7 +32,7 @@ function ItinerarySelect() {
                     {itinerary.name}
                 </option>)})};
             </Form.Select>
-        
+
         </div>
     )
 }
@@ -46,7 +46,7 @@ function ItineraryList() {
     <div>
         <ItinerarySelect/>
         {data.events.map((event) => {
-            if (event.itinerary_id == "12343a8014829a865bbf700d") {
+            if (event.itinerary_id == "63755aa26282cfade5af40f9") {
             return (
             <Card
                 key={event.itinerary_id}
