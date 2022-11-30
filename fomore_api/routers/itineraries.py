@@ -17,10 +17,10 @@ not_authorized = HTTPException(
 async def create_itinerary(
     itinerary: ItineraryIn,
     repo: ItineraryQueries = Depends(),
-    account_data: dict = Depends(authenticator.get_current_account_data),
+    #account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    account = AccountOut(**account_data)
-    setattr(itinerary, "account_id", account.id)
+    #account = AccountOut(**account_data)
+    #setattr(itinerary, "account_id", account.id)
     itinerary = repo.create(itinerary)
     await socket_manager.broadcast_refetch()
     return itinerary

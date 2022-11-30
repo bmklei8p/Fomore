@@ -6,6 +6,7 @@ import EventForm from "./EventForm";
 import Itineraries from "./ListItinerary";
 import Events from "./ListEvents_playaround";
 import UpdateEventForm from "./UpdateEventForm";
+import ItineraryFormDev from "./ItineraryFormDev";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/UpdateEvent" element={<UpdateEventForm />} />
             <Route path="/Itineraries" element={<Itineraries />} />
             <Route path="/Events" element={<Events />} />
+            <Route path="/ItineraryFormDev" element={<ItineraryFormDev />} />
           </Routes>
         </div>
       </BrowserRouter>
