@@ -8,8 +8,8 @@ import Col from "react-bootstrap/Col";
 import { NavLink } from "react-bootstrap";
 
 export function ListRestaurants() {
-  const search = useSelector((state) => state);
-  const { data, error, isLoading } = useGetRestaurantsQuery(search.search);
+  const search = useSelector((state) => state.search);
+  const { data, error, isLoading } = useGetRestaurantsQuery(search);
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }

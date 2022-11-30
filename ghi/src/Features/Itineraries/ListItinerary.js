@@ -20,7 +20,6 @@ function Itineraries() {
             className="item-border"
             border="light"
             style={{ width: "40rem" }}
-            key={itinerary.id}
           >
             <Card.Header as="h5">{itinerary.name}</Card.Header>
             <Card.Body>

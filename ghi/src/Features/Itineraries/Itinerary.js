@@ -1,24 +1,33 @@
-import React from "react";
+import { Card, Button, Form } from "react-bootstrap";
 import { useGetEventsQuery } from "../../app/eventApi";
-import { Card } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import ItinerarySelect from "./ItinerarySelect";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 function ItineraryList() {
-  const { data, error, isLoading } = useGetEventsQuery();
+  const { data, isLoading } = useGetEventsQuery();
+  const { itineraryId } = useSelector((state) => state.itinerary);
+  //   const [changed, setChanged] = useState(false);
+  //   const [localId, setLocalId] = useState("");
+  console.log(itineraryId);
+  //   setLocalId(itineraryId);
+  //   useEffect(() => {
+  //     setChanged(!changed);
+  //   }, [itineraryId]);
+
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
+
   return (
-    <div>
+    <>
       <ItinerarySelect />
       {data.events.map((event) => {
-        if (event.itinerary_id == "12343a8014829a865bbf700d") {
+        if (event.itinerary_id == { itineraryId }) {
           return (
             <Card
-              key={event.itinerary_id}
+              key={event.id}
               className="item-border"
-              // border="light"
               style={{ width: "25rem" }}
             >
               <Card.Header as="h6">
@@ -42,7 +51,8 @@ function ItineraryList() {
           );
         }
       })}
-    </div>
+    </>
   );
 }
+
 export default ItineraryList;
