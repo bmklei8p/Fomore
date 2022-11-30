@@ -10,7 +10,14 @@ import { NavLink } from "react-bootstrap";
 export function ListEvents() {
   const search = useSelector((state) => state);
   const { data, isLoading } = useGetEventsQuery(search.search);
-
+  if (data.length === 0) {
+    return (
+      <p>
+        No events to display for this time period. Please try another time or
+        city.
+      </p> //if you want to build something here to be pretty go ahead.
+    );
+  }
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
