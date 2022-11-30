@@ -1,26 +1,26 @@
-import { useGetItinerariesQuery } from "./app/itineraryApi";
-import ErrorNotification from "./ErrorNotification";
-import Button from "react-bootstrap/Button";
+import {
+  useGetItinerariesQuery,
+  useDeleteItineraryMutation,
+} from "./app/itineraryApi";
 import Card from "react-bootstrap/Card";
-import Form from "react-bootstrap/Form";
 
 function Itineraries() {
+  const [deleteItinerary] = useDeleteItineraryMutation();
   const { data, error, isLoading } = useGetItinerariesQuery();
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
-  // console.log({ data });
 
   return (
     <div>
-      {data.itineraries.map((itinerary) => {
-        console.log(itinerary);
-        return (
+      <form>
+        {data.itineraries.map((itinerary) => (
           <Card
             key={itinerary.id}
             className="item-border"
             border="light"
             style={{ width: "40rem" }}
+            key={itinerary.id}
           >
             <Card.Header as="h5">{itinerary.name}</Card.Header>
             <Card.Body>
@@ -29,11 +29,17 @@ function Itineraries() {
                 {new Date(itinerary.start_date).toLocaleDateString()} to{" "}
                 {new Date(itinerary.end_date).toLocaleDateString()}
               </Card.Text>
-              <Button variant="outline-primary">Go to Itinerary</Button>
+              <button
+                className="btn btn-primary"
+                onClick={() => deleteItinerary(itinerary.id)}
+              >
+                delete
+              </button>
             </Card.Body>
           </Card>
-        );
-      })}
+        ))}
+        ;
+      </form>
     </div>
   );
 }

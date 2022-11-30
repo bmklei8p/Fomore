@@ -3,39 +3,32 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import { useGetItinerariesQuery } from "./app/itineraryApi";
-import { useAddEventMutation } from "./app/eventApi";
+import { useAddItineraryMutation } from "./app/itineraryApi";
 import { preventDefault } from "./app/utils";
 
-const EventForm = () => {
-  const [ addEvent, { data }] = useAddEventMutation();
 
-  const body = useGetItinerariesQuery()
+const ItineraryFormDev = () => {
+  const [ addItinerary, { data }] = useAddItineraryMutation();
+
   // this is a temporary placeholder for either a
   // redirect using useNavigate or a better looking success alert.
   if (data) {
     return (
       <div>
         <Alert key="success" variant="success">
-          You have successfully created a new event. Please visit your
+          You have successfully created a new itinerary. Please visit your
           itineraries page if you would like to see the details.
         </Alert>
       </div>
     );
   }
 
-  if (body.isLoading) {
-    return <progress className="progress is-primary" max="100"></progress>;
-  }
-
-  const itineraries = body.data.itineraries;
-
   return (
     <div>
       <Form
         className="register-form"
         method="post"
-        onSubmit={preventDefault(addEvent, (e) => e.target)}
+        onSubmit={preventDefault(addItinerary, (e) => e.target)}
       >
         <Container>
           <Row>
@@ -46,68 +39,59 @@ const EventForm = () => {
                 style={{ width: "40rem" }}
               >
                 <Card.Title className="centered">
-                  Create a Custom Event
+                  Create an Itinerary
                 </Card.Title>
                 <Card.Body>
                   <Row>
-                    <Col sm={4}>
-                      <Form.Label>Select an Itinerary</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <Form.Select name="itinerary">
-                        Itinerary
-                        <option>itineraries</option>
-                        {itineraries.map((itinerary) => {
-                          return (
-                            <option
-                              key={itinerary.id}
-                              value={[itinerary.id, itinerary.location]}
-                            >
-                              {itinerary.name}
-                            </option>
-                          );
-                        })}
-                      </Form.Select>
-                    </Col>
-                  </Row>
-                  <Row>
                     <Col>
-                      <Form.Label>Event Name</Form.Label>
+                      <Form.Label>Itinerary Name</Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
                         type="text"
                         name="name"
-                        placeholder="Enter event name"
+                        placeholder="Enter itinerary name"
                       />
                     </Col>
                   </Row>
                   <Row>
                     <Col>
-                      <Form.Label>Date</Form.Label>
+                      <Form.Label> Start Date</Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
-                        name="date"
+                        name="start_date"
                         type="date"
-                        placeholder="Date"
+                        placeholder="Start Date"
                       />
                     </Col>
                   </Row>
                   <Row>
                     <Col>
-                      <Form.Label>Description</Form.Label>
+                      <Form.Label> End Date </Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
-                        name="description"
+                        name="end_date"
+                        type="date"
+                        placeholder="End Date"
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Form.Label>Location </Form.Label>
+                    </Col>
+                    <Col className="mb-3" sm={8}>
+                      <Form.Control
+                        name="location"
                         as="textarea"
-                        label="Description"
+                        label="Location"
                       />
                     </Col>
                   </Row>
                   <Button variant="outline-success" type="submit">
-                    Add to Itinerary
+                    Create Itinerary
                   </Button>
                 </Card.Body>
               </Card>
@@ -119,4 +103,4 @@ const EventForm = () => {
   );
 };
 
-export default EventForm;
+export default ItineraryFormDev;

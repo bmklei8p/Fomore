@@ -5,6 +5,7 @@ import { eventApi } from "./eventApi";
 import { yelpApi } from "./yelpApi";
 import { searchSlice } from "./searchSlice";
 // import { accountSlice } from './accountSlice';
+import { itinerarySlice } from "./itinerarySlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     [yelpApi.reducerPath]: yelpApi.reducer,
     //[accountSlice.name]: accountSlice.reducer,
     [searchSlice.name]: searchSlice.reducer,
+    [itinerarySlice.name]: itinerarySlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()

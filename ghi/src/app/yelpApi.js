@@ -9,15 +9,15 @@ export const yelpApi = createApi({
   endpoints: (builder) => ({
     getRestaurants: builder.query({
       query: (search) =>
-        `api/restaurant_search/?location=${search.location}&date=${search.date}T18%3A43%3A56.706Z&itinerary_id=${search.itineraryId}`,
+        `api/restaurant_search/?location=${search.location}&date=${search.date}T00:00:00.000Z&itinerary_id=${search.itineraryId}`,
     }),
     getAttractions: builder.query({
       query: (search) =>
-        `api/attraction_search/?location=${search.location}&date=${search.date}T18%3A43%3A56.706Z&itinerary_id=${search.itineraryId}`,
+        `api/attraction_search/?location=${search.location}&date=${search.date}T00:00:00.000Z&itinerary_id=${search.itineraryId}`,
     }),
     getEvents: builder.query({
       query: (search) =>
-        `api/event_search/?location=${search.location}&date=${search.date}T18%3A43%3A56.706Z&itinerary_id=${search.itineraryId}`,
+        `api/event_search/?location=${search.location}&date=${search.date}T00:00:00.000Z&itinerary_id=${search.itineraryId}`,
     }),
   }),
 });
