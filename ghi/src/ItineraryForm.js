@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Form, Container, Row, Col, Button} from 'react-bootstrap';
-import ItineraryList from "./Itinerary";
+import ItineraryList from "./ItineraryColumn";
 
 function ItineraryForm() {
   const [values, setValues] = useState({

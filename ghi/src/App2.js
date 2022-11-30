@@ -5,6 +5,7 @@ import ItineraryForm from "./ItineraryForm";
 import EventForm from "./EventForm";
 import Itineraries from "./ListItinerary";
 import Events from "./ListEvents_playaround";
+import ItineraryDetail from "./ItineraryDetail";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/EventForm" element={<EventForm />} />
             <Route path="/Itineraries" element={<Itineraries />} />
             <Route path="/Events" element={<Events />} />
+            <Route path="/ItineraryDetail" element={<ItineraryDetail />} />
           </Routes>
         </div>
       </BrowserRouter>
