@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+
 import {
   useGetItinerariesQuery,
   useDeleteItineraryMutation,
@@ -34,6 +37,15 @@ function Itineraries() {
               >
                 delete
               </button>
+              <Link to="/UpdateItineraryForm">
+                <Button
+                  variant="outline-primary"
+                  size="sm"
+                  style={{ float: "right" }}
+                >
+                  edit Itinerary
+                </Button>
+              </Link>
             </Card.Body>
           </Card>
         ))}
