@@ -4,6 +4,8 @@ import {
 } from "../../app/itineraryApi";
 import Card from "react-bootstrap/Card";
 import { useGetTokenQuery } from "../../app/accountApi";
+import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
 function Itineraries() {
@@ -25,7 +27,17 @@ function Itineraries() {
             border="light"
             style={{ width: "40rem" }}
           >
-            <Card.Header as="h5">{itinerary.name}</Card.Header>
+            <Card.Header as="h5">{itinerary.name} {itinerary.name}{" "}
+              <Link to="/ItineraryDetail">
+                <Button
+                  variant="outline-primary"
+                  size="sm"
+                  style={{ float: "right" }}
+                >
+                  Go to Itinerary
+                </Button>
+              </Link>
+            </Card.Header>
             <Card.Body>
               <Card.Title>{itinerary.location}</Card.Title>
               <Card.Text>
@@ -38,6 +50,15 @@ function Itineraries() {
               >
                 delete
               </button>
+              <Link to="/UpdateItineraryForm">
+                <Button
+                  variant="outline-primary"
+                  size="sm"
+                  style={{ float: "right" }}
+                >
+                  edit Itinerary
+                </Button>
+              </Link>
             </Card.Body>
           </Card>
         ))}
