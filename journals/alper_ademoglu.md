@@ -34,5 +34,4 @@
 
 ## TO - DOs
 - upgrade 'update event form': save event id to store global state (instead of choosing event from a dropdown)
-- update create itinerary router with account/token input & update create itinerary redux endpoint
 - Dockercompose Yaml: move signing key and database login info to .env file.

@@ -45,9 +45,7 @@ class ItineraryIn(BaseModel):
    start_date: datetime
    end_date: datetime
    location: str
-   account_id: Optional[str]
-#    events: List[EventOut]
-
+   account_id: str
 
 
 class Itinerary(ItineraryIn):
