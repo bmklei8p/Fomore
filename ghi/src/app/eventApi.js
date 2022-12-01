@@ -5,6 +5,7 @@ export const eventApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_FOMORE_API_HOST,
   }),
+  tagTypes: ["Events"], //maybe not in the right spot?
   endpoints: (builder) => ({
     getEvents: builder.query({
       query: () => `/api/events`,
@@ -17,21 +18,36 @@ export const eventApi = createApi({
           acc[key] = value;
           return acc;
         }, {});
-        const itinerary_id = data.itinerary.slice(0, 24);
-        const location = data.itinerary.slice(25);
-        data["itinerary_id"] = itinerary_id;
-        data["location"] = location;
-        data["date"] = data.date + "T00:00:00.000Z"
-        delete data["itinerary"];
-        data["category"] = "custom";
-        data["rating"] = "N/A";
-        return {
-          method: "post",
-          url: `/api/events`,
-          credentials: "include",
-          body: data,
-        };
+        if (data.itinerary) {
+          const itinerary_id = data.itinerary.slice(0, 24);
+          const location = data.itinerary.slice(25);
+          data["itinerary_id"] = itinerary_id;
+          data["location"] = location;
+          data["date"] = data.date + "T00:00:00.000Z";
+          delete data["itinerary"];
+          data["category"] = "custom";
+          data["rating"] = "N/A";
+          console.log(data);
+          return {
+            method: "post",
+            url: `/api/events`,
+            credentials: "include",
+            body: data,
+          };
+        } else {
+          const itinerary_id = data.itineraryId;
+          data["itinerary_id"] = itinerary_id;
+          delete data["itineraryId"];
+          console.log(data);
+          return {
+            method: "post",
+            url: `/api/events`,
+            credentials: "include",
+            body: data,
+          };
+        }
       },
+      invalidatesTags: ["Events"], //maybe in the incorrect spot?
     }),
     deleteEvent: builder.mutation({
       query: (eventId) => {
@@ -53,12 +69,12 @@ export const eventApi = createApi({
         const location = data.itinerary.slice(25);
         data["itinerary_id"] = itinerary_id;
         data["location"] = location;
-        data["date"] = data.date + "T00:00:00.000Z"
+        data["date"] = data.date + "T00:00:00.000Z";
         delete data["itinerary"];
         data["category"] = "custom";
         data["rating"] = "N/A";
         const eventId = data["id"];
-        console.log(data)
+        console.log(data);
         return {
           method: "put",
           url: `/api/events/${eventId}`,
@@ -67,8 +83,6 @@ export const eventApi = createApi({
         };
       },
     }),
-
-
   }),
 });
 
@@ -76,5 +90,5 @@ export const {
   useGetEventsQuery,
   useAddEventMutation,
   useDeleteEventMutation,
-  useUpdateEventMutation
+  useUpdateEventMutation,
 } = eventApi;
