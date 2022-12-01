@@ -27,7 +27,6 @@ export const eventApi = createApi({
           delete data["itinerary"];
           data["category"] = "custom";
           data["rating"] = "N/A";
-          console.log(data);
           return {
             method: "post",
             url: `/api/events`,
@@ -38,7 +37,6 @@ export const eventApi = createApi({
           const itinerary_id = data.itineraryId;
           data["itinerary_id"] = itinerary_id;
           delete data["itineraryId"];
-          console.log(data);
           return {
             method: "post",
             url: `/api/events`,
