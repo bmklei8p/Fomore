@@ -1,5 +1,5 @@
 import SearchTabs from "./Features/Misc features/tabs";
-import ItineraryList from "./Features/Itineraries/itinerary";
+import ItineraryList from "./Features/Itineraries/Itinerary";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

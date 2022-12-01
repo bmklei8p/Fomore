@@ -31,7 +31,8 @@ function ItinerarySelect() {
         {data.itineraries.map((itinerary) => {
           return (
             <option value={itinerary.id} key={itinerary.id}>
-              {itinerary.name}
+              {itinerary.name} in {itinerary.location} ({new Date(itinerary.start_date).toLocaleDateString()} to{" "}
+                {new Date(itinerary.end_date).toLocaleDateString()})
             </option>
           );
         })}

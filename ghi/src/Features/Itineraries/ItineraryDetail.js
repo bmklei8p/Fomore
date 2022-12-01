@@ -10,6 +10,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { NavLink } from "react-bootstrap";
 
+
 function ItineraryDetail() {
   const { data, error, isLoading } = useGetEventsQuery();
   if (isLoading) {
@@ -17,29 +18,6 @@ function ItineraryDetail() {
   }
   console.log({ data });
 
-  //     return (
-  //          <div>
-  //       {data.events.map((event) => {
-
-  //         return (
-  //           <Card
-  //             className="item-border"
-  //             border="light"
-  //             style={{ width: "40rem" }}
-  //           >
-  //             <Card.Header as="h5">{event.name}</Card.Header>
-  //             <Card.Body>
-  //               <Card.Title>{event.category}</Card.Title>
-
-  //               <Card.Text>{event.date}</Card.Text>
-  //               <Button variant="outline-primary">Go to Itinerary</Button>
-  //             </Card.Body>
-  //           </Card>
-  //         );
-  //       })}
-  //     </div>
-  //   );
-  // }
   return (
     <div>
       <ErrorNotification error={error} />
