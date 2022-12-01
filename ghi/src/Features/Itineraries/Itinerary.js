@@ -2,28 +2,21 @@ import { Card, Button, Form } from "react-bootstrap";
 import { useGetEventsQuery } from "../../app/eventApi";
 import ItinerarySelect from "./ItinerarySelect";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 
 function ItineraryList() {
   const { data, isLoading } = useGetEventsQuery();
   const { itineraryId } = useSelector((state) => state.itinerary);
-  //   const [changed, setChanged] = useState(false);
-  //   const [localId, setLocalId] = useState("");
-  console.log(itineraryId);
-  //   setLocalId(itineraryId);
-  //   useEffect(() => {
-  //     setChanged(!changed);
-  //   }, [itineraryId]);
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
   return (
-    <>
+    <div>
       <ItinerarySelect />
-      {data.events.map((event) => {
-        if (event.itinerary_id == { itineraryId }) {
+      {data.events
+        .filter((event) => event.itinerary_id === itineraryId)
+        .map((event) => {
           return (
             <Card
               key={event.id}
@@ -49,9 +42,8 @@ function ItineraryList() {
               </Card.Body>
             </Card>
           );
-        }
-      })}
-    </>
+        })}
+    </div>
   );
 }
 
