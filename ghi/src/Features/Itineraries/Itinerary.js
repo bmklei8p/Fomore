@@ -1,9 +1,10 @@
 import { Card, Button, Form } from "react-bootstrap";
-import { useGetEventsQuery } from "../../app/eventApi";
+import { useGetEventsQuery, useDeleteEventMutation } from "../../app/eventApi";
 import ItinerarySelect from "./ItinerarySelect";
 import { useSelector } from "react-redux";
 
 function ItineraryList() {
+  const [deleteEvent] = useDeleteEventMutation();
   const { data, isLoading } = useGetEventsQuery();
   const { itineraryId } = useSelector((state) => state.itinerary);
 
@@ -17,6 +18,7 @@ function ItineraryList() {
       {data.events
         .filter((event) => event.itinerary_id === itineraryId)
         .map((event) => {
+          console.log(data)
           return (
             <Card
               key={event.id}
@@ -25,19 +27,14 @@ function ItineraryList() {
             >
               <Card.Header as="h6">
                 {event.name}{" "}
-                <Button
-                  variant="outline-primary"
-                  size="sm"
-                  style={{ float: "right" }}
-                >
-                  Go to event
-                </Button>
+                    <button className="btn btn-outline-primary btn-sm float-end" onClick={() => deleteEvent(event.id)}>
+                      Remove
+                    </button>
               </Card.Header>
               <Card.Body>
                 <Card.Text>Location: {event.location}</Card.Text>
                 <Card.Text>
-                  Dates: {new Date(event.start_date).toLocaleDateString()} to{" "}
-                  {new Date(event.end_date).toLocaleDateString()}
+                  Date: {new Date(event.date).toLocaleDateString()}
                 </Card.Text>
               </Card.Body>
             </Card>
