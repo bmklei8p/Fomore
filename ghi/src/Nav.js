@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { useGetTokenQuery, useLogOutMutation } from "./app/api";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ModalExample from "./ExModal";
 
 function LoginButtons(props) {
   const dispatch = useDispatch();
@@ -86,6 +87,7 @@ function FomoreNav() {
                 )}
               </div>
             </div>
+            <ModalExample />
           </Navbar.Collapse>
         </Container>
       </Navbar>
