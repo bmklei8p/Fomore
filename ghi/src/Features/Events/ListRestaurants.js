@@ -8,7 +8,8 @@ import Col from "react-bootstrap/Col";
 import { Form } from "react-bootstrap";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
-import { useState, useEffect } from "react";
+
+import { EventInput } from "./EventInput";
 
 export function ListRestaurants() {
   const search = useSelector((state) => state.search);
@@ -16,12 +17,6 @@ export function ListRestaurants() {
   const body = useGetRestaurantsQuery(search);
   const isLoading = body.isLoading;
   const [addEvent, { data }] = useAddEventMutation();
-  // const [changed, setChanged] = useState(false);
-
-  // if (data) {
-  //   setChanged(true);
-  //   data = false;
-  // }
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;

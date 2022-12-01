@@ -5,9 +5,15 @@ export const itineraryApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_FOMORE_API_HOST,
   }),
+  tagTypes: ["Itineraries"],
   endpoints: (builder) => ({
     getItineraries: builder.query({
-      query: () => `/api/itineraries`,
+      query: () => {
+        return {
+          url: `/api/itineraries`,
+        };
+      },
+      providesTags: ["Itineraries"],
     }),
     addItinerary: builder.mutation({
       query: (form) => {
@@ -26,6 +32,7 @@ export const itineraryApi = createApi({
           body: data,
         };
       },
+      invalidatesTags: ["Itineraries"],
     }),
     deleteItinerary: builder.mutation({
       query: (itineraryId) => {
@@ -34,6 +41,7 @@ export const itineraryApi = createApi({
           url: `/api/itineraries/${itineraryId}`,
         };
       },
+      invalidatesTags: ["Itineraries"],
     }),
     updateItinerary: builder.mutation({
       query: (form) => {

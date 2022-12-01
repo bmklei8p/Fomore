@@ -5,10 +5,15 @@ export const eventApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_FOMORE_API_HOST,
   }),
-  tagTypes: ["Events"], //maybe not in the right spot?
+  tagTypes: ["Events"],
   endpoints: (builder) => ({
     getEvents: builder.query({
-      query: () => `/api/events`,
+      query: () => {
+        return {
+          url: `/api/events`,
+        };
+      },
+      providesTags: ["Events"],
     }),
     addEvent: builder.mutation({
       query: (form) => {
@@ -45,7 +50,7 @@ export const eventApi = createApi({
           };
         }
       },
-      invalidatesTags: ["Events"], //maybe in the incorrect spot?
+      invalidatesTags: ["Events"],
     }),
     deleteEvent: builder.mutation({
       query: (eventId) => {
@@ -54,6 +59,7 @@ export const eventApi = createApi({
           url: `/api/events/${eventId}`,
         };
       },
+      invalidatesTags: ["Events"],
     }),
     updateEvent: builder.mutation({
       query: (form) => {
