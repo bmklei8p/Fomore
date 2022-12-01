@@ -67,9 +67,15 @@ function FomoreNav() {
               navbarScroll
             >
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/ItineraryForm">Create Itinerary</Nav.Link>
-              <Nav.Link href="/EventForm">Create Event</Nav.Link>
-              <Nav.Link href="/Itineraries">My Itineraries</Nav.Link>
+                {token
+                    ?
+                  <>
+                  <Nav.Link href="/ItineraryForm">Create Itinerary</Nav.Link>
+                  <Nav.Link href="/EventForm">Create Event</Nav.Link>
+                  <Nav.Link href="/Itineraries">My Itineraries</Nav.Link>
+                  </>
+                  :
+                  <p className="d-none"></p>}
             </Nav>
             <div className="navbar-end">
               <div className="navbar-item">

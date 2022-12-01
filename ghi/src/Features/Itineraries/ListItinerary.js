@@ -3,8 +3,12 @@ import {
   useDeleteItineraryMutation,
 } from "../../app/itineraryApi";
 import Card from "react-bootstrap/Card";
+import { useGetTokenQuery } from "../../app/accountApi";
+
 
 function Itineraries() {
+  const { data: tokenData } = useGetTokenQuery();
+  const accountId = tokenData && tokenData.account && tokenData.account.id;
   const [deleteItinerary] = useDeleteItineraryMutation();
   const { data, error, isLoading } = useGetItinerariesQuery();
   if (isLoading) {
@@ -14,7 +18,7 @@ function Itineraries() {
   return (
     <div>
       <form>
-        {data.itineraries.map((itinerary) => (
+        {data.itineraries.filter(itinerary => itinerary.account_id === accountId).map((itinerary) => (
           <Card
             key={itinerary.id}
             className="item-border"
@@ -37,7 +41,6 @@ function Itineraries() {
             </Card.Body>
           </Card>
         ))}
-        ;
       </form>
     </div>
   );

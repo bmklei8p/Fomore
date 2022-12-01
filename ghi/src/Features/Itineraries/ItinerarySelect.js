@@ -5,9 +5,13 @@ import { useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { updateSearch } from "../../app/searchSlice";
 import { useSelector } from "react-redux";
+import { useGetTokenQuery } from "../../app/accountApi";
+
 
 
 function ItinerarySelect() {
+  const { data: tokenData } = useGetTokenQuery();
+  const accountId = tokenData && tokenData.account && tokenData.account.id;
   let loc = useSelector((state) => state.search.location);
   let [changed, setChanged] = useState(false);
   let id = ''
@@ -40,7 +44,7 @@ function ItinerarySelect() {
     <div>
       <Form.Select id="selectid" onChange={(e) => setChanged(e.target.value)}>
         <option>Select an Itinerary</option>
-        {data.itineraries.map((itinerary) => {
+        {data.itineraries.filter(itinerary => itinerary.account_id === accountId).map((itinerary) => {
           return (
             <option value={[itinerary.id, itinerary.location]} href={itinerary.location} key={itinerary.id}>
               {itinerary.name}
