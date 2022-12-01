@@ -2,7 +2,6 @@ import {
   useGetItinerariesQuery,
   useDeleteItineraryMutation,
 } from "../../app/itineraryApi";
-import Card from "react-bootstrap/Card";
 import { useGetTokenQuery } from "../../app/accountApi";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
