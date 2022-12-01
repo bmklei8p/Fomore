@@ -4,7 +4,7 @@ import { itineraryApi } from "./itineraryApi";
 import { eventApi } from "./eventApi";
 import { yelpApi } from "./yelpApi";
 import { searchSlice } from "./searchSlice";
-// import { accountSlice } from './accountSlice';
+import { accountSlice } from './accountSlice';
 import { itinerarySlice } from "./itinerarySlice";
 
 export const store = configureStore({
@@ -12,7 +12,7 @@ export const store = configureStore({
     [itineraryApi.reducerPath]: itineraryApi.reducer,
     [eventApi.reducerPath]: eventApi.reducer,
     [yelpApi.reducerPath]: yelpApi.reducer,
-    //[accountSlice.name]: accountSlice.reducer,
+    [accountSlice.name]: accountSlice.reducer,
     [searchSlice.name]: searchSlice.reducer,
     [itinerarySlice.name]: itinerarySlice.reducer,
   },

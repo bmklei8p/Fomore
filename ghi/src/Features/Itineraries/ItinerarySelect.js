@@ -3,16 +3,28 @@ import Form from "react-bootstrap/Form";
 import { updateItinerary } from "../../app/itinerarySlice";
 import { useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
+import { updateSearch } from "../../app/searchSlice";
+import { useSelector } from "react-redux";
+
 
 function ItinerarySelect() {
-  const [changed, setChanged] = useState(false);
+  let loc = useSelector((state) => state.search.location);
+  let [changed, setChanged] = useState(false);
+  let id = ''
+  if (changed != false) {
+    id = changed.slice(0, 24)
+    loc = changed.slice(25)
+  }
   const dispatch = useDispatch();
   const { data, isLoading } = useGetItinerariesQuery();
 
   useEffect(() => {
-    const action = updateItinerary({ itineraryId: changed });
-    dispatch(action);
+    const actionId = updateItinerary({ itineraryId: id });
+    dispatch(actionId);
+    const actionLocation = updateSearch({ location: loc })
+    dispatch(actionLocation);
   }, [changed]);
+
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -30,7 +42,7 @@ function ItinerarySelect() {
         <option>Select an Itinerary</option>
         {data.itineraries.map((itinerary) => {
           return (
-            <option value={itinerary.id} key={itinerary.id}>
+            <option value={[itinerary.id, itinerary.location]} href={itinerary.location} key={itinerary.id}>
               {itinerary.name}
             </option>
           );
