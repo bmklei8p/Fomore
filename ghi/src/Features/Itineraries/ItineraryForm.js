@@ -5,8 +5,16 @@ import Alert from "react-bootstrap/Alert";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { useAddItineraryMutation } from "../../app/itineraryApi";
 import { preventDefault } from "../../app/utils";
+import { useGetTokenQuery } from "../../app/accountApi";
+import { useState } from "react";
 
 const ItineraryForm = () => {
+  const { data: tokenData } = useGetTokenQuery();
+  const [ accountId, setAccountId ] = useState("")
+  const id = tokenData && tokenData.account && tokenData.account.id;
+  setAccountId(id)
+
+  console.log(accountId)
   const [addItinerary, { data }] = useAddItineraryMutation();
 
   // this is a temporary placeholder for either a
@@ -97,6 +105,13 @@ const ItineraryForm = () => {
             </Col>
           </Row>
         </Container>
+        <input
+          name="account_id"
+          as="text"
+          value={accountId}
+          style={{ display: "none" }}
+          readOnly
+        ></input>
       </Form>
     </div>
   );
