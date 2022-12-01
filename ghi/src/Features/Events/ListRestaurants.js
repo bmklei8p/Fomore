@@ -1,11 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useGetRestaurantsQuery } from "../../app/yelpApi";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { Form } from "react-bootstrap";
+import { Card, Container, Row, Col, Form } from "react-bootstrap";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
 
