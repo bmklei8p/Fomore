@@ -1,9 +1,8 @@
-import SearchTabs from "./Features/Misc features/tabs";
+import SearchTabs from "./Features/Misc/tabs";
 import ItineraryList from "./Features/Itineraries/Itinerary";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import SearchBar from "./Features/Misc features/SearchBar";
+import { Row, Col } from "react-bootstrap";
+import SearchBar from "./Features/Misc/SearchBar";
 
 function Main() {
   return (

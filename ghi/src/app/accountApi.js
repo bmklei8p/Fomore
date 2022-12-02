@@ -2,9 +2,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { clearForm } from './accountSlice';
 
 export const apiSlice = createApi({
-  reducerPath: 'books',
+  reducerPath: 'fomore',
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_HOST,
+    baseUrl: process.env.REACT_APP_FOMORE_API_HOST,
     prepareHeaders: (headers, { getState }) => {
       const selector = apiSlice.endpoints.getToken.select();
       const { data: tokenData } = selector(getState());
@@ -14,7 +14,7 @@ export const apiSlice = createApi({
       return headers;
     }
   }),
-  tagTypes: ['Account', 'Books', 'Token'],
+  tagTypes: ['Account', 'Token'],
   endpoints: builder => ({
     signUp: builder.mutation({
       query: data => ({
@@ -77,57 +77,12 @@ export const apiSlice = createApi({
       }),
       providesTags: ['Token'],
     }),
-    addBook: builder.mutation({
-      query: form => {
-        const formData = new FormData(form);
-        const entries = Array.from(formData.entries());
-        const data = entries.reduce((acc, [key, value]) => {acc[key] = Number.parseInt(value) || value; return acc;}, {});
-        return {
-          method: 'post',
-          url: '/api/books',
-          credentials: 'include',
-          body: data,
-        }
-      },
-      invalidatesTags: [{type: 'Books', id: 'LIST'}],
     }),
-    getBooks: builder.query({
-      query: () => `/api/books`,
-      providesTags: data => {
-        const tags = [{type: 'Books', id: 'LIST'}];
-        if (!data || !data.books) return tags;
-
-        const { books } = data;
-        if (books) {
-          tags.concat(...books.map(({ id }) => ({type: 'Books', id})));
-        }
-        return tags;
-      }
-    }),
-    borrowBook: builder.mutation({
-      query: bookId => ({
-        method: 'post',
-        url: `/api/books/${bookId}/loans`,
-      }),
-      invalidatesTags: [{ type: 'Books', id: 'LIST' }],
-    }),
-    returnBook: builder.mutation({
-      query: bookId => ({
-        method: 'delete',
-        url: `/api/books/${bookId}/loans`,
-      }),
-      invalidatesTags: [{ type: 'Books', id: 'LIST' }],
-    }),
-  }),
-});
+    });
 
 export const {
-  useAddBookMutation,
-  useBorrowBookMutation,
-  useGetBooksQuery,
   useGetTokenQuery,
   useLogInMutation,
   useLogOutMutation,
-  useReturnBookMutation,
   useSignUpMutation,
 } = apiSlice;
