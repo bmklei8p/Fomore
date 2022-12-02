@@ -1,31 +1,31 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { clearForm } from './accountSlice';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { clearForm } from "./accountSlice";
 
 export const apiSlice = createApi({
-  reducerPath: 'fomore',
+  reducerPath: "fomore",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_FOMORE_API_HOST,
     prepareHeaders: (headers, { getState }) => {
       const selector = apiSlice.endpoints.getToken.select();
       const { data: tokenData } = selector(getState());
       if (tokenData && tokenData.access_token) {
-        headers.set('Authorization', `Bearer ${tokenData.access_token}`);
+        headers.set("Authorization", `Bearer ${tokenData.access_token}`);
       }
       return headers;
-    }
+    },
   }),
-  tagTypes: ['Account', 'Token'],
-  endpoints: builder => ({
+  tagTypes: ["Account", "Token"],
+  endpoints: (builder) => ({
     signUp: builder.mutation({
-      query: data => ({
-        url: '/api/accounts',
-        method: 'post',
+      query: (data) => ({
+        url: "/api/accounts",
+        method: "post",
         body: data,
-        credentials: 'include',
+        credentials: "include",
       }),
-      providesTags: ['Account'],
-      invalidatesTags: result => {
-        return (result && ['Token']) || [];
+      providesTags: ["Account"],
+      invalidatesTags: (result) => {
+        return (result && ["Token"]) || [];
       },
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
@@ -35,25 +35,25 @@ export const apiSlice = createApi({
       },
     }),
     logIn: builder.mutation({
-      query: info => {
+      query: (info) => {
         let formData = null;
         if (info instanceof HTMLElement) {
           formData = new FormData(info);
         } else {
           formData = new FormData();
-          formData.append('username', info.email);
-          formData.append('password', info.password);
+          formData.append("username", info.email);
+          formData.append("password", info.password);
         }
         return {
-          url: '/token',
-          method: 'post',
+          url: "/token",
+          method: "post",
           body: formData,
-          credentials: 'include',
+          credentials: "include",
         };
       },
-      providesTags: ['Account'],
-      invalidatesTags: result => {
-        return (result && ['Token']) || [];
+      providesTags: ["Account"],
+      invalidatesTags: (result) => {
+        return (result && ["Token"]) || [];
       },
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
@@ -64,21 +64,21 @@ export const apiSlice = createApi({
     }),
     logOut: builder.mutation({
       query: () => ({
-        url: '/token',
-        method: 'delete',
-        credentials: 'include',
+        url: "/token",
+        method: "delete",
+        credentials: "include",
       }),
-      invalidatesTags: ['Account', 'Token'],
+      invalidatesTags: ["Account", "Token"],
     }),
     getToken: builder.query({
       query: () => ({
-        url: '/token',
-        credentials: 'include',
+        url: "/token",
+        credentials: "include",
       }),
-      providesTags: ['Token'],
+      providesTags: ["Token"],
     }),
-    }),
-    });
+  }),
+});
 
 export const {
   useGetTokenQuery,
