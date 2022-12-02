@@ -5,24 +5,34 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { NavLink } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import { useAddEventMutation } from "../../app/eventApi";
+import { preventDefault } from "../../app/utils";
 
 export function ListAttractions() {
   const search = useSelector((state) => state.search);
-  const { data, error, isLoading } = useGetAttractionsQuery(search);
+  const itineraryId = useSelector((state) => state.itinerary.itineraryId);
+  const body = useGetAttractionsQuery(search);
+  const isLoading = body.isLoading;
+  const [addEvent, { data }] = useAddEventMutation();
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
   return (
     <div>
-      {data.map((attraction) => {
+      {body.data.map((attraction) => {
         return (
           <Card
             className="item-border"
             border="light"
             style={{ width: "50rem" }}
             key={attraction.image_url}
+          >
+          <Form
+            className="register-form"
+            method="post"
+            onSubmit={preventDefault(addEvent, (e) => e.target)}
           >
             <Container>
               <Row>
@@ -56,10 +66,67 @@ export function ListAttractions() {
                         </Card.Text>
                       </Col>
                     </Row>
+                    <input
+                      name="name"
+                      as="textarea"
+                      value={attraction.name}
+                      style={{ display: "none" }}
+                      readOnly
+                    ></input>
+                    <input
+                      name="location"
+                      as="textarea"
+                      value={attraction.location}
+                      style={{ display: "none" }}
+                      readOnly
+                    ></input>
+                    <input
+                      name="date"
+                      as="datetime"
+                      value={attraction.date}
+                      style={{ display: "none" }}
+                      readOnly
+                    ></input>
+                    <input
+                      name="category"
+                      as="textarea"
+                      value={attraction.category}
+                      style={{ display: "none" }}
+                      readOnly
+                    ></input>
+                    <input
+                      name="venue"
+                      as="textarea"
+                      value={attraction.venue}
+                      style={{ display: "none" }}
+                      readOnly
+                    ></input>
+                    <input
+                      name="description"
+                      as="textarea"
+                      value={attraction.description}
+                      style={{ display: "none" }}
+                      readOnly
+                    ></input>
+                    <input
+                      name="image_url"
+                      as="textarea"
+                      value={attraction.image_url}
+                      style={{ display: "none" }}
+                      readOnly
+                    ></input>
+                    <input
+                      name="itineraryId"
+                      as="textarea"
+                      value={itineraryId}
+                      style={{ display: "none" }}
+                      readOnly
+                    ></input>
                   </Card.Body>
                 </Col>
               </Row>
             </Container>
+          </Form>
           </Card>
         );
       })}
