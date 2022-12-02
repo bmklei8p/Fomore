@@ -1,11 +1,7 @@
-import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
-
 import {
   useGetItinerariesQuery,
   useDeleteItineraryMutation,
 } from "../../app/itineraryApi";
-import ItinerarySelect from "./ItinerarySelect";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 // import { useDispatch, connect } from "react-redux";
@@ -27,7 +23,8 @@ function Itineraries() {
             border="light"
             style={{ width: "40rem" }}
           >
-            <Card.Header as="h5">{itinerary.name} {itinerary.name}{" "}
+            <Card.Header as="h5">
+              {itinerary.name}{" "}
               <Link to="/ItineraryDetail">
                 <Button
                   variant="outline-primary"
@@ -50,7 +47,7 @@ function Itineraries() {
               >
                 delete
               </button>
-              <Link to="/UpdateItineraryForm">
+              <Link to={`/UpdateItineraryForm/?initialid=${itinerary.id}`}>
                 <Button
                   variant="outline-primary"
                   size="sm"
@@ -62,7 +59,6 @@ function Itineraries() {
             </Card.Body>
           </Card>
         ))}
-        ;
       </form>
     </div>
   );
