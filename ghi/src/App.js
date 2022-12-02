@@ -8,15 +8,11 @@ import Events from "./Features/Events/ListEvents_playaround";
 import ItineraryDetail from "./Features/Itineraries/ItineraryDetail";
 import UpdateEventForm from "./Features/Events/UpdateEventForm";
 import UpdateItineraryForm from "./Features/Itineraries/UpdateItineraryForm";
-import { ReconnectingWebSocket } from './ReconnectingWebSocket';
 import { useGetTokenQuery } from "./app/accountApi";
 
 
-const socketUrl = `${process.env.REACT_APP_WS_HOST}/ws`;
 
 function App() {
-  const { data: tokenData } = useGetTokenQuery();
-
   return (
     <div className="bg-color">
       <BrowserRouter>

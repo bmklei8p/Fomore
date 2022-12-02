@@ -30,7 +30,7 @@ function ItinerarySelect() {
       dispatch(actionLocation);
     }
     disp()
-  }, [changed]);
+  });
 
 
   if (isLoading) {
