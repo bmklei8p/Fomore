@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+/* footer {
+  background-color: #348888;
+  height: 10vh;
+} */
+
 .section-border {
   border-radius: 5px;
   padding: 5px;
@@ -39,6 +44,8 @@ code {
 
 .bg-color {
   background-color: #348888;
+  min-height: 100vh;
+  max-height: 100%;
 }
 
 .nav-color {
@@ -58,9 +65,10 @@ code {
   border-style: none;
   color: white;
   text-align: center;
+  transition-duration: 0.2s;
 }
 
-.add-btn.hover {
+.add-btn:hover {
   background-color: #F24405;
 }
 

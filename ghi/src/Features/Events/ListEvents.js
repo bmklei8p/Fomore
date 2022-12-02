@@ -28,7 +28,7 @@ export function ListEvents() {
           <Card
             className="item-border"
             border="light"
-            style={{ width: "40rem" }}
+            style={{ width: "50rem" }}
             key={event.image_url}
           >
             <Container>
@@ -38,14 +38,28 @@ export function ListEvents() {
                 </Col>
                 <Col>
                   <Card.Body>
-                    <Card.Title>{event.name}</Card.Title>
-                    <Col sm={2}>
-                      <NavLink style={{ textAlign: "right", color: "#FA7F08" }}>
-                        &#10010;
-                      </NavLink>
-                    </Col>
-                    <Card.Text>{event.location}</Card.Text>
-                    <Card.Text>{event.description}</Card.Text>
+                    <Row>
+                      <Col sm={10}>
+                        <Card.Title>{event.name}</Card.Title>
+                      </Col>
+                      <Col sm={2}>
+                        <button className="add-btn">
+                          &#10010;
+                        </button>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Card.Text>{event.location}</Card.Text>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Card.Text className="text-muted">
+                          {event.description}
+                        </Card.Text>
+                      </Col>
+                    </Row>
                   </Card.Body>
                 </Col>
               </Row>

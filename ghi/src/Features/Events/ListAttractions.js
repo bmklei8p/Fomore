@@ -21,7 +21,7 @@ export function ListAttractions() {
           <Card
             className="item-border"
             border="light"
-            style={{ width: "40rem" }}
+            style={{ width: "50rem" }}
             key={attraction.image_url}
           >
             <Container>
@@ -31,14 +31,31 @@ export function ListAttractions() {
                 </Col>
                 <Col>
                   <Card.Body>
-                    <Card.Title>{attraction.name}</Card.Title>
-                    <Col sm={2}>
-                      <NavLink style={{ textAlign: "right", color: "#FA7F08" }}>
-                        &#10010;
-                      </NavLink>
-                    </Col>
-                    <Card.Text>{attraction.location}</Card.Text>
-                    <Card.Text>{attraction.description}</Card.Text>
+                    <Row>
+                      <Col sm={10}>
+                        <Card.Title>{attraction.name}</Card.Title>
+                      </Col>
+                      <Col sm={2}>
+                        <button
+                          type="submit"
+                          className="add-btn"
+                        >
+                          &#10010;
+                        </button>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Card.Text>{attraction.location}</Card.Text>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Card.Text className="text-muted">
+                          {attraction.description}
+                        </Card.Text>
+                      </Col>
+                    </Row>
                   </Card.Body>
                 </Col>
               </Row>

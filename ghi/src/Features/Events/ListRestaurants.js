@@ -46,7 +46,7 @@ export function ListRestaurants() {
                       <Col sm={2}>
                         <button
                           type="submit"
-                          style={{ textAlign: "right", color: "#FA7F08" }}
+                          className="add-btn"
                         >
                           &#10010;
                         </button>

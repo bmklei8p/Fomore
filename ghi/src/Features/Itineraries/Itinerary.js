@@ -14,9 +14,7 @@ function ItineraryList() {
   return (
     <div>
       <ItinerarySelect />
-      {data.events
-        .filter((event) => event.itinerary_id === itineraryId)
-        .map((event) => {
+      {data.events.filter((event) => event.itinerary_id === itineraryId).map((event) => {
           return (
             <Card
               key={event.id}

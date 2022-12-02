@@ -56,7 +56,7 @@ const EventForm = () => {
                     <Col className="mb-3" sm={8}>
                       <Form.Select name="itinerary">
                         Itinerary
-                        <option>itineraries</option>
+                        <option>Itineraries</option>
                         {itineraries.map((itinerary) => {
                           return (
                             <option
