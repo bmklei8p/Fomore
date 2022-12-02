@@ -33,8 +33,7 @@ const ItineraryForm = () => {
         onSubmit={preventDefault(addItinerary, (e) => e.target)}
       >
         <Container>
-          <Row>
-            <Col sm={8}>
+          <Row className="item-border">
               <Card
                 className="item-border"
                 border="light"
@@ -97,7 +96,6 @@ const ItineraryForm = () => {
                   </Button>
                 </Card.Body>
               </Card>
-            </Col>
           </Row>
         </Container>
         <input

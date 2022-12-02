@@ -50,8 +50,7 @@ const UpdateItineraryForm = () => {
         onSubmit={preventDefault(updateItinerary, (e) => e.target)}
       >
         <Container>
-          <Row>
-            <Col sm={8}>
+          <Row className="item-border">
               <Card
                 className="item-border"
                 border="light"
@@ -138,7 +137,6 @@ const UpdateItineraryForm = () => {
                   </Button>
                 </Card.Body>
               </Card>
-            </Col>
           </Row>
         </Container>
       </Form>
