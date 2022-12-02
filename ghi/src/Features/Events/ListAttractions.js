@@ -9,7 +9,7 @@ import { NavLink } from "react-bootstrap";
 
 export function ListAttractions() {
   const search = useSelector((state) => state.search);
-  const { data, error, isLoading } = useGetAttractionsQuery(search);
+  const { data, isLoading } = useGetAttractionsQuery(search);
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }

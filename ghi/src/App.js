@@ -10,16 +10,12 @@ import UpdateEventForm from "./Features/Events/UpdateEventForm";
 import UpdateItineraryForm from "./Features/Itineraries/UpdateItineraryForm";
 import { ReconnectingWebSocket } from './ReconnectingWebSocket';
 import { useGetTokenQuery } from "./app/accountApi";
-import { useEffect } from 'react';
 
 
 const socketUrl = `${process.env.REACT_APP_WS_HOST}/ws`;
-const socket = new ReconnectingWebSocket(socketUrl);
-
 
 function App() {
   const { data: tokenData } = useGetTokenQuery();
-  const accountId = tokenData && tokenData.account && tokenData.account.id;
 
   return (
     <div className="bg-color">

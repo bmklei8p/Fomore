@@ -3,9 +3,6 @@ import { useGetItinerariesQuery } from "../../app/itineraryApi";
 import ErrorNotification from "../../ErrorNotification";
 import { Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 
 function ItineraryColumn() {

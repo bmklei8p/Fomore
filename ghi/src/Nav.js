@@ -1,10 +1,7 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import { NavLink } from 'react-router-dom';
 import { useGetTokenQuery, useLogOutMutation } from './app/accountApi';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -52,7 +49,6 @@ function LogoutButton() {
 
 function FomoreNav() {
   const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
-  const { account: { roles = [] } } = token || {account: {}};
 
   return (
     <>

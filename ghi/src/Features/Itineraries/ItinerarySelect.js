@@ -15,18 +15,21 @@ function ItinerarySelect() {
   let loc = useSelector((state) => state.search.location);
   let [changed, setChanged] = useState(false);
   let id = ''
-  if (changed != false) {
+  if (changed !== false) {
     id = changed.slice(0, 24)
     loc = changed.slice(25)
   }
   const dispatch = useDispatch();
   const { data, isLoading } = useGetItinerariesQuery();
 
-  useEffect(() => {
-    const actionId = updateItinerary({ itineraryId: id });
-    dispatch(actionId);
-    const actionLocation = updateSearch({ location: loc })
-    dispatch(actionLocation);
+  useEffect(()  => {
+    function disp() {
+      const actionId = updateItinerary({ itineraryId: id });
+      dispatch(actionId);
+      const actionLocation = updateSearch({ location: loc })
+      dispatch(actionLocation);
+    }
+    disp()
   }, [changed]);
 
 

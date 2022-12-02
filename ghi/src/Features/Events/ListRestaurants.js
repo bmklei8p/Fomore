@@ -5,14 +5,13 @@ import { Card, Container, Row, Col, Form } from "react-bootstrap";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
 
-import { EventInput } from "./EventInput";
 
 export function ListRestaurants() {
   const search = useSelector((state) => state.search);
   const itineraryId = useSelector((state) => state.itinerary.itineraryId);
   const body = useGetRestaurantsQuery(search);
   const isLoading = body.isLoading;
-  const [addEvent, { data }] = useAddEventMutation();
+  const [addEvent] = useAddEventMutation();
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;

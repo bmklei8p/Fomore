@@ -11,7 +11,7 @@ function Itineraries() {
   const { data: tokenData } = useGetTokenQuery();
   const accountId = tokenData && tokenData.account && tokenData.account.id;
   const [deleteItinerary] = useDeleteItineraryMutation();
-  const { data, error, isLoading } = useGetItinerariesQuery();
+  const { data, isLoading } = useGetItinerariesQuery();
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
