@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -8,14 +7,21 @@ import {
   useGetItinerariesQuery,
 } from "../../app/itineraryApi";
 import { preventDefault } from "../../app/utils";
+import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const UpdateItineraryForm = () => {
   const [updateItinerary, { data }] = useUpdateItineraryMutation();
 
   const body = useGetItinerariesQuery();
 
+  const [searchParams] = useSearchParams();
+  const initialid = searchParams.get("initialid");
+  const [activeid, setActiveId] = useState(initialid);
+
   // this is a temporary placeholder for either a
   // redirect using useNavigate or a better looking success alert.
+
   if (data) {
     return (
       <div>
@@ -32,6 +38,9 @@ const UpdateItineraryForm = () => {
   }
 
   const itineraries = body.data.itineraries;
+
+  const activeItinerary = itineraries.find((i) => i.id === activeid) ?? {};
+  console.log(activeItinerary, activeid);
 
   return (
     <div>
@@ -50,12 +59,16 @@ const UpdateItineraryForm = () => {
               >
                 <Card.Title className="centered">Update Itinerary</Card.Title>
                 <Card.Body>
-                  <Row>
+                  {/* <Row>
                     <Col sm={4}>
                       <Form.Label>Select an Itinerary</Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
-                      <Form.Select name="itinerary">
+                      <Form.Select
+                        onChange={(e) => setActiveId(e.target.value)}
+                        value={activeid}
+                        name="itinerary"
+                      >
                         Itinerary
                         <option>itineraries</option>
                         {itineraries.map((itinerary) => {
@@ -67,13 +80,14 @@ const UpdateItineraryForm = () => {
                         })}
                       </Form.Select>
                     </Col>
-                  </Row>
+                  </Row> */}
                   <Row>
                     <Col>
                       <Form.Label>Itinerary Name</Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
+                        defaultValue={activeItinerary.name}
                         type="text"
                         name="name"
                         placeholder="Enter event name"
@@ -86,6 +100,7 @@ const UpdateItineraryForm = () => {
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
+                        defaultValue={activeItinerary.start_date?.split("T")[0]}
                         name="start_date"
                         type="date"
                         placeholder="Date"
@@ -98,6 +113,7 @@ const UpdateItineraryForm = () => {
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
+                        defaultValue={activeItinerary.end_date?.split("T")[0]}
                         name="end_date"
                         type="date"
                         placeholder="Date"
@@ -110,6 +126,7 @@ const UpdateItineraryForm = () => {
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
+                        defaultValue={activeItinerary.location}
                         type="text"
                         name="location"
                         placeholder="Location"
