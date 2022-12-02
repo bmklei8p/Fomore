@@ -3,10 +3,14 @@ import ItineraryList from "./Features/Itineraries/Itinerary";
 import Container from "react-bootstrap/Container";
 import { Row, Col } from "react-bootstrap";
 import SearchBar from "./Features/Misc/SearchBar";
+import Welcome from "./Features/Misc/Welcome";
 
 function Main() {
   return (
     <Container>
+      <Row>
+        <Welcome/>
+      </Row>
       <Row>
         <Col sm={8}>
           <SearchBar />
