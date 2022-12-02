@@ -2,7 +2,6 @@ import {
   useGetItinerariesQuery,
   useDeleteItineraryMutation,
 } from "../../app/itineraryApi";
-import { useGetTokenQuery } from "../../app/accountApi";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -26,7 +25,8 @@ function Itineraries() {
             border="light"
             style={{ width: "40rem" }}
           >
-            <Card.Header as="h5">{itinerary.name} {itinerary.name}{" "}
+            <Card.Header as="h5">
+              {itinerary.name}{" "}
               <Link to="/ItineraryDetail">
                 <Button
                   variant="outline-primary"
@@ -49,7 +49,7 @@ function Itineraries() {
               >
                 delete
               </button>
-              <Link to="/UpdateItineraryForm">
+              <Link to={`/UpdateItineraryForm/?initialid=${itinerary.id}`}>
                 <Button
                   variant="outline-primary"
                   size="sm"
