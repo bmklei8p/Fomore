@@ -1,10 +1,6 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-
-import { NavLink } from 'react-router-dom';
 import { useGetTokenQuery, useLogOutMutation } from './app/accountApi';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +8,8 @@ import { showModal, LOG_IN_MODAL, SIGN_UP_MODAL } from './app/accountSlice';
 import LogInModal from './Features/Misc/LogInModal';
 import SignUpModal from './Features/Misc/SignUpModal';
 import { useEffect } from 'react';
+import logo from './media/fomore-dark.png'
+import { NavLink } from "react-bootstrap";
 
 function LoginButtons(props) {
   const dispatch = useDispatch();
@@ -58,7 +56,7 @@ function FomoreNav() {
     <>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="/">FOMORE</Navbar.Brand>
+          <NavLink href="/" className="nav-logo"><img src={logo}></img></NavLink>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
