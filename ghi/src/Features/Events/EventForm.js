@@ -6,6 +6,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import { useGetItinerariesQuery } from "../../app/itineraryApi";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
+import ItinerarySelect from "../Itineraries/ItinerarySelect";
 
 const EventForm = () => {
   const [addEvent, { data }] = useAddEventMutation();
@@ -54,7 +55,8 @@ const EventForm = () => {
                       <Form.Label>Select an Itinerary</Form.Label>
                     </Col>
                     <Col className="mb-3" sm={8}>
-                      <Form.Select name="itinerary">
+                      <ItinerarySelect/>
+                      {/* <Form.Select name="itinerary">
                         Itinerary
                         <option>Itineraries</option>
                         {itineraries.map((itinerary) => {
@@ -67,7 +69,7 @@ const EventForm = () => {
                             </option>
                           );
                         })}
-                      </Form.Select>
+                      </Form.Select> */}
                     </Col>
                   </Row>
                   <Row>
