@@ -8,8 +8,6 @@ import Events from "./Features/Events/ListEvents_playaround";
 import ItineraryDetail from "./Features/Itineraries/ItineraryDetail";
 import UpdateEventForm from "./Features/Events/UpdateEventForm";
 import UpdateItineraryForm from "./Features/Itineraries/UpdateItineraryForm";
-import { useGetTokenQuery } from "./app/accountApi";
-
 
 
 function App() {
