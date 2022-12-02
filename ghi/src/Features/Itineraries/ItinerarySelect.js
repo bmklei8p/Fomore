@@ -3,15 +3,28 @@ import Form from "react-bootstrap/Form";
 import { updateItinerary } from "../../app/itinerarySlice";
 import { useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
+import { updateSearch } from "../../app/searchSlice";
+import { useSelector } from "react-redux";
+import { useGetTokenQuery } from "../../app/accountApi";
 
 function ItinerarySelect() {
-  const [changed, setChanged] = useState(false);
+  const { data: tokenData } = useGetTokenQuery();
+  const accountId = tokenData && tokenData.account && tokenData.account.id;
+  let loc = useSelector((state) => state.search.location);
+  let [changed, setChanged] = useState(false);
+  let id = "";
+  if (changed != false) {
+    id = changed.slice(0, 24);
+    loc = changed.slice(25);
+  }
   const dispatch = useDispatch();
   const { data, isLoading } = useGetItinerariesQuery();
 
   useEffect(() => {
-    const action = updateItinerary({ itineraryId: changed });
-    dispatch(action);
+    const actionId = updateItinerary({ itineraryId: id });
+    dispatch(actionId);
+    const actionLocation = updateSearch({ location: loc });
+    dispatch(actionLocation);
   }, [changed]);
 
   if (isLoading) {
@@ -28,13 +41,20 @@ function ItinerarySelect() {
     <div>
       <Form.Select id="selectid" onChange={(e) => setChanged(e.target.value)}>
         <option>Select an Itinerary</option>
-        {data?.itineraries?.map((itinerary) => {
-          return (
-            <option value={itinerary.id} key={itinerary.id}>
-              {itinerary.name}
-            </option>
-          );
-        })}
+        {data.itineraries
+          .filter((itinerary) => itinerary.account_id === accountId)
+          .map((itinerary) => {
+            return (
+              <option
+                value={[itinerary.id, itinerary.location]}
+                href={itinerary.location}
+                key={itinerary.id}
+              >
+                {itinerary.name}
+              </option>
+            );
+          })}
+        ;
       </Form.Select>
     </div>
   );
