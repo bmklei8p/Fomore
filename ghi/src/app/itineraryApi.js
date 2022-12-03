@@ -29,7 +29,7 @@ export const itineraryApi = createApi({
         return {
           method: "post",
           url: `/api/itineraries`,
-          // credentials: "include",
+          credentials: "include",
           body: data,
         };
       },
@@ -58,7 +58,7 @@ export const itineraryApi = createApi({
         return {
           method: "put",
           url: `/api/itineraries/${itineraryId}`, //this will have to be updated later to intineraries
-          // credentials: "include",
+          credentials: "include",
           body: data,
         };
       },
