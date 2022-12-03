@@ -22,7 +22,7 @@ app.add_middleware(
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=['Access-Control-Allow-Origin', '*'],
+    allow_headers=['Authorization', 'WWW-Authenticate', 'no-cors'],
 )
 app.include_router(auth.authenticator.router)
 app.include_router(accounts.router)
