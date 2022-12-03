@@ -11,7 +11,10 @@ from routers import yelp
 
 app = FastAPI()
 
-origins = ["*"]
+origins = [
+    os.environ.get("CORS_HOST", "http://localhost"),
+    "http://localhost:3000",
+]
 
 
 app.add_middleware(
@@ -19,7 +22,7 @@ app.add_middleware(
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["include"],
 )
 app.include_router(auth.authenticator.router)
 app.include_router(accounts.router)
