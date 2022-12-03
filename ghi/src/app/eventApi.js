@@ -35,7 +35,7 @@ export const eventApi = createApi({
           return {
             method: "post",
             url: `/api/events`,
-            credentials: "include",
+            // credentials: "include",
             body: data,
           };
         } else {
@@ -45,7 +45,7 @@ export const eventApi = createApi({
           return {
             method: "post",
             url: `/api/events`,
-            credentials: "include",
+            // credentials: "include",
             body: data,
           };
         }
@@ -82,7 +82,7 @@ export const eventApi = createApi({
         return {
           method: "put",
           url: `/api/events/${eventId}`,
-          credentials: "include",
+          // credentials: "include",
           body: data,
         };
       },

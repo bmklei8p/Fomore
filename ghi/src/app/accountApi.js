@@ -21,7 +21,7 @@ export const apiSlice = createApi({
         url: '/api/accounts',
         method: 'post',
         body: data,
-        credentials: 'include',
+        // credentials: 'include',
       }),
       providesTags: ['Account'],
       invalidatesTags: result => {
@@ -48,7 +48,7 @@ export const apiSlice = createApi({
           url: '/token',
           method: 'post',
           body: formData,
-          credentials: 'include',
+          // credentials: 'include',
         };
       },
       providesTags: ['Account'],
@@ -66,14 +66,14 @@ export const apiSlice = createApi({
       query: () => ({
         url: '/token',
         method: 'delete',
-        credentials: 'include',
+        // credentials: 'include',
       }),
       invalidatesTags: ['Account', 'Token'],
     }),
     getToken: builder.query({
       query: () => ({
         url: '/token',
-        credentials: 'include',
+        // credentials: 'include',
       }),
       providesTags: ['Token'],
     }),
