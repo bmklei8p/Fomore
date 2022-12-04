@@ -32,7 +32,7 @@ function LogoutButton() {
 
   useEffect(() => {
     if (data) {
-      navigate('/');
+      navigate('/module3-project-gamma/');
     }
   }, [data, navigate]);
 
