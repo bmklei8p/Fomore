@@ -21,9 +21,7 @@ origins = [
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-    os.environ.get("CORS_HOST"),
-    "http://localhost:3000",
-    "https://patcerutti23.gitlab.io"
+    "https://patcerutti23.gitlab.io",
 ],
     allow_credentials=True,
     allow_methods=["POST", "GET", "DELETE", "PUT"],
