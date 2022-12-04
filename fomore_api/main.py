@@ -21,11 +21,11 @@ origins = [
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-    "https://patcerutti23.gitlab.io",
+    os.environ.get("CORS_HOST"),
 ],
     allow_credentials=True,
     allow_methods=["POST", "GET", "DELETE", "PUT"],
-    allow_headers=["Origin, X-Requested-With, Content-Type, Accept"],
+    allow_headers=["*"],
 )
 app.include_router(auth.authenticator.router)
 app.include_router(accounts.router)
