@@ -15,6 +15,7 @@ origins = [
     os.environ.get("CORS_HOST"),
     "https://patcerutti23.gitlab.io",
     "http://localhost:3000",
+    "https://fomore.onrender.com",
 ]
 
 
