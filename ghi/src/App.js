@@ -17,7 +17,7 @@ function App() {
         <Nav />
         <div className="container">
           <Routes>
-            <Route path="/" element={<Main />} />
+            <Route path="/deployment" element={<Main />} />
             <Route path="/ItineraryForm" element={<ItineraryForm />} />
             <Route path="/EventForm" element={<EventForm />} />
             <Route path="/UpdateEvent" element={<UpdateEventForm />} />
