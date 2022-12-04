@@ -15,13 +15,13 @@ origins = [
     os.environ.get("CORS_HOST"),
     "https://patcerutti23.gitlab.io",
     "http://localhost:3000",
-    "74.64.196.83"
 ]
 
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    #allow_origins=origins,
+    allow_origin_regex=["https://.*\.gitlab\.io"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
