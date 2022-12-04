@@ -14,18 +14,17 @@ app = FastAPI()
 origins = [
     os.environ.get("CORS_HOST"),
     "https://patcerutti23.gitlab.io",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "74.64.196.83"
 ]
 
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-    "https://patcerutti23.gitlab.io",
-],
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["POST", "GET", "DELETE", "PUT"],
-    allow_headers=["Origin, X-Requested-With, Content-Type, Accept, Authorization, WWW-Authenticate"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 app.include_router(auth.authenticator.router)
 app.include_router(accounts.router)
