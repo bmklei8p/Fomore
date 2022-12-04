@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./Main";
 import Nav from "./Nav";
-import ItineraryForm from "./features/itineraries/ItineraryForm";
-import EventForm from "./features/events/EventForm";
-import Itineraries from "./features/itineraries/ListItinerary";
-import Events from "./features/events/ListEvents_playaround";
-import ItineraryDetail from "./features/itineraries/ItineraryDetail";
-import UpdateEventForm from "./features/events/UpdateEventForm";
-import UpdateItineraryForm from "./features/itineraries/UpdateItineraryForm";
+import ItineraryForm from "./Features/Itineraries/ItineraryForm";
+import EventForm from "./Features/Events/EventForm";
+import Itineraries from "./Features/Itineraries/ListItinerary";
+import Events from "./Features/Events/ListEvents_playaround";
+import ItineraryDetail from "./Features/Itineraries/ItineraryDetail";
+import UpdateEventForm from "./Features/Events/UpdateEventForm";
+import UpdateItineraryForm from "./Features/Itineraries/UpdateItineraryForm";
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Nav />
         <div className="container">
           <Routes>
-            <Route path="/deployment" element={<Main />} />
+            <Route path="/" element={<Main />} />
             <Route path="/ItineraryForm" element={<ItineraryForm />} />
             <Route path="/EventForm" element={<EventForm />} />
             <Route path="/UpdateEvent" element={<UpdateEventForm />} />

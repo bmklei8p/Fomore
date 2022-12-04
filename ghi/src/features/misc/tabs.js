@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Tab } from "react-bootstrap";
 import { Tabs } from "react-bootstrap";
-import { ListRestaurants } from "../events/ListRestaurants";
-import { ListAttractions } from "../events/ListAttractions";
-import { ListEvents } from "../events/ListEvents";
+import { ListRestaurants } from "../Events/ListRestaurants";
+import { ListAttractions } from "../Events/ListAttractions";
+import { ListEvents } from "../Events/ListEvents";
 
 function SearchTabs() {
   const [key, setKey] = useState("home");

@@ -6,8 +6,8 @@ import { useGetTokenQuery, useLogOutMutation } from './app/accountApi';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { showModal, LOG_IN_MODAL, SIGN_UP_MODAL } from './app/accountSlice';
-import LogInModal from './features/misc/LogInModal';
-import SignUpModal from './features/misc/SignUpModal';
+import LogInModal from './Features/Misc/LogInModal';
+import SignUpModal from './Features/Misc/SignUpModal';
 import { useEffect } from 'react';
 
 function LoginButtons(props) {
