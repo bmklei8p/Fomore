@@ -45,7 +45,6 @@ not_authorized = HTTPException(
 @router.get("/token", response_model=AccountToken | None)
 async def get_token(
     request: Request,
-    response: Response,
     account: dict = Depends(authenticator.try_get_current_account_data)
 ) -> AccountToken | None:
     if account and authenticator.cookie_name in request.cookies:
@@ -54,9 +53,6 @@ async def get_token(
             "type": "Bearer",
             "account": account,
         }
-    response.headers["Access-Control-Allow-Origin"]: "https://patcerutti23.gitlab.io"
-
-
 
 @router.post("/api/accounts", response_model=AccountToken | HttpError)
 async def create_account(
