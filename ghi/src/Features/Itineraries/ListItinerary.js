@@ -29,14 +29,8 @@ function Itineraries() {
             >
               <Card.Header as="h5">
                 {itinerary.name}{" "}
-                <Link to="/ItineraryDetail">
-                  <Button
-                    variant="outline-primary"
-                    size="sm"
-                    style={{ float: "right" }}
-                  >
-                    Go to Itinerary
-                  </Button>
+                <Link to={`/ItineraryDetail/?initialid=${itinerary.id}`}>
+                  <button className="btn btn-outline-primary">Itinerary Details</button>
                 </Link>
               </Card.Header>
               <Card.Body>

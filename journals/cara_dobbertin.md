@@ -1,3 +1,17 @@
+## 12/2/22
+- apply to adjust date display on main page to proper format of mm/dd/yyyy
+- implemented filter of itineraries on create event page
+- able to implement filter of itineraries on itinerary detail page
+
+## 12/1/22
+- working on buttons on list pages to redirect to proper urls
+
+## 11/30/22
+- continue to work on detail page
+
+## 11/29/22
+- working on filtering events to display on detail itinerary page
+
 ## 11/28/22
 - worked on implementing Redux with forms and lists
 - began working on itinerary display on front end, lists and detail pages
