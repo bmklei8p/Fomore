@@ -4,12 +4,13 @@ import { useGetRestaurantsQuery } from "../../app/yelpApi";
 import { Card, Container, Row, Col, Form } from "react-bootstrap";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
-
+import { useGetTokenQuery} from "../../app/accountApi";
 import { EventInput } from "./EventInput";
 
 export function ListRestaurants() {
   const search = useSelector((state) => state.search);
   const itineraryId = useSelector((state) => state.itinerary.itineraryId);
+  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
   const body = useGetRestaurantsQuery(search);
   const isLoading = body.isLoading;
   const [addEvent, { data }] = useAddEventMutation();
@@ -43,14 +44,15 @@ export function ListRestaurants() {
                       <Col sm={10}>
                         <Card.Title>{restaurant.name}</Card.Title>
                       </Col>
-                      <Col sm={2}>
-                        <button
-                          type="submit"
-                          className="add-btn"
-                        >
+                      {token
+                    ? <Col sm={2}>
+                      <button className="add-btn">
                           &#10010;
-                        </button>
-                      </Col>
+                        </button> </Col>
+                    : <Col sm={2}>
+                      <button className="d-none">
+                          &#10010;
+                        </button> </Col>}
                     </Row>
                     <Row>
                       <Col>

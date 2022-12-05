@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import { useGetTokenQuery} from "../../app/accountApi";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
 
@@ -13,6 +14,7 @@ export function ListAttractions() {
   const search = useSelector((state) => state.search);
   const itineraryId = useSelector((state) => state.itinerary.itineraryId);
   const body = useGetAttractionsQuery(search);
+  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
   const isLoading = body.isLoading;
   const [addEvent, { data }] = useAddEventMutation();
   if (isLoading) {
@@ -45,14 +47,15 @@ export function ListAttractions() {
                       <Col sm={10}>
                         <Card.Title>{attraction.name}</Card.Title>
                       </Col>
-                      <Col sm={2}>
-                        <button
-                          type="submit"
-                          className="add-btn"
-                        >
+                      {token
+                    ? <Col sm={2}>
+                      <button className="add-btn">
                           &#10010;
-                        </button>
-                      </Col>
+                        </button> </Col>
+                    : <Col sm={2}>
+                      <button className="d-none">
+                          &#10010;
+                        </button> </Col>}
                     </Row>
                     <Row>
                       <Col>
