@@ -5,8 +5,10 @@ import { ListRestaurants } from "../Events/ListRestaurants";
 import { ListAttractions } from "../Events/ListAttractions";
 import { ListEvents } from "../Events/ListEvents";
 
+
 function SearchTabs() {
   const [key, setKey] = useState("home");
+
 
   return (
     <div>

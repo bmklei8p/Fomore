@@ -85,13 +85,13 @@ const ItineraryForm = () => {
                     </Col>
                     <Col className="mb-3" sm={8}>
                       <Form.Control
+                        type="text"
                         name="location"
-                        as="textarea"
                         label="Location"
                       />
                     </Col>
                   </Row>
-                  <Button variant="outline-success" type="submit">
+                  <Button variant="success" type="submit">
                     Create Itinerary
                   </Button>
                 </Card.Body>

@@ -17,7 +17,7 @@ const UpdateItineraryForm = () => {
 
   const [searchParams] = useSearchParams();
   const initialid = searchParams.get("initialid");
-  console.log(initialid)
+  console.log(initialid);
   const [activeid, setActiveId] = useState(initialid);
 
   // this is a temporary placeholder for either a
@@ -110,23 +110,25 @@ const UpdateItineraryForm = () => {
                     />
                   </Col>
                 </Row>
-                <Button
-                  variant="outline-success"
-                  type="submit"
-                  style={{ float: "right" }}
-                >
-                  Update Itinerary
-                </Button>
-                <Link to="/Itineraries">
-                  <Button
-                    className="back-btn"
-                    variant="btn btn-outline-danger"
-                    size="med"
-                    style={{ float: "left" }}
+                <div className="control">
+                  <button
+                    style={{ float: "right" }}
+                    className="button is-primary"
                   >
-                    Back to itineraries
-                  </Button>
-                </Link>
+                    Update Itinerary
+                  </button>
+                </div>
+                <div>
+                  <Link to="/Itineraries">
+                    <button
+                      type="button"
+                      className="button"
+                      style={{ float: "left" }}
+                    >
+                      Back to Itineraries
+                    </button>
+                  </Link>
+                </div>
               </Card.Body>
             </Card>
           </Row>

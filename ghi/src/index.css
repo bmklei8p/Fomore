@@ -127,3 +127,20 @@ code {
   color: #f24405 !important;
   border-color: #f24405 !important;
 }
+
+.link-green {
+  color: #22babb;
+  text-decoration: none;
+}
+
+.link-green:hover {
+  color: #348888;
+}
+
+.link-delete {
+  color: #f24405;
+}
+
+.card-body {
+  margin: 0px;
+}
