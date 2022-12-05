@@ -107,7 +107,7 @@ const EventForm = () => {
                       />
                     </Col>
                   </Row>
-                  <Button variant="outline-success" type="submit">
+                  <Button variant="success" type="submit">
                     Add to Itinerary
                   </Button>
                 </Card.Body>

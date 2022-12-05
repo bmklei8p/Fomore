@@ -39,7 +39,7 @@ export function ListAttractions() {
             <Container>
               <Row>
                 <Col>
-                  <Card.Img className="card-image" src={attraction.image_url} />
+                  <a href={attraction.url} target="_blank"><Card.Img className="card-image" src={attraction.image_url} /></a>
                 </Col>
                 <Col>
                   <Card.Body>

@@ -36,7 +36,7 @@ export function ListRestaurants() {
             <Container>
               <Row>
                 <Col>
-                  <Card.Img className="card-image" src={restaurant.image_url} />
+                  <a href={restaurant.url} target="_blank"><Card.Img className="card-image" src={restaurant.image_url} /></a>
                 </Col>
                 <Col>
                   <Card.Body>

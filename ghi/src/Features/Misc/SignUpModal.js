@@ -21,7 +21,7 @@ function SignUpModal() {
   return (
     <div className={modalClass} key="signup-modal">
       <div className="modal-background"></div>
-      <div className="modal-content">
+      <div className="modal-content" style={{"max-width": "500px"}}>
         <div className="box content">
           <h3>Sign Up</h3>
           {error ? (
