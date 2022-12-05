@@ -8,7 +8,7 @@ import { showModal, LOG_IN_MODAL, SIGN_UP_MODAL } from './app/accountSlice';
 import LogInModal from './Features/Misc/LogInModal';
 import SignUpModal from './Features/Misc/SignUpModal';
 import { useEffect } from 'react';
-import logo from './media/fomore-dark.png'
+import logo from './media/fomore-dark.png';
 import { NavLink } from "react-bootstrap";
 
 function LoginButtons(props) {

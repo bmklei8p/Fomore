@@ -44,7 +44,8 @@ def get_external_restaurant(
         "venue": "N/A",
         "description":restaurant["categories"][0]["title"],
         "itinerary_id": itinerary_id,
-        "image_url": restaurant["image_url"]
+        "image_url": restaurant["image_url"],
+        "url": restaurant["url"]
     } for restaurant in data["businesses"]]
     return res
 
@@ -76,7 +77,8 @@ def get_external_event(
         "venue": event["business_id"],
         "description":event["description"],
         "itinerary_id": itinerary_id,
-        "image_url": event["image_url"]
+        "image_url": event["image_url"],
+        "url": event["event_site_url"]
     } for event in data["events"]]
     return res
 
@@ -109,6 +111,7 @@ def get_external_attracion(
         "address": "N/A",
         "description":attraction["categories"][0]["title"],
         "itinerary_id": itinerary_id,
-        "image_url": attraction["image_url"]
+        "image_url": attraction["image_url"],
+        "url": attraction["url"]
     } for attraction in data["businesses"]]
     return res
