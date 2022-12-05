@@ -19,7 +19,7 @@ function LogInModal() {
   return (
     <div className={modalClass} key="login-modal">
       <div className="modal-background"></div>
-      <div className="modal-content">
+      <div className="modal-content" style={{"max-width": "500px"}}>
         <div className="box content">
           <h3>Log In</h3>
           { error ? <Notification type="danger">{error.data.detail}</Notification> : null }

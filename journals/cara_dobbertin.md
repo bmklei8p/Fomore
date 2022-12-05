@@ -1,3 +1,8 @@
+## 12/5/22
+- reviewed deployment and discussed organization of branches for project submission
+- hide "add" buttons on home page if not logged in
+- fixed date on itinerary detail page
+
 ## 12/2/22
 - apply to adjust date display on main page to proper format of mm/dd/yyyy
 - implemented filter of itineraries on create event page
