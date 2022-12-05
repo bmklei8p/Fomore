@@ -3,7 +3,7 @@ import {
   useDeleteItineraryMutation,
 } from "../../app/itineraryApi";
 import { useGetTokenQuery } from "../../app/accountApi";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Itineraries() {
@@ -28,10 +28,17 @@ function Itineraries() {
               style={{ width: "40rem" }}
             >
               <Card.Header as="h5">
-                {itinerary.name}{" "}
-                <Link to={`/ItineraryDetail/?initialid=${itinerary.id}`}>
-                  <button className="btn btn-outline-primary">Itinerary Details</button>
-                </Link>
+                <Col>{itinerary.name} </Col>
+                <Col>
+                  <Link to={`/ItineraryDetail/?initialid=${itinerary.id}`}>
+                    <button
+                      style={{ float: "right" }}
+                      className="button is-primary"
+                    >
+                      Itinerary Details
+                    </button>
+                  </Link>
+                </Col>
               </Card.Header>
               <Card.Body>
                 <Card.Title>{itinerary.location}</Card.Title>
@@ -40,16 +47,17 @@ function Itineraries() {
                   {new Date(itinerary.end_date).toLocaleDateString()}
                 </Card.Text>
                 <button
+                  type="button"
                   className="btn btn-danger"
+                  style={{ float: "left" }}
                   onClick={() => deleteItinerary(itinerary.id)}
                 >
                   delete
                 </button>
                 <Link to={`/UpdateItineraryForm/?initialid=${itinerary.id}`}>
                   <Button
-                    variant="outline-primary"
-                    size="sm"
                     style={{ float: "right" }}
+                    className="button is-primary"
                   >
                     edit Itinerary
                   </Button>
