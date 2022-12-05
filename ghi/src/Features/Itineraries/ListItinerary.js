@@ -46,7 +46,7 @@ function Itineraries() {
                   {new Date(itinerary.end_date).toLocaleDateString()}
                 </Card.Text>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-danger"
                   onClick={() => deleteItinerary(itinerary.id)}
                 >
                   delete

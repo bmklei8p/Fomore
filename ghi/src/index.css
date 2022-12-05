@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -54,7 +54,7 @@ code {
 }
 
 .nav-color {
-  background-color: #22BABB;
+  background-color: #22babb;
   border-radius: 5px;
   font-weight: bold;
 }
@@ -65,7 +65,7 @@ code {
 
 .add-btn {
   border-radius: 5px;
-  background-color: #FA7F08;
+  background-color: #fa7f08;
   margin-left: 5px;
   border-style: none;
   color: white;
@@ -74,7 +74,7 @@ code {
 }
 
 .add-btn:hover {
-  background-color: #F24405;
+  background-color: #f24405;
 }
 
 .centered {
@@ -91,22 +91,22 @@ code {
   text-align: center;
 }
 
-.add-link{
+.add-link {
   text-align: right;
-  color: #F24405;
+  color: #f24405;
   font-style: italic;
 }
 
-.welcome-title{
+.welcome-title {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4vh;
   margin-bottom: 2vh;
-  color: #9EF8EE;
+  color: #9ef8ee;
 }
 
-.welcome-subtitle{
+.welcome-subtitle {
   text-align: center;
   font-style: italic;
   margin-right: 300px;
@@ -115,10 +115,15 @@ code {
   margin-bottom: 2vh;
 }
 
-.welcome-body{
+.welcome-body {
   text-align: center;
   margin-right: 200px;
   margin-left: 200px;
   color: white;
   margin-bottom: 4vh;
+}
+
+.btn-outline-success {
+  color: #f24405 !important;
+  border-color: #f24405 !important;
 }

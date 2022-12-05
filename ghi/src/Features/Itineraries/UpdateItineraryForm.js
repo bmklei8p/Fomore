@@ -8,7 +8,7 @@ import {
 } from "../../app/itineraryApi";
 import { preventDefault } from "../../app/utils";
 import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 
 const UpdateItineraryForm = () => {
   const [updateItinerary, { data }] = useUpdateItineraryMutation();
@@ -40,7 +40,6 @@ const UpdateItineraryForm = () => {
   const itineraries = body.data.itineraries;
 
   const activeItinerary = itineraries.find((i) => i.id === activeid) ?? {};
-  console.log(activeItinerary, activeid);
 
   return (
     <div>
@@ -51,92 +50,84 @@ const UpdateItineraryForm = () => {
       >
         <Container>
           <Row className="item-border">
-              <Card
-                className="item-border"
-                border="light"
-                style={{ width: "40rem" }}
-              >
-                <Card.Title className="centered">Update Itinerary</Card.Title>
-                <Card.Body>
-                  {/* <Row>
-                    <Col sm={4}>
-                      <Form.Label>Select an Itinerary</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <Form.Select
-                        onChange={(e) => setActiveId(e.target.value)}
-                        value={activeid}
-                        name="itinerary"
-                      >
-                        Itinerary
-                        <option>itineraries</option>
-                        {itineraries.map((itinerary) => {
-                          return (
-                            <option key={itinerary.id} value={itinerary.id}>
-                              {itinerary.name}
-                            </option>
-                          );
-                        })}
-                      </Form.Select>
-                    </Col>
-                  </Row> */}
-                  <Row>
-                    <Col>
-                      <Form.Label>Itinerary Name</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <Form.Control
-                        defaultValue={activeItinerary.name}
-                        type="text"
-                        name="name"
-                        placeholder="Enter event name"
-                      />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Form.Label>Start Date</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <Form.Control
-                        defaultValue={activeItinerary.start_date?.split("T")[0]}
-                        name="start_date"
-                        type="date"
-                        placeholder="Date"
-                      />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Form.Label>End Date</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <Form.Control
-                        defaultValue={activeItinerary.end_date?.split("T")[0]}
-                        name="end_date"
-                        type="date"
-                        placeholder="Date"
-                      />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Form.Label>Location</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <Form.Control
-                        defaultValue={activeItinerary.location}
-                        type="text"
-                        name="location"
-                        placeholder="Location"
-                      />
-                    </Col>
-                  </Row>
-                  <Button variant="outline-success" type="submit">
-                    Update Itinerary
+            <Card
+              className="item-border"
+              border="light"
+              style={{ width: "40rem" }}
+            >
+              <Card.Title className="centered">Update Itinerary</Card.Title>
+              <Card.Body>
+                <Row>
+                  <Col>
+                    <Form.Label>Itinerary Name</Form.Label>
+                  </Col>
+                  <Col className="mb-3" sm={8}>
+                    <Form.Control
+                      defaultValue={activeItinerary.name}
+                      type="text"
+                      name="name"
+                      placeholder="Enter event name"
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Form.Label>Start Date</Form.Label>
+                  </Col>
+                  <Col className="mb-3" sm={8}>
+                    <Form.Control
+                      defaultValue={activeItinerary.start_date?.split("T")[0]}
+                      name="start_date"
+                      type="date"
+                      placeholder="Date"
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Form.Label>End Date</Form.Label>
+                  </Col>
+                  <Col className="mb-3" sm={8}>
+                    <Form.Control
+                      defaultValue={activeItinerary.end_date?.split("T")[0]}
+                      name="end_date"
+                      type="date"
+                      placeholder="Date"
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Form.Label>Location</Form.Label>
+                  </Col>
+                  <Col className="mb-3" sm={8}>
+                    <Form.Control
+                      defaultValue={activeItinerary.location}
+                      type="text"
+                      name="location"
+                      placeholder="Location"
+                    />
+                  </Col>
+                </Row>
+                <Button
+                  variant="outline-success"
+                  type="submit"
+                  style={{ float: "right" }}
+                >
+                  Update Itinerary
+                </Button>
+                <Link to="/Itineraries">
+                  <Button
+                    className="back-btn"
+                    variant="btn btn-outline-danger"
+                    size="med"
+                    style={{ float: "left" }}
+                  >
+                    Back to itineraries
                   </Button>
-                </Card.Body>
-              </Card>
+                </Link>
+              </Card.Body>
+            </Card>
           </Row>
         </Container>
       </Form>
