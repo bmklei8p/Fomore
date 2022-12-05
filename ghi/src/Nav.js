@@ -10,6 +10,7 @@ import SignUpModal from './Features/Misc/SignUpModal';
 import { useEffect } from 'react';
 import logo from './media/fomore-dark.png';
 import { NavLink } from "react-bootstrap";
+import { updateItinerary } from './app/itinerarySlice';
 
 function LoginButtons(props) {
   const dispatch = useDispatch();
@@ -30,8 +31,12 @@ function LoginButtons(props) {
 function LogoutButton() {
   const navigate = useNavigate();
   const [logOut, { data }] = useLogOutMutation();
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
+    const actionId = updateItinerary({ itineraryId: '' });
+    dispatch(actionId);
     if (data) {
       navigate('/');
     }
@@ -39,13 +44,14 @@ function LogoutButton() {
 
   return (
     <div className="buttons">
-      <button onClick={logOut} className="button is-light">
+      <button
+      onClick={logOut}
+      className="button is-light">
         Log out
       </button>
     </div>
   );
 }
-
 
 
 function FomoreNav() {
