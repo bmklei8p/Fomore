@@ -41,7 +41,7 @@ export function ListRestaurants() {
                   <Card.Body>
                     <Row>
                       <Col sm={10}>
-                        <Card.Title>{restaurant.name}</Card.Title>
+                        <Card.Title><a href={restaurant.url} target="_blank" className="link-green">{restaurant.name}</a></Card.Title>
                       </Col>
                       <Col sm={2}>
                         <button

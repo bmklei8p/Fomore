@@ -52,7 +52,7 @@ export function ListEvents() {
                   <Card.Body>
                     <Row>
                       <Col sm={10}>
-                        <Card.Title>{event.name}</Card.Title>
+                        <Card.Title><a href={event.url} target="_blank" className="link-green">{event.name}</a></Card.Title>
                       </Col>
                       <Col sm={2}>
                         <button className="add-btn">

@@ -43,7 +43,7 @@ export function ListAttractions() {
                   <Card.Body>
                     <Row>
                       <Col sm={10}>
-                        <Card.Title>{attraction.name}</Card.Title>
+                        <Card.Title><a href={attraction.url} target="_blank" className="link-green">{attraction.name}</a></Card.Title>
                       </Col>
                       <Col sm={2}>
                         <button
