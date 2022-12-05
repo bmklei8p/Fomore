@@ -8,11 +8,15 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
+import { useGetTokenQuery} from "../../app/accountApi";
+
 
 export function ListEvents() {
   const search = useSelector((state) => state.search);
   const itineraryId = useSelector((state) => state.itinerary.itineraryId);
   const body = useGetEventsQuery(search);
+  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
+  const { account: { roles = [] } } = token || {account: {}};
   const isLoading = body.isLoading;
   const [addEvent, { data }] = useAddEventMutation();
 
@@ -46,19 +50,23 @@ export function ListEvents() {
             <Container>
               <Row>
                 <Col>
-                  <Card.Img className="card-image" src={event.image_url} />
+                  <a href={event.url} target="_blank"><Card.Img className="card-image" src={event.image_url} /></a>
                 </Col>
                 <Col>
                   <Card.Body>
                     <Row>
                       <Col sm={10}>
-                        <Card.Title>{event.name}</Card.Title>
+                        <Card.Title><a href={event.url} target="_blank" className="link-green">{event.name}</a></Card.Title>
                       </Col>
-                      <Col sm={2}>
-                        <button className="add-btn">
+                  {token
+                    ? <Col sm={2}>
+                      <button className="add-btn">
                           &#10010;
-                        </button>
-                      </Col>
+                        </button> </Col>
+                    : <Col sm={2}>
+                      <button className="d-none">
+                          &#10010;
+                        </button> </Col>}
                     </Row>
                     <Row>
                       <Col>
