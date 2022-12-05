@@ -17,6 +17,7 @@ const UpdateItineraryForm = () => {
 
   const [searchParams] = useSearchParams();
   const initialid = searchParams.get("initialid");
+  console.log(initialid)
   const [activeid, setActiveId] = useState(initialid);
 
   // this is a temporary placeholder for either a
