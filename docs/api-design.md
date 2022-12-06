@@ -97,8 +97,8 @@
 }]
 ```
 ### Accounts
-- **Paths**: /api/accounts, /token, /api/sessions/{account_id} 
-- **Method**: Get, Post, Delete,
+- **Paths**: /api/accounts
+- **Method**: Get
 - **Request shape**: 
 Post:
 ```
@@ -108,51 +108,37 @@ Post:
   full_name: str
 }
 ```
-Get:
+### Log in/Log out
+- **Path**: /token
+- **Method**: POST, Delete
+- **Headers**: {"WWW-Authenticate": "Bearer"}
+- **Request shape Get**:
 ```
-{
-  id: str
-  email: str
-  full_name: str
+{  
+  username: string
+  password: string
 }
 ```
-Delete:
+- Response: Account information and a token
+- Response shape Get (JSON):
 ```
 {
-  account_id: str
+  "access_token": "string",
+  "token_type": "Bearer"
 }
 ```
-### Log in
-* Endpoint path: /token
-* Endpoint method: POST
-
-* Request shape (form):
-  * username: string
-  * password: string
-
-* Response: Account information and a token
-* Response shape (JSON):
-    ```json
-    {
-      "account": {
-        «key»: type»,
-      },
-      "token": string
-    }
-    ```
-
-### Log out
-* Endpoint path: /token
-* Endpoint method: DELETE
-
-* Headers:
-  * Authorization: Bearer token
-
-* Response: Always true
-* Response shape (JSON):
-    ```json
-    true
-    ```
+- **Request shape Delete**:
+```
+{
+  fastapi_token: string
+}
+```
+Response shape Delete:
+```
+{
+  true
+}
+```
 
 ### Itineraries
 - **Path**: /itineraries
@@ -161,7 +147,16 @@ Delete:
 - **Response shape**:
 ```
 {
-  id: str
+  "itineraries": [
+    {
+      "name": "string",
+      "start_date": "2022-12-06T22:52:20.672Z",
+      "end_date": "2022-12-06T22:52:20.672Z",
+      "location": "string",
+      "account_id": "string",
+      "id": "string"
+    }
+  ]
 }
 ```
 
@@ -173,17 +168,22 @@ Delete:
 Request body:
 ```
 {
-  name: str
-  start_date: datetime
-  end_date: datetime
-  location: str
-  account_id: str
+  "name": "string",
+  "start_date": "2022-12-06T22:53:44.083Z",
+  "end_date": "2022-12-06T22:53:44.083Z",
+  "location": "string",
+  "account_id": "string"
 }
 ```
 Response body:
 ```
 {
-  id: str
+  "name": "string",
+  "start_date": "2022-12-06T22:53:44.088Z",
+  "end_date": "2022-12-06T22:53:44.088Z",
+  "location": "string",
+  "account_id": "string",
+  "id": "string"
 }
 ```
 
@@ -192,14 +192,21 @@ Response body:
 - **Path**: /api/itineraries/{itinerary_id}
 - **Method**: GET Detail
 - **Headers**: {"WWW-Authenticate": "Bearer"}
+Request shape:
+```
+{
+  itinerary_id: string
+}
+```
 Response shape:
 ```
 {
-  name: str
-  start_date: datetime
-  end_date: datetime
-  location: str
-  account_id: str
+  "name": "string",
+  "start_date": "2022-12-06T22:54:30.885Z",
+  "end_date": "2022-12-06T22:54:30.885Z",
+  "location": "string",
+  "account_id": "string",
+  "id": "string"
 }
 ```
 
@@ -208,22 +215,34 @@ Response shape:
 - **Path**: /itineraries/{itinerary_id}
 - **Method**: Delete, Put
 - **Headers**: {"WWW-Authenticate": "Bearer"}
+Request shape:
+```
+{
+  itinerary_id: string
+}
+```
 Response shape:
 ```
 {
   Deleted: bool
 }
 ```
-- **Method**: PUT
-- Headers: Authorization: Bearer token
+- **Method**: Put
+Request shape:
+```
+{
+  itinerary_id: string
+}
+```
 Response shape:
 ```
 {
-  name: str
-  start_date: datetime
-  end_date: datetime
-  location: str
-  account_id: str
+  "name": "string",
+  "start_date": "2022-12-06T22:56:00.731Z",
+  "end_date": "2022-12-06T22:56:00.731Z",
+  "location": "string",
+  "account_id": "string",
+  "id": "string"
 }
 ```
 
@@ -235,56 +254,122 @@ Response shape:
 Request Body:
 ```
 {
-  name: str
-  date: datetime
-  location: str
-  category: str
-  venue: Optional[str]
-  rating: Optional[str]
-  address: Optional[str]
-  description: str
-  itinerary_id: str
-  image_url: Optional[str]
-  url: Optional[str]
+  "name": "string",
+  "date": "2022-12-06T22:59:57.083Z",
+  "location": "string",
+  "category": "string",
+  "venue": "string",
+  "rating": "string",
+  "address": "string",
+  "description": "string",
+  "itinerary_id": "string",
+  "image_url": "string",
+  "url": "string"
 }
 ```
 Response body:
 ```
 {
-  id: str
+  "name": "string",
+  "date": "2022-12-06T22:59:57.088Z",
+  "location": "string",
+  "category": "string",
+  "venue": "string",
+  "rating": "string",
+  "address": "string",
+  "description": "string",
+  "itinerary_id": "string",
+  "image_url": "string",
+  "url": "string",
+  "id": "string"
 }
 ```
 
 
 ### GET list of created events by user
-- **Path**: /events
+- **Path**: /api/events
 - **Method**: GET
 - **Headers**: {"WWW-Authenticate": "Bearer"}
 Response Shape:
 ```
-{
-  events: List[EventOut]
-}
+"events": [
+  {
+    "name": "taylor swift concert $28000",
+    "date": "2022-11-18T00:00:00+00:00",
+    "location": "string",
+    "category": "event",
+    "venue": "string",
+    "rating": "N/A",
+    "address": "N/A",
+    "description": "too expensive",
+    "itinerary_id": "63755aa26282cfade5af40f9",
+    "image_url": "https://media.npr.org/assets/img/2022/11/21/gettyimages-484816706-8838823b36e61ecf9459debab7c14d769ab83205-s800-c85.webp",
+    "url": null,
+    "id": "638a3473307cf7441ffb2ec0"
+  }
 ```
 
 ### update or delete an event
-- **Path**: /events/{event_id}
+- **Path**: /api/events/{event_id}
 - **Method**: Put, Delete
 - **Headers**: {"WWW-Authenticate": "Bearer"}
+Request shape:
+```
+{
+  "name": "string",
+  "date": "2022-12-06T22:59:57.083Z",
+  "location": "string",
+  "category": "string",
+  "venue": "string",
+  "rating": "string",
+  "address": "string",
+  "description": "string",
+  "itinerary_id": "string",
+  "image_url": "string",
+  "url": "string"
+}
+```
 Response Shape:
 
 ```
 {
-  id: str
+  "name": "string",
+  "date": "2022-12-06T23:02:51.932Z",
+  "location": "string",
+  "category": "string",
+  "venue": "string",
+  "rating": "string",
+  "address": "string",
+  "description": "string",
+  "itinerary_id": "string",
+  "image_url": "string",
+  "url": "string",
+  "id": "string"
 }
 ```
-
-
-### DELETE created event
-Response shape:
+**Method**: Put
+Request body:
 ```
 {
-  Deleted: bool
+  event_id: string
 }
 ```
+Response body:
+```
+{
+  "name": "string",
+  "date": "2022-12-06T23:10:03.115Z",
+  "location": "string",
+  "category": "string",
+  "venue": "string",
+  "rating": "string",
+  "address": "string",
+  "description": "string",
+  "itinerary_id": "string",
+  "image_url": "string",
+  "url": "string",
+  "id": "string"
+}
+```
+
 
