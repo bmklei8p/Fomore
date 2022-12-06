@@ -8,15 +8,16 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
-import { useGetTokenQuery} from "../../app/accountApi";
-
+import { useGetTokenQuery } from "../../app/accountApi";
 
 export function ListEvents() {
   const search = useSelector((state) => state.search);
   const itineraryId = useSelector((state) => state.itinerary.itineraryId);
   const body = useGetEventsQuery(search);
   const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
-  const { account: { roles = [] } } = token || {account: {}};
+  const {
+    account: { roles = [] },
+  } = token || { account: {} };
   const isLoading = body.isLoading;
   const [addEvent, { data }] = useAddEventMutation();
 
@@ -42,104 +43,114 @@ export function ListEvents() {
             style={{ width: "50rem" }}
             key={event.image_url}
           >
-          <Form
-            className="register-form"
-            method="post"
-            onSubmit={preventDefault(addEvent, (e) => e.target)}
-          >
-            <Container>
-              <Row>
-                <Col>
-                  <a href={event.url} target="_blank"><Card.Img className="card-image" src={event.image_url} /></a>
-                </Col>
-                <Col>
-                  <Card.Body>
-                    <Row>
-                      <Col sm={10}>
-                        <Card.Title><a href={event.url} target="_blank" className="link-green">{event.name}</a></Card.Title>
-                      </Col>
-                  {token
-                    ? <Col sm={2}>
-                      <button className="add-btn">
-                          &#10010;
-                        </button> </Col>
-                    : <Col sm={2}>
-                      <button className="d-none">
-                          &#10010;
-                        </button> </Col>}
-                    </Row>
-                    <Row>
-                      <Col>
-                        <Card.Text>{event.location}</Card.Text>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <Card.Text className="text-muted">
-                          {event.description}
-                        </Card.Text>
-                      </Col>
-                    </Row>
-                    <input
-                      name="name"
-                      as="textarea"
-                      value={event.name}
-                      style={{ display: "none" }}
-                      readOnly
-                    ></input>
-                    <input
-                      name="location"
-                      as="textarea"
-                      value={event.location}
-                      style={{ display: "none" }}
-                      readOnly
-                    ></input>
-                    <input
-                      name="date"
-                      as="datetime"
-                      value={event.date}
-                      style={{ display: "none" }}
-                      readOnly
-                    ></input>
-                    <input
-                      name="category"
-                      as="textarea"
-                      value={event.category}
-                      style={{ display: "none" }}
-                      readOnly
-                    ></input>
-                    <input
-                      name="venue"
-                      as="textarea"
-                      value={event.venue}
-                      style={{ display: "none" }}
-                      readOnly
-                    ></input>
-                    <input
-                      name="description"
-                      as="textarea"
-                      value={event.description}
-                      style={{ display: "none" }}
-                      readOnly
-                    ></input>
-                    <input
-                      name="image_url"
-                      as="textarea"
-                      value={event.image_url}
-                      style={{ display: "none" }}
-                      readOnly
-                    ></input>
-                    <input
-                      name="itineraryId"
-                      as="textarea"
-                      value={itineraryId}
-                      style={{ display: "none" }}
-                      readOnly
-                    ></input>
-                  </Card.Body>
-                </Col>
-              </Row>
-            </Container>
+            <Form
+              className="register-form"
+              method="post"
+              onSubmit={preventDefault(addEvent, (e) => e.target)}
+            >
+              <Container>
+                <Row>
+                  <Col>
+                    <a href={event.url} target="_blank">
+                      <Card.Img className="card-image" src={event.image_url} />
+                    </a>
+                  </Col>
+                  <Col>
+                    <Card.Body>
+                      <Row>
+                        <Col sm={10}>
+                          <Card.Title>
+                            <a
+                              href={event.url}
+                              target="_blank"
+                              className="link-green"
+                            >
+                              {event.name}
+                            </a>
+                          </Card.Title>
+                        </Col>
+                        {token ? (
+                          <Col sm={2}>
+                            <button className="add-btn">&#10010;</button>{" "}
+                          </Col>
+                        ) : (
+                          <Col sm={2}>
+                            <button className="d-none">&#10010;</button>{" "}
+                          </Col>
+                        )}
+                      </Row>
+                      <Row>
+                        <Col>
+                          <Card.Text>{event.location}</Card.Text>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col>
+                          <Card.Text className="text-muted">
+                            {event.description}
+                          </Card.Text>
+                        </Col>
+                      </Row>
+                      <input
+                        name="name"
+                        as="textarea"
+                        value={event.name ? event.name : ""}
+                        style={{ display: "none" }}
+                        readOnly
+                      ></input>
+                      <input
+                        name="location"
+                        as="textarea"
+                        value={event.location ? event.location : ""}
+                        style={{ display: "none" }}
+                        readOnly
+                      ></input>
+                      <input
+                        name="date"
+                        as="datetime"
+                        value={event.date ? event.date : ""}
+                        style={{ display: "none" }}
+                        readOnly
+                      ></input>
+                      <input
+                        name="category"
+                        as="textarea"
+                        value={event.category ? event.category : ""}
+                        style={{ display: "none" }}
+                        readOnly
+                      ></input>
+                      <input
+                        name="venue"
+                        as="textarea"
+                        value={event.venue ? event.venue : ""}
+                        style={{ display: "none" }}
+                        readOnly
+                      ></input>
+                      <input
+                        name="description"
+                        as="textarea"
+                        value={event.description ? event.description : ""}
+                        style={{ display: "none" }}
+                        readOnly
+                      ></input>
+                      <input
+                        name="image_url"
+                        as="textarea"
+                        value={event.image_url ? event.image_url : ""}
+                        style={{ display: "none" }}
+                        readOnly
+                      ></input>
+                      <input
+                        name="itineraryId"
+                        as="textarea"
+                        value={itineraryId}
+                        style={{ display: "none" }}
+                        readOnly
+                      ></input>
+                    </Card.Body>
+                  </Col>
+                </Row>
+              </Container>
             </Form>
           </Card>
         );

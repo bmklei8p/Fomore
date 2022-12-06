@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSignUpMutation } from "../../app/accountApi";
-import { preventDefault } from '../../app/utils';
-import { showModal, updateField, SIGN_UP_MODAL } from '../../app/accountSlice';
-import Notification from '../../Notification';
+import { preventDefault } from "../../app/utils";
+import { showModal, updateField, SIGN_UP_MODAL } from "../../app/accountSlice";
+import Notification from "../../Notification";
 
 function SignUpModal() {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ function SignUpModal() {
   return (
     <div className={modalClass} key="signup-modal">
       <div className="modal-background"></div>
-      <div className="modal-content" style={{"max-width": "500px"}}>
+      <div className="modal-content" style={{ maxWidth: "500px" }}>
         <div className="box content">
           <h3>Sign Up</h3>
           {error ? (
