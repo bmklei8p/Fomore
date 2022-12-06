@@ -14,12 +14,9 @@ export function ListEvents() {
   const search = useSelector((state) => state.search);
   const itineraryId = useSelector((state) => state.itinerary.itineraryId);
   const body = useGetEventsQuery(search);
-  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
-  const {
-    account: { roles = [] },
-  } = token || { account: {} };
+  const { data: token } = useGetTokenQuery();
   const isLoading = body.isLoading;
-  const [addEvent, { data }] = useAddEventMutation();
+  const [addEvent] = useAddEventMutation();
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -51,7 +48,11 @@ export function ListEvents() {
               <Container>
                 <Row>
                   <Col>
-                    <a href={event.url} target="_blank">
+                    <a
+                      href={event.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Card.Img className="card-image" src={event.image_url} />
                     </a>
                   </Col>
@@ -64,6 +65,7 @@ export function ListEvents() {
                               href={event.url}
                               target="_blank"
                               className="link-green"
+                              rel="noopener noreferrer"
                             >
                               {event.name}
                             </a>

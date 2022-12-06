@@ -4,16 +4,15 @@ import { useGetRestaurantsQuery } from "../../app/yelpApi";
 import { Card, Container, Row, Col, Form } from "react-bootstrap";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
-import { useGetTokenQuery} from "../../app/accountApi";
-import { EventInput } from "./EventInput";
+import { useGetTokenQuery } from "../../app/accountApi";
 
 export function ListRestaurants() {
   const search = useSelector((state) => state.search);
   const itineraryId = useSelector((state) => state.itinerary.itineraryId);
-  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
+  const { data: token } = useGetTokenQuery();
   const body = useGetRestaurantsQuery(search);
   const isLoading = body.isLoading;
-  const [addEvent, { data }] = useAddEventMutation();
+  const [addEvent] = useAddEventMutation();
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -36,23 +35,41 @@ export function ListRestaurants() {
             <Container>
               <Row>
                 <Col>
-                  <a href={restaurant.url} target="_blank"><Card.Img className="card-image" src={restaurant.image_url} /></a>
+                  <a
+                    href={restaurant.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Card.Img
+                      className="card-image"
+                      src={restaurant.image_url}
+                    />
+                  </a>
                 </Col>
                 <Col>
                   <Card.Body>
                     <Row>
                       <Col sm={10}>
-                        <Card.Title><a href={restaurant.url} target="_blank" className="link-green">{restaurant.name}</a></Card.Title>
+                        <Card.Title>
+                          <a
+                            href={restaurant.url}
+                            target="_blank"
+                            className="link-green"
+                            rel="noopener noreferrer"
+                          >
+                            {restaurant.name}
+                          </a>
+                        </Card.Title>
                       </Col>
-                      {token
-                    ? <Col sm={2}>
-                      <button className="add-btn">
-                          &#10010;
-                        </button> </Col>
-                    : <Col sm={2}>
-                      <button className="d-none">
-                          &#10010;
-                        </button> </Col>}
+                      {token ? (
+                        <Col sm={2}>
+                          <button className="add-btn">&#10010;</button>{" "}
+                        </Col>
+                      ) : (
+                        <Col sm={2}>
+                          <button className="d-none">&#10010;</button>{" "}
+                        </Col>
+                      )}
                     </Row>
                     <Row>
                       <Col>
@@ -77,56 +94,58 @@ export function ListRestaurants() {
                     <input
                       name="name"
                       as="textarea"
-                      value={restaurant.name ? restaurant.name : ''}
+                      value={restaurant.name ? restaurant.name : ""}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="location"
                       as="textarea"
-                      value={restaurant.location ? restaurant.location : ''}
+                      value={restaurant.location ? restaurant.location : ""}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="date"
                       as="datetime"
-                      value={restaurant.date ? restaurant.date : ''}
+                      value={restaurant.date ? restaurant.date : ""}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="category"
                       as="textarea"
-                      value={restaurant.category ? restaurant.category : ''}
+                      value={restaurant.category ? restaurant.category : ""}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="rating"
                       as="textarea"
-                      value={restaurant.rating ? restaurant.rating : ''}
+                      value={restaurant.rating ? restaurant.rating : ""}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="venue"
                       as="textarea"
-                      value={restaurant.venue ? restaurant.venue : ''}
+                      value={restaurant.venue ? restaurant.venue : ""}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="address"
                       as="textarea"
-                      value={restaurant.address ? restaurant.address : ''}
+                      value={restaurant.address ? restaurant.address : ""}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="description"
                       as="textarea"
-                      value={restaurant.description ? restaurant.description : ''}
+                      value={
+                        restaurant.description ? restaurant.description : ""
+                      }
                       style={{ display: "none" }}
                       readOnly
                     ></input>

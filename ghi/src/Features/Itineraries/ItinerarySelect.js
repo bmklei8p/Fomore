@@ -13,7 +13,7 @@ function ItinerarySelect() {
   let loc = useSelector((state) => state.search.location);
   let [changed, setChanged] = useState(false);
   let id = "";
-  if (changed != false) {
+  if (changed !== false) {
     id = changed.slice(0, 24);
     loc = changed.slice(25);
   }
@@ -31,12 +31,6 @@ function ItinerarySelect() {
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
-
-  // if (changed !== false) {
-  //   const action = updateItinerary({ itineraryId: changed });
-  //   dispatch(action);
-  //   setChanged(false);
-  // }
 
   return (
     <div>

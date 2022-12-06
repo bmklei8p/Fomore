@@ -1,8 +1,8 @@
-import { Card, Button, Form, Nav } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { useGetEventsQuery, useDeleteEventMutation } from "../../app/eventApi";
 import ItinerarySelect from "./ItinerarySelect";
 import { useSelector } from "react-redux";
-import { NavLink} from "react-bootstrap";
+import { NavLink } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 
 function ItineraryList() {
@@ -27,17 +27,17 @@ function ItineraryList() {
               style={{ width: "25rem" }}
             >
               <Card.Header as="h6">
-                <Col sm={12}>
-                {event.name}{" "}
-                </Col>
+                <Col sm={12}>{event.name} </Col>
                 <Col sm={1}>
-                <NavLink onClick={() => deleteEvent(event.id)}>
-                  <b className="link-delete">&#10005;</b>
-                </NavLink>
+                  <NavLink onClick={() => deleteEvent(event.id)}>
+                    <b className="link-delete">&#10005;</b>
+                  </NavLink>
                 </Col>
               </Card.Header>
               <Card.Body>
-                <Card.Text className="card-bottom">Location: {event.location}</Card.Text>
+                <Card.Text className="card-bottom">
+                  Location: {event.location}
+                </Card.Text>
                 <Card.Text>
                   Date: {new Date(event.date).toLocaleDateString()}
                 </Card.Text>

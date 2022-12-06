@@ -29,8 +29,6 @@ const EventForm = () => {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
-  const itineraries = body.data.itineraries;
-
   return (
     <div>
       <Form
@@ -40,78 +38,60 @@ const EventForm = () => {
       >
         <Container>
           <Row className="item-border">
-              <Card
-                className="item-border"
-                border="light"
-                style={{ width: "40rem" }}
-              >
-                <Card.Title className="centered">
-                  Create a Custom Event
-                </Card.Title>
-                <Card.Body>
-                  <Row>
-                    <Col sm={4}>
-                      <Form.Label>Select an Itinerary</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <ItinerarySelect/>
-                      {/* <Form.Select name="itinerary">
-                        Itinerary
-                        <option>Itineraries</option>
-                        {itineraries.map((itinerary) => {
-                          return (
-                            <option
-                              key={itinerary.id}
-                              value={[itinerary.id, itinerary.location]}
-                            >
-                              {itinerary.name}
-                            </option>
-                          );
-                        })}
-                      </Form.Select> */}
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Form.Label>Event Name</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <Form.Control
-                        type="text"
-                        name="name"
-                        placeholder="Enter event name"
-                      />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Form.Label>Date</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <Form.Control
-                        name="date"
-                        type="date"
-                        placeholder="Date"
-                      />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Form.Label>Description</Form.Label>
-                    </Col>
-                    <Col className="mb-3" sm={8}>
-                      <Form.Control
-                        name="description"
-                        as="textarea"
-                        label="Description"
-                      />
-                    </Col>
-                  </Row>
-                  <Button variant="success" type="submit">
-                    Add to Itinerary
-                  </Button>
-                </Card.Body>
-              </Card>
+            <Card
+              className="item-border"
+              border="light"
+              style={{ width: "40rem" }}
+            >
+              <Card.Title className="centered">
+                Create a Custom Event
+              </Card.Title>
+              <Card.Body>
+                <Row>
+                  <Col sm={4}>
+                    <Form.Label>Select an Itinerary</Form.Label>
+                  </Col>
+                  <Col className="mb-3" sm={8}>
+                    <ItinerarySelect />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Form.Label>Event Name</Form.Label>
+                  </Col>
+                  <Col className="mb-3" sm={8}>
+                    <Form.Control
+                      type="text"
+                      name="name"
+                      placeholder="Enter event name"
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Form.Label>Date</Form.Label>
+                  </Col>
+                  <Col className="mb-3" sm={8}>
+                    <Form.Control name="date" type="date" placeholder="Date" />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Form.Label>Description</Form.Label>
+                  </Col>
+                  <Col className="mb-3" sm={8}>
+                    <Form.Control
+                      name="description"
+                      as="textarea"
+                      label="Description"
+                    />
+                  </Col>
+                </Row>
+                <Button variant="success" type="submit">
+                  Add to Itinerary
+                </Button>
+              </Card.Body>
+            </Card>
           </Row>
         </Container>
       </Form>

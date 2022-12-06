@@ -1,4 +1,3 @@
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import { Container, Row, Col, Card } from "react-bootstrap";
@@ -18,10 +17,7 @@ const UpdateItineraryForm = () => {
   const [searchParams] = useSearchParams();
   const initialid = searchParams.get("initialid");
   console.log(initialid);
-  const [activeid, setActiveId] = useState(initialid);
-
-  // this is a temporary placeholder for either a
-  // redirect using useNavigate or a better looking success alert.
+  const [activeid] = useState(initialid);
 
   if (data) {
     return (

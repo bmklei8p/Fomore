@@ -14,9 +14,9 @@ export function ListAttractions() {
   const search = useSelector((state) => state.search);
   const itineraryId = useSelector((state) => state.itinerary.itineraryId);
   const body = useGetAttractionsQuery(search);
-  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
+  const { data: token } = useGetTokenQuery();
   const isLoading = body.isLoading;
-  const [addEvent, { data }] = useAddEventMutation();
+  const [addEvent] = useAddEventMutation();
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
@@ -39,7 +39,11 @@ export function ListAttractions() {
               <Container>
                 <Row>
                   <Col>
-                    <a href={attraction.url} target="_blank">
+                    <a
+                      href={attraction.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Card.Img
                         className="card-image"
                         src={attraction.image_url}
@@ -55,6 +59,7 @@ export function ListAttractions() {
                               href={attraction.url}
                               target="_blank"
                               className="link-green"
+                              rel="noopener noreferrer"
                             >
                               {attraction.name}
                             </a>
