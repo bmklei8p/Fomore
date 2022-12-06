@@ -77,56 +77,56 @@ export function ListRestaurants() {
                     <input
                       name="name"
                       as="textarea"
-                      value={restaurant.name}
+                      value={restaurant.name ? restaurant.name : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="location"
                       as="textarea"
-                      value={restaurant.location}
+                      value={restaurant.location ? restaurant.location : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="date"
                       as="datetime"
-                      value={restaurant.date}
+                      value={restaurant.date ? restaurant.date : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="category"
                       as="textarea"
-                      value={restaurant.category}
+                      value={restaurant.category ? restaurant.category : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="rating"
                       as="textarea"
-                      value={restaurant.rating}
+                      value={restaurant.rating ? restaurant.rating : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="venue"
                       as="textarea"
-                      value={restaurant.venue}
+                      value={restaurant.venue ? restaurant.venue : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="address"
                       as="textarea"
-                      value={restaurant.address}
+                      value={restaurant.address ? restaurant.address : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="description"
                       as="textarea"
-                      value={restaurant.description}
+                      value={restaurant.description ? restaurant.description : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
