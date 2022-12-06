@@ -4,13 +4,14 @@ import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { useGetItinerariesQuery } from "../../app/itineraryApi";
+import { useGetTokenQuery } from "../../app/accountApi";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
-import ItinerarySelect from "../Itineraries/ItinerarySelect";
 
 const EventForm = () => {
   const [addEvent, { data }] = useAddEventMutation();
-
+  const { data: tokenData } = useGetTokenQuery();
+  const accountId = tokenData && tokenData.account && tokenData.account.id;
   const body = useGetItinerariesQuery();
   // this is a temporary placeholder for either a
   // redirect using useNavigate or a better looking success alert.
@@ -28,6 +29,8 @@ const EventForm = () => {
   if (body.isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
+
+  const itineraries = body.data.itineraries;
 
   return (
     <div>
@@ -52,7 +55,24 @@ const EventForm = () => {
                     <Form.Label>Select an Itinerary</Form.Label>
                   </Col>
                   <Col className="mb-3" sm={8}>
-                    <ItinerarySelect />
+                    <Form.Select name="itinerary">
+                      Itinerary
+                      <option>Itineraries</option>
+                      {itineraries
+                        .filter(
+                          (itinerary) => itinerary.account_id === accountId
+                        )
+                        .map((itinerary) => {
+                          return (
+                            <option
+                              key={itinerary.id}
+                              value={[itinerary.id, itinerary.location]}
+                            >
+                              {itinerary.name}
+                            </option>
+                          );
+                        })}
+                    </Form.Select>
                   </Col>
                 </Row>
                 <Row>
