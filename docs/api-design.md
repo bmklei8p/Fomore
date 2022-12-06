@@ -1,13 +1,14 @@
-### GET list of events (third party)
-Endpoint path: /events
-Endpoint method: GET
-Query parameters:
-	Q: location (city name) and dates (start_date & end_date)
-Headers:
-	{“Authorization”: API_KEY}
-Response: A list of events
-Response shape: {
-    "total": int,
+# API Design
+
+## GET list of events (third party)
+- **Path**: /events
+- **Method**: GET
+- **Query parameters**:
+  - location (city name) and dates (start_date & end_date)
+- **Headers**:
+	- {“Authorization”: API_KEY}
+- **Response shape**: 
+{"total": int,
     "events": [
         {
             "category": "food-and-drink",
@@ -27,12 +28,12 @@ Response shape: {
             "business_id": string
             }
     ]
-}
+}    
 
 
-### GET list of restaurants(third party)
-GET https://api.yelp.com/v3/businesses/search
-Endpoint path: /restaurants
+## GET list of restaurants(third party)
+- **GET** https://api.yelp.com/v3/businesses/search
+- **Path**: /restaurants
 Endpoint method: GET
 Query parameters:
 	Q: location and term(restaurants) and radius
