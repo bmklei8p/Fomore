@@ -8,6 +8,7 @@
 - **Headers**:
 	- {“Authorization”: API_KEY}
 - **Response shape**: 
+```
 {"total": int,
     "events": [
         {
@@ -29,7 +30,7 @@
             }
     ]
 }    
-
+```
 
 ## GET list of restaurants(third party)
 - **GET** https://api.yelp.com/v3/businesses/search
