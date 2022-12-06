@@ -39,13 +39,13 @@ export function ListAttractions() {
             <Container>
               <Row>
                 <Col>
-                  <Card.Img className="card-image" src={attraction.image_url} />
+                  <a href={attraction.url} target="_blank"><Card.Img className="card-image" src={attraction.image_url} /></a>
                 </Col>
                 <Col>
                   <Card.Body>
                     <Row>
                       <Col sm={10}>
-                        <Card.Title>{attraction.name}</Card.Title>
+                        <Card.Title><a href={attraction.url} target="_blank" className="link-green">{attraction.name}</a></Card.Title>
                       </Col>
                       {token
                     ? <Col sm={2}>

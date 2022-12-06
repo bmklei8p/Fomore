@@ -17,6 +17,7 @@ function ItinerarySelect() {
     id = changed.slice(0, 24);
     loc = changed.slice(25);
   }
+
   const dispatch = useDispatch();
   const { data, isLoading } = useGetItinerariesQuery();
 

@@ -36,13 +36,13 @@ export function ListRestaurants() {
             <Container>
               <Row>
                 <Col>
-                  <Card.Img className="card-image" src={restaurant.image_url} />
+                  <a href={restaurant.url} target="_blank"><Card.Img className="card-image" src={restaurant.image_url} /></a>
                 </Col>
                 <Col>
                   <Card.Body>
                     <Row>
                       <Col sm={10}>
-                        <Card.Title>{restaurant.name}</Card.Title>
+                        <Card.Title><a href={restaurant.url} target="_blank" className="link-green">{restaurant.name}</a></Card.Title>
                       </Col>
                       {token
                     ? <Col sm={2}>
@@ -77,56 +77,56 @@ export function ListRestaurants() {
                     <input
                       name="name"
                       as="textarea"
-                      value={restaurant.name}
+                      value={restaurant.name ? restaurant.name : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="location"
                       as="textarea"
-                      value={restaurant.location}
+                      value={restaurant.location ? restaurant.location : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="date"
                       as="datetime"
-                      value={restaurant.date}
+                      value={restaurant.date ? restaurant.date : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="category"
                       as="textarea"
-                      value={restaurant.category}
+                      value={restaurant.category ? restaurant.category : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="rating"
                       as="textarea"
-                      value={restaurant.rating}
+                      value={restaurant.rating ? restaurant.rating : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="venue"
                       as="textarea"
-                      value={restaurant.venue}
+                      value={restaurant.venue ? restaurant.venue : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="address"
                       as="textarea"
-                      value={restaurant.address}
+                      value={restaurant.address ? restaurant.address : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>
                     <input
                       name="description"
                       as="textarea"
-                      value={restaurant.description}
+                      value={restaurant.description ? restaurant.description : ''}
                       style={{ display: "none" }}
                       readOnly
                     ></input>

@@ -10,10 +10,10 @@
 
 ## Design
 
-[API Design](https://gitlab.com/patcerutti23/module3-project-gamma/-/blob/main/docs/api-design.md)
-[Data Models](url)
-[GHI](url)
-[3rd Party Integrations](url)
+- [API Design](https://gitlab.com/patcerutti23/module3-project-gamma/-/blob/front_end/docs/api-design.md)
+- [Data Models](url)
+- [GHI](url)
+- [3rd Party Integrations](url)
 
 ## Intended market
 

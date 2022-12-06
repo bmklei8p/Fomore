@@ -50,13 +50,13 @@ export function ListEvents() {
             <Container>
               <Row>
                 <Col>
-                  <Card.Img className="card-image" src={event.image_url} />
+                  <a href={event.url} target="_blank"><Card.Img className="card-image" src={event.image_url} /></a>
                 </Col>
                 <Col>
                   <Card.Body>
                     <Row>
                       <Col sm={10}>
-                        <Card.Title>{event.name}</Card.Title>
+                        <Card.Title><a href={event.url} target="_blank" className="link-green">{event.name}</a></Card.Title>
                       </Col>
                   {token
                     ? <Col sm={2}>
