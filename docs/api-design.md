@@ -2,7 +2,7 @@
 
 ### GET list of events (third party)
 - **Path**: /events
-- **Method**: GET
+- **Method**: Get
 - **Query parameters**:
   ```
   {
@@ -13,8 +13,8 @@
         "radius": 5000,
   }
   ```
-- **Headers**: {“Authorization”: YelP_API_KEY}
-- **Response shape**: 
+- **Headers**: {“Authorization”: YElP_API_KEY}
+- Response shape: 
 ```
 {"total": int,
     "events": [
@@ -36,7 +36,7 @@
 ### GET list of restaurants(third party)
 - **GET** https://api.yelp.com/v3/businesses/search
 - **Path**: /restaurant_search/
-- **Method**: GET
+- **Method**: Get
 - **Query parameters**:
 ```
   {
@@ -48,7 +48,7 @@
   }
 ```
 - **Headers**: {“Authorization”: YELP_API_KEY}
-- **Response shape**:
+- Response shape:
 ```
   [{
         "name": restaurant["name"],
@@ -68,7 +68,7 @@
 ### GET list of Attractions (third party)
 - GET https://api.yelp.com/v3/businesses/search
 - **Path**: /attraction_search/
-- **Method**: GET
+- **Method**: Get
 - **Query parameters**:
 ```
 {
@@ -80,7 +80,7 @@
 }
 ```
 - **Headers**: {“Authorization”: YELP_API_KEY}
-- **Response shape**:
+- Response shape:
 ```
 [{
         "name": attraction["name"],
@@ -99,8 +99,7 @@
 ### Accounts
 - **Paths**: /api/accounts
 - **Method**: Get
-- **Request shape**: 
-Post:
+Request shape: 
 ```
 {
   email: str
@@ -110,9 +109,9 @@ Post:
 ```
 ### Log in/Log out
 - **Path**: /token
-- **Method**: POST, Delete
+- **Method**: Post, Delete
 - **Headers**: {"WWW-Authenticate": "Bearer"}
-- **Request shape Get**:
+Request shape Get:
 ```
 {  
   username: string
@@ -120,14 +119,14 @@ Post:
 }
 ```
 - Response: Account information and a token
-- Response shape Get (JSON):
+Response shape Get (JSON):
 ```
 {
   "access_token": "string",
   "token_type": "Bearer"
 }
 ```
-- **Request shape Delete**:
+Request shape Delete:
 ```
 {
   fastapi_token: string
@@ -141,8 +140,8 @@ Response shape Delete:
 ```
 
 ### Itineraries
-- **Path**: /itineraries
-- **Method**: GET
+- **Path**: /api/itineraries
+- **Method**: Get
 - **Headers**: {"WWW-Authenticate": "Bearer"}
 - **Response shape**:
 ```
@@ -190,7 +189,7 @@ Response body:
 
 ## GET Detail of Itinerary
 - **Path**: /api/itineraries/{itinerary_id}
-- **Method**: GET Detail
+- **Method**: Get Detail
 - **Headers**: {"WWW-Authenticate": "Bearer"}
 Request shape:
 ```
