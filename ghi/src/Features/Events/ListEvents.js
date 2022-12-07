@@ -9,7 +9,7 @@ import Form from "react-bootstrap/Form";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
 import { useGetTokenQuery } from "../../app/accountApi";
-import logo from "../../media/fomore-dark.png";
+import logo from "../../media/fomore-card.png";
 
 export function ListEvents() {
   const search = useSelector((state) => state.search);
