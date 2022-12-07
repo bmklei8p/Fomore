@@ -22,14 +22,11 @@ function ItinerarySelect() {
   const { data, isLoading } = useGetItinerariesQuery();
 
   useEffect(() => {
-    function disp() {
-      const actionId = updateItinerary({ itineraryId: id });
-      dispatch(actionId);
-      const actionLocation = updateSearch({ location: loc });
-      dispatch(actionLocation);
-    }
-    disp();
-  });
+    const actionId = updateItinerary({ itineraryId: id });
+    dispatch(actionId);
+    const actionLocation = updateSearch({ location: loc });
+    dispatch(actionLocation);
+  }, [id, loc, dispatch, changed]);
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -46,7 +43,7 @@ function ItinerarySelect() {
               <option
                 value={[itinerary.id, itinerary.location]}
                 href={itinerary.location}
-                key={itinerary.id}
+                key={itinerary.name}
               >
                 {itinerary.name}
               </option>

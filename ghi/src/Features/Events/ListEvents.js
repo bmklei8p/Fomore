@@ -9,6 +9,7 @@ import Form from "react-bootstrap/Form";
 import { useAddEventMutation } from "../../app/eventApi";
 import { preventDefault } from "../../app/utils";
 import { useGetTokenQuery } from "../../app/accountApi";
+import logo from "../../media/fomore-dark.png";
 
 export function ListEvents() {
   const search = useSelector((state) => state.search);
@@ -26,7 +27,7 @@ export function ListEvents() {
       <p>
         No events to display for this time period. Please try another time or
         city.
-      </p> //if you want to build something here to be pretty go ahead.
+      </p>
     );
   }
 
@@ -38,7 +39,7 @@ export function ListEvents() {
             className="item-border"
             border="light"
             style={{ width: "50rem" }}
-            key={event.image_url}
+            key={event.url}
           >
             <Form
               className="register-form"
@@ -53,7 +54,10 @@ export function ListEvents() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Card.Img className="card-image" src={event.image_url} />
+                      <Card.Img
+                        className="card-image"
+                        src={event.image_url ? event.image_url : logo}
+                      />
                     </a>
                   </Col>
                   <Col>
