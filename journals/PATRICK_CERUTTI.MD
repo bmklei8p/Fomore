@@ -1,3 +1,24 @@
+12/06/22
+
+- Working on adding images to a md file using markdown language. Needed to add a folder with the images so the gitlab repo would have access to when I call the images in the markdown file.
+- also figured out how to use markdown language to generally clean up our api design file to give it a more organized look
+
+12/05/22
+
+- Learned the improved integration with react-boostrap and vanilla bootstrap to dynamically change which one I could use to customize the look of our website.
+
+12/03/22
+
+- This took me some time to understand, but learned how to use useSearchParams from react-router-dom to carry over state from one page to the next so it will autofill input boxes for the user when landing on the page.
+
+12/01/22
+
+- Created a redirect button using Link from react-router mainly looked in the docs to figure this out and was able to get it working. Understanding how to use the docs better and format those directions to work for my needs.
+
+11/30/22
+
+- Learned what a key props error means and how to easily fix it after mapping data within react
+
 11/22/22
 
 - Continued working the group in front end on creating our searchEvent and searchRestaurant pages that will be referenced on the page using tabs
