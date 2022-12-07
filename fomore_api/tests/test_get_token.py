@@ -6,6 +6,7 @@ from main import app
 
 client = TestClient(app)
 
+
 def test_get_token_returns_none_for_user_not_logged_in():
     account = {
         "id": "123",
