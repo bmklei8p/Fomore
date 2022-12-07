@@ -6,7 +6,8 @@ from fastapi.testclient import TestClient
 from queries.events import EventQueries
 
 
-client = TestClient(app) # replacing swagger in code
+client = TestClient(app)
+
 
 class EventQueriesMock:
     def get_all(self):
@@ -46,6 +47,7 @@ def test_get_events():
 
     # cleanup
     app.dependency_overrides = {}
+
 
 def test_create_event():
     # arrange

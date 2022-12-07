@@ -14,7 +14,7 @@ class PydanticObjectId(ObjectId):
         if value:
             try:
                 ObjectId(value)
-            except:
+            except ValueError:
                 raise ValueError(f"Not a valid object id: {value}")
         return value
 
@@ -41,11 +41,11 @@ class AccountOut(BaseModel):
 
 
 class ItineraryIn(BaseModel):
-   name: str
-   start_date: datetime
-   end_date: datetime
-   location: str
-   account_id: str
+    name: str
+    start_date: datetime
+    end_date: datetime
+    location: str
+    account_id: str
 
 
 class Itinerary(ItineraryIn):
@@ -58,6 +58,7 @@ class ItineraryOut(ItineraryIn):
 
 class ItineraryList(BaseModel):
     itineraries: List[ItineraryOut]
+
 
 class EventIn(BaseModel):
     name: str
@@ -72,12 +73,14 @@ class EventIn(BaseModel):
     image_url: Optional[str]
     url: Optional[str]
 
+
 class Event(EventIn):
     id: PydanticObjectId
 
 
 class EventOut(EventIn):
     id: str
+
 
 class EventList(BaseModel):
     events: List[EventOut]

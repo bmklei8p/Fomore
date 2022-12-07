@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from models import AccountOut, ItineraryIn, ItineraryList, ItineraryOut
+from models import ItineraryIn, ItineraryList, ItineraryOut
 from queries.itineraries import ItineraryQueries
 from routers.sockets import socket_manager
-from .auth import authenticator
 
 router = APIRouter()
 
@@ -17,10 +16,7 @@ not_authorized = HTTPException(
 async def create_itinerary(
     itinerary: ItineraryIn,
     repo: ItineraryQueries = Depends(),
-    #account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    #account = AccountOut(**account_data)
-    #setattr(itinerary, "account_id", account.id)
     itinerary = repo.create(itinerary)
     await socket_manager.broadcast_refetch()
     return itinerary
@@ -29,7 +25,6 @@ async def create_itinerary(
 @router.get("/itineraries", response_model=ItineraryList)
 def get_itineraries(repo: ItineraryQueries = Depends()):
     return ItineraryList(itineraries=repo.get_all())
-
 
 
 @router.get("/itineraries/{itinerary_id}", response_model=ItineraryOut)

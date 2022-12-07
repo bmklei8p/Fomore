@@ -6,7 +6,8 @@ from fastapi.testclient import TestClient
 from queries.itineraries import ItineraryQueries
 
 
-client = TestClient(app) # replacing swagger in code
+client = TestClient(app)
+
 
 class ItineraryQueriesMock:
     def get_all(self):
@@ -40,6 +41,7 @@ def test_get_itineraries():
 
     # cleanup
     app.dependency_overrides = {}
+
 
 def test_create_itinerary():
     # arrange

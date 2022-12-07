@@ -2,7 +2,6 @@ from fastapi import APIRouter, HTTPException, status
 from datetime import datetime
 import requests
 import os
-import copy
 
 YELP_API_KEY = os.environ["YELP_API_KEY"]
 

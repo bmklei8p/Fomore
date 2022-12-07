@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from models import  EventIn, EventOut, EventList
+from models import EventIn, EventOut, EventList
 from queries.events import EventQueries
 from routers.sockets import socket_manager
-from .auth import authenticator
 
 router = APIRouter()
 
@@ -26,16 +25,6 @@ async def create_event(
 @router.get("/events", response_model=EventList)
 def get_events(repo: EventQueries = Depends()):
     return EventList(events=repo.get_all())
-
-
-
-# @router.get("/events/{event_id}", response_model=EventOut)
-# def get_event(
-#     event_id: str,
-#     repo: EventQueries = Depends(),
-#     ):
-#     event = repo.get_one(event_id)
-#     return event
 
 
 @router.delete("/events/{event_id}", response_model=bool)
