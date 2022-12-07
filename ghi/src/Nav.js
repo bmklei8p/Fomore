@@ -43,7 +43,7 @@ function LogoutButton() {
     const actionId = updateItinerary({ itineraryId: "" });
     dispatch(actionId);
     if (data) {
-      navigate("/");
+      navigate('/module3-project-gamma/');
     }
   });
 
