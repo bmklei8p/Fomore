@@ -45,7 +45,7 @@ function LogoutButton() {
     if (data) {
       navigate("/");
     }
-  }, [data, navigate]);
+  });
 
   return (
     <div className="buttons">

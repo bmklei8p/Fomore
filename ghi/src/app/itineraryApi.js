@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-
 export const itineraryApi = createApi({
   reducerPath: "itineraries",
   baseQuery: fetchBaseQuery({
@@ -26,7 +25,6 @@ export const itineraryApi = createApi({
         }, {});
         data["start_date"] = data.start_date + "T00:00:00.000Z";
         data["end_date"] = data.end_date + "T00:00:00.000Z";
-        data["account_id"] = data.account_id
         return {
           method: "post",
           url: `/api/itineraries`,

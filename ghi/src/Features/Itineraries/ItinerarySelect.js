@@ -22,11 +22,14 @@ function ItinerarySelect() {
   const { data, isLoading } = useGetItinerariesQuery();
 
   useEffect(() => {
-    const actionId = updateItinerary({ itineraryId: id });
-    dispatch(actionId);
-    const actionLocation = updateSearch({ location: loc });
-    dispatch(actionLocation);
-  }, [changed]);
+    function disp() {
+      const actionId = updateItinerary({ itineraryId: id });
+      dispatch(actionId);
+      const actionLocation = updateSearch({ location: loc });
+      dispatch(actionLocation);
+    }
+    disp();
+  });
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
