@@ -21,6 +21,7 @@ from models import (
     AccountOut,
 )
 
+
 class AccountForm(BaseModel):
     username: str
     password: str
