@@ -56,7 +56,7 @@ export const itineraryApi = createApi({
         const itineraryId = data["itinerary"];
         return {
           method: "put",
-          url: `/api/itineraries/${itineraryId}`, //this will have to be updated later to intineraries
+          url: `/api/itineraries/${itineraryId}`,
           credentials: "include",
           body: data,
         };

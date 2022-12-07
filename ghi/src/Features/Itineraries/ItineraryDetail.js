@@ -19,7 +19,6 @@ function ItineraryDetail() {
       {data.events
         .filter((event) => event.itinerary_id === initialid)
         .map((event) => {
-          console.log(data);
           return (
             <Card
               className="item-border"

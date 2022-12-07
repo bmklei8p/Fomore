@@ -78,7 +78,6 @@ export const eventApi = createApi({
         data["category"] = "custom";
         data["rating"] = "N/A";
         const eventId = data["id"];
-        console.log(data);
         return {
           method: "put",
           url: `/api/events/${eventId}`,

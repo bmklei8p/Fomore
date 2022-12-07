@@ -16,7 +16,6 @@ const UpdateItineraryForm = () => {
 
   const [searchParams] = useSearchParams();
   const initialid = searchParams.get("initialid");
-  console.log(initialid);
   const [activeid] = useState(initialid);
 
   if (data) {
@@ -106,6 +105,13 @@ const UpdateItineraryForm = () => {
                     />
                   </Col>
                 </Row>
+                <input
+                  name="itinerary"
+                  as="textarea"
+                  value={activeItinerary.id}
+                  style={{ display: "none" }}
+                  readOnly
+                ></input>
                 <div className="control">
                   <button
                     style={{ float: "right" }}
