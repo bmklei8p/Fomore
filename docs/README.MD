@@ -11,9 +11,9 @@
 ## Design
 
 - [API Design](https://gitlab.com/patcerutti23/module3-project-gamma/-/blob/front_end/docs/api-design.md)
-- [Data Models](url)
-- [GHI](url)
-- [3rd Party Integrations](url)
+- [Data Models](https://gitlab.com/patcerutti23/module3-project-gamma/-/blob/front_end/docs/data_model.md)
+- [GHI](https://gitlab.com/patcerutti23/module3-project-gamma/-/blob/front_end/docs/ghi.md)
+- 3rd party integrations from Yelp API
 
 ## Intended market
 
