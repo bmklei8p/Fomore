@@ -1,7 +1,5 @@
 from fastapi.testclient import TestClient
 from routers.auth import authenticator
-import sys
-sys.path.append('.')
 from main import app
 
 client = TestClient(app)

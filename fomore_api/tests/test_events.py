@@ -1,6 +1,4 @@
 import json
-import sys
-sys.path.append('.')
 from fastapi.testclient import TestClient
 from queries.events import EventQueries
 from main import app
