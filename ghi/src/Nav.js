@@ -76,9 +76,9 @@ function FomoreNav() {
               <Nav.Link href="/">Home</Nav.Link>
               {token ? (
                 <>
-                  <Nav.Link href="/ItineraryForm">Create Itinerary</Nav.Link>
-                  <Nav.Link href="/EventForm">Create Event</Nav.Link>
-                  <Nav.Link href="/Itineraries">My Itineraries</Nav.Link>
+                  <Nav.Link href="/module3-project-gamma/ItineraryForm">Create Itinerary</Nav.Link>
+                  <Nav.Link href="/module3-project-gamma/EventForm">Create Event</Nav.Link>
+                  <Nav.Link href="/module3-project-gamma/Itineraries">My Itineraries</Nav.Link>
                 </>
               ) : (
                 <p className="d-none"></p>

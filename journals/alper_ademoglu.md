@@ -1,7 +1,30 @@
+## 12/12/22
+- Project complete, ready for presentation.
+
+## 12/9/22
+- Merged main and updated the code, getting ready for final deployment.
+- Updates to code for code cleanliness.
+
+## 12/8/22
+- Minor changes to frontend code. Itineraries don't show events when logged out.
+- Merged code between front_end and development branches.
+
+## 12/7/22
+- Worked on Readme file and update wireframe.
+- Minor changes to frontend code to fix bugs.
+- Ran lint tests.
+
+## 12/6/22
+- Cleaned up code and removed unused variables to pass Gitlab CI/CD pipeline tests.
+- Worked on unit tests. Set up test_get_events (refer to test_events.py under fomore_api/tests)
+
+## 12/5/22
+- Registered account on Atlas website and set up a free Mongo database.
+- Signed up to Render.com and worked on deploying Fast API on Render.com.
+
 ## 12/2/22
 - Account slice and endpoints are complete. Signup, signin and signout are functional.
 - Started reviewing deployment and CI/CD.
--
 
 ## 12/1/22
 - Updated itinerary list component to re-render when events are added.
