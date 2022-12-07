@@ -1,10 +1,9 @@
 import json
 import sys
-sys.path.append('.')
 from main import app
 from fastapi.testclient import TestClient
 from queries.events import EventQueries
-
+sys.path.append('.')
 
 client = TestClient(app)
 
@@ -33,24 +32,17 @@ class EventQueriesMock:
 
 
 def test_get_events():
-    # arrange
     app.dependency_overrides[EventQueries] = EventQueriesMock
 
-    # act
     response = client.get('/api/events')
 
-    # assert
-    # 1. get a 200
     assert response.status_code == 200
-    # 2. should *call* queries.get_trucks()
     assert response.json() == {"events": []}
 
-    # cleanup
     app.dependency_overrides = {}
 
 
 def test_create_event():
-    # arrange
     app.dependency_overrides[EventQueries] = EventQueriesMock
     event = {
         "name": "Taylor Swift Concert",
@@ -66,9 +58,7 @@ def test_create_event():
         "url": "string"
         }
 
-    # Act
     response = client.post('/api/events', json.dumps(event))
 
-    # Assert
     assert response.status_code == 200
     assert response.json()['name'] == 'Taylor Swift Concert'

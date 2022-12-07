@@ -27,24 +27,17 @@ class ItineraryQueriesMock:
 
 
 def test_get_itineraries():
-    # arrange
     app.dependency_overrides[ItineraryQueries] = ItineraryQueriesMock
 
-    # act
     response = client.get('/api/itineraries')
 
-    # assert
-    # 1. get a 200
     assert response.status_code == 200
-    # 2. should *call* queries.get_trucks()
     assert response.json() == {"itineraries": []}
 
-    # cleanup
     app.dependency_overrides = {}
 
 
 def test_create_itinerary():
-    # arrange
     app.dependency_overrides[ItineraryQueries] = ItineraryQueriesMock
     itinerary = {
             "name": "New York Reunion",
@@ -54,9 +47,7 @@ def test_create_itinerary():
             "account_id": "637d311042e7b5cab655ce80"
             }
 
-    # Act
     response = client.post('/api/itineraries', json.dumps(itinerary))
 
-    # Assert
     assert response.status_code == 200
     assert response.json()['name'] == 'New York Reunion'

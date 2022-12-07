@@ -1,8 +1,9 @@
 from fastapi.testclient import TestClient
 from routers.auth import authenticator
 import sys
-sys.path.append('.')
 from main import app
+sys.path.append('.')
+
 
 client = TestClient(app)
 
@@ -12,7 +13,7 @@ def test_get_token_returns_none_for_user_not_logged_in():
     response = client.get("/token")
     app.dependency_overrides = {}
     assert response.status_code == 200
-    assert response.json() == None
+    assert response.json() is None
 
 
 def test_get_token_returns_none_for_user_not_logged_in():
