@@ -63,7 +63,7 @@ function FomoreNav() {
     <>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <NavLink href="/module3-project-gamma/" className="nav-logo">
+          <NavLink href="/" className="nav-logo">
             <img alt="logo" src={logo}></img>
           </NavLink>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -73,7 +73,7 @@ function FomoreNav() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/module3-project-gamma/">Home</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
               {token ? (
                 <>
                   <Nav.Link href="/module3-project-gamma/ItineraryForm">Create Itinerary</Nav.Link>
