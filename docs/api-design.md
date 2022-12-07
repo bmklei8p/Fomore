@@ -1,367 +1,374 @@
+# API Design
+
 ### GET list of events (third party)
-Endpoint path: /events
-Endpoint method: GET
-Query parameters:
-	Q: location (city name) and dates (start_date & end_date)
-Headers:
-	{“Authorization”: API_KEY}
-Response: A list of events
-Response shape: {
-    "total": int,
+- **Path**: /events
+- **Method**: Get
+- **Query parameters**:
+  ```
+  {
+        "location": location,
+        "start_date": date_epoch,
+        "sort_on": "popularity",
+        "limit": 5,
+        "radius": 5000,
+  }
+  ```
+- **Headers**: {“Authorization”: YElP_API_KEY}
+- Response shape: 
+```
+{"total": int,
     "events": [
         {
-            "category": "food-and-drink",
-            "cost": null,
-            "cost_max": null,
-            "description": string
-            "Event_site_url": string
-            "id": string
-            "Image_url": string
-            "latitude": int
-            "longitude": int
-            "name": string
-            "Tickets_url": string
-            "time_end": int
-            "time_start": int
-            "location": string
-            "business_id": string
-            }
+            "name": event["name"],
+        "date": date,
+        "location": event["location"]["city"],
+        "category": "event",
+        "venue": event["business_id"],
+        "description":event["description"],
+        "itinerary_id": itinerary_id,
+        "image_url": event["image_url"],
+        "url": event["event_site_url"]
+        }
     ]
-}
-
+}    
+```
 
 ### GET list of restaurants(third party)
-GET https://api.yelp.com/v3/businesses/search
-Endpoint path: /restaurants
-Endpoint method: GET
-Query parameters:
-	Q: location and term(restaurants) and radius
-Headers:
-	{“Authorization”: API_KEY}
-Response: A list of events
-Response shape:
-  "total": 8228,
-  "businesses": [
-    {
-      "rating": 4,
-      "price": "$",
-      "phone": "+14152520800",
-      "id": "E8RJkjfdcwgtyoPMjQ_Olg",
-      "alias": "four-barrel-coffee-san-francisco",
-      "is_closed": false,
-      "categories": [
-        {
-          "alias": "coffee",
-          "title": "Coffee & Tea"
-        }
-      ],
-      "review_count": 1738,
-      "name": "Four Barrel Coffee",
-      "url": "https://www.yelp.com/biz/four-barrel-coffee-san-francisco",
-      "coordinates": {
-        "latitude": 37.7670169511878,
-        "longitude": -122.42184275
-      },
-      "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/MmgtASP3l_t4tPCL1iAsCg/o.jpg",
-      "location": {
-        "city": "San Francisco",
-        "country": "US",
-        "address2": "",
-        "address3": "",
-        "state": "CA",
-        "address1": "375 Valencia St",
-        "zip_code": "94103"
-      },
-      "distance": 1604.23,
-      "transactions": ["pickup", "delivery"]
-    },
-    // ...
-  ],
-  "region": {
-    "center": {
-      "latitude": 37.767413217936834,
-      "longitude": -122.42820739746094
-    }
+- **GET** https://api.yelp.com/v3/businesses/search
+- **Path**: /restaurant_search/
+- **Method**: Get
+- **Query parameters**:
+```
+  {
+        "term": 'restaurant',
+        "location": location,
+        "radius": 5000,
+        "sort_by": "rating",
+        "limit": 5,
   }
+```
+- **Headers**: {“Authorization”: YELP_API_KEY}
+- Response shape:
+```
+  [{
+        "name": restaurant["name"],
+        "date": date,
+        "location": restaurant["location"]["city"],
+        "category": "resturant",
+        "address": restaurant["location"]["address1"],
+        "rating": restaurant["rating"],
+        "venue": "N/A",
+        "description":restaurant["categories"][0]["title"],
+        "itinerary_id": itinerary_id,
+        "image_url": restaurant["image_url"],
+        "url": restaurant["url"]
+  }]
+```
+
+### GET list of Attractions (third party)
+- GET https://api.yelp.com/v3/businesses/search
+- **Path**: /attraction_search/
+- **Method**: Get
+- **Query parameters**:
+```
+{
+        "term": 'tourist%attractions',
+        "location": location,
+        "radius": 5000,
+        "sort_by": "rating",
+        "limit": 5,
 }
-
-### GET list of point of interest(third party)
-GET https://api.yelp.com/v3/businesses/search
-Endpoint path: /points_of_interest
-Endpoint method: GET
-Query parameters:
-	Q: location (latitude & longitude) and term(tourist%attraction) and radius
-Headers:
-	{“Authorization”: API_KEY}
-Response: A list of points of interest
-Response shape:
-  "total": 8228,
-  "businesses": [
-    {
-      "rating": 4,
-      "price": "$",
-      "phone": "+14152520800",
-      "id": "E8RJkjfdcwgtyoPMjQ_Olg",
-      "alias": "four-barrel-coffee-san-francisco",
-      "is_closed": false,
-      "categories": [
-        {
-          "alias": "coffee",
-          "title": "Coffee & Tea"
-        }
-      ],
-      "review_count": 1738,
-      "name": "Four Barrel Coffee",
-      "url": "https://www.yelp.com/biz/four-barrel-coffee-san-francisco",
-      "coordinates": {
-        "latitude": 37.7670169511878,
-        "longitude": -122.42184275
-      },
-      "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/MmgtASP3l_t4tPCL1iAsCg/o.jpg",
-      "location": {
-        "city": "San Francisco",
-        "country": "US",
-        "address2": "",
-        "address3": "",
-        "state": "CA",
-        "address1": "375 Valencia St",
-        "zip_code": "94103"
-      },
-      "distance": 1604.23,
-      "transactions": ["pickup", "delivery"]
-    },
-    // ...
-  ],
-  "region": {
-    "center": {
-      "latitude": 37.767413217936834,
-      "longitude": -122.42820739746094
-    }
-  }
+```
+- **Headers**: {“Authorization”: YELP_API_KEY}
+- Response shape:
+```
+[{
+        "name": attraction["name"],
+        "date": date,
+        "location": attraction["location"]["city"],
+        "category": "attraction",
+        "venue": "N/A",
+        "rating": "N/A",
+        "address": "N/A",
+        "description":attraction["categories"][0]["title"],
+        "itinerary_id": itinerary_id,
+        "image_url": attraction["image_url"],
+        "url": attraction["url"]
+}]
+```
+### Accounts
+- **Paths**: /api/accounts
+- **Method**: Get
+Request shape: 
+```
+{
+  email: str
+  password: str
+  full_name: str
 }
-
+```
+### Log in/Log out
+- **Path**: /token
+- **Method**: Post, Delete
+- **Headers**: {"WWW-Authenticate": "Bearer"}
+Request shape Get:
+```
+{  
+  username: string
+  password: string
 }
+```
+- Response: Account information and a token
+Response shape Get (JSON):
+```
+{
+  "access_token": "string",
+  "token_type": "Bearer"
+}
+```
+Request shape Delete:
+```
+{
+  fastapi_token: string
+}
+```
+Response shape Delete:
+```
+{
+  true
+}
+```
 
-### Log in
-* Endpoint path: /token
-* Endpoint method: POST
-
-* Request shape (form):
-  * username: string
-  * password: string
-
-* Response: Account information and a token
-* Response shape (JSON):
-    ```json
+### Itineraries
+- **Path**: /api/itineraries
+- **Method**: Get
+- **Headers**: {"WWW-Authenticate": "Bearer"}
+- **Response shape**:
+```
+{
+  "itineraries": [
     {
-      "account": {
-        «key»: type»,
-      },
-      "token": string
+      "name": "string",
+      "start_date": "2022-12-06T22:52:20.672Z",
+      "end_date": "2022-12-06T22:52:20.672Z",
+      "location": "string",
+      "account_id": "string",
+      "id": "string"
     }
-    ```
-
-### Log out
-* Endpoint path: /token
-* Endpoint method: DELETE
-
-* Headers:
-  * Authorization: Bearer token
-
-* Response: Always true
-* Response shape (JSON):
-    ```json
-    true
-    ```
-
-### GET list of Itineraries
-Endpoint path: /api/itineraries/
-Endpoint method: GET
-Headers:
-  Authorization: Bearer token
-Response: A list of all itineraries for a user
-Response shape:
-    ```json
-    {
-      "itineraries": [
-        {"name": string,
-         "start_date": string
-         "end_date": string
-	   “image”: url
-        }
-      ]
-    }
-    ```
+  ]
+}
+```
 
 
-## POST itinerary
-Endpoint path: /api/itineraries/
-Endpoint method: POST
-Headers:
-  Authorization: Bearer token
+### POST itinerary
+- **Path**: /api/itineraries/
+- **Method**: Post
+- **Headers**: {"WWW-Authenticate": "Bearer"}
 Request body:
-    ```json
-        {"name": string,
-         "start_date": string
-         "end_date": string
-	   “image”: string url
-   “Address”: string
-   “Events”: []
-        }
-    }
-Response: the new itinerary instance
+```
+{
+  "name": "string",
+  "start_date": "2022-12-06T22:53:44.083Z",
+  "end_date": "2022-12-06T22:53:44.083Z",
+  "location": "string",
+  "account_id": "string"
+}
+```
 Response body:
-	```json
-        {"name": string
-         "start_date": string
-         "end_date": string
-	     “image”: string url
-         “Address”: string
-         “Events”: []
-        }
-    }
+```
+{
+  "name": "string",
+  "start_date": "2022-12-06T22:53:44.088Z",
+  "end_date": "2022-12-06T22:53:44.088Z",
+  "location": "string",
+  "account_id": "string",
+  "id": "string"
+}
 ```
 
 
 ## GET Detail of Itinerary
-Endpoint path: /api/itineraries/{itinerary_id}
-Endpoint method: GET Detail
-Headers:
-  Authorization: Bearer token
-Response: Details of a specific itinerary
+- **Path**: /api/itineraries/{itinerary_id}
+- **Method**: Get Detail
+- **Headers**: {"WWW-Authenticate": "Bearer"}
+Request shape:
+```
+{
+  itinerary_id: string
+}
+```
 Response shape:
-    ```json
-    {
-      "itineraries": [
-        {"name": string,
-         "start_date": string
-         "start_date": string
-	   “image”: string url
-   “Address”: string
-   “Events”: [list of events],
-
-        }
-      ]
-    }
+```
+{
+  "name": "string",
+  "start_date": "2022-12-06T22:54:30.885Z",
+  "end_date": "2022-12-06T22:54:30.885Z",
+  "location": "string",
+  "account_id": "string",
+  "id": "string"
+}
 ```
 
 
 ### Delete Itinerary
-Endpoint path: /itineraries/{itinerary_id}
-Endpoint method: DELETE
-Headers:
-  Authorization: Bearer token
-Response: Delete an itinerary
+- **Path**: /itineraries/{itinerary_id}
+- **Method**: Delete, Put
+- **Headers**: {"WWW-Authenticate": "Bearer"}
+Request shape:
+```
+{
+  itinerary_id: string
+}
+```
 Response shape:
-    ```json
-    {“Deleted”: bool
-    }
-Endpoint path: /itineraries/{itinerary_id}
-Endpoint method: PUT
-Headers:
-  Authorization: Bearer token
-Response: Update an itinerary
+```
+{
+  Deleted: bool
+}
+```
+- **Method**: Put
+Request shape:
+```
+{
+  itinerary_id: string
+}
+```
 Response shape:
-    ```json
-    {
-   "name": string,
-         "start_date": string
-         "end_date": string
-	   “image”: string url
-   “Address”: string
-   “Events”: []
-        }
+```
+{
+  "name": "string",
+  "start_date": "2022-12-06T22:56:00.731Z",
+  "end_date": "2022-12-06T22:56:00.731Z",
+  "location": "string",
+  "account_id": "string",
+  "id": "string"
+}
 ```
 
 
 ### User Created Events
-Endpoint path: /api/events/
-Endpoint method: POST
-Headers:
-	Authorization: Bearer Token
-Response: create a new event
+- **Path**: /events/
+- **Method**: Post
+- **Headers**: {"WWW-Authenticate": "Bearer"}
 Request Body:
-```json
-    {
- “itinerary”: int,
- “name”: string,
- “date”: string,
- “location”: string,
- “description”: string
-    }
+```
+{
+  "name": "string",
+  "date": "2022-12-06T22:59:57.083Z",
+  "location": "string",
+  "category": "string",
+  "venue": "string",
+  "rating": "string",
+  "address": "string",
+  "description": "string",
+  "itinerary_id": "string",
+  "image_url": "string",
+  "url": "string"
+}
+```
+Response body:
+```
+{
+  "name": "string",
+  "date": "2022-12-06T22:59:57.088Z",
+  "location": "string",
+  "category": "string",
+  "venue": "string",
+  "rating": "string",
+  "address": "string",
+  "description": "string",
+  "itinerary_id": "string",
+  "image_url": "string",
+  "url": "string",
+  "id": "string"
+}
 ```
 
 
 ### GET list of created events by user
-Endpoint path: /api/events
-Endpoint method: GET
-Headers:
-	Authorization: Bearer Token
-Response: a list of created events by the user
+- **Path**: /api/events
+- **Method**: GET
+- **Headers**: {"WWW-Authenticate": "Bearer"}
 Response Shape:
-```json
+```
+"events": [
+  {
+    "name": "taylor swift concert $28000",
+    "date": "2022-11-18T00:00:00+00:00",
+    "location": "string",
+    "category": "event",
+    "venue": "string",
+    "rating": "N/A",
+    "address": "N/A",
+    "description": "too expensive",
+    "itinerary_id": "63755aa26282cfade5af40f9",
+    "image_url": "https://media.npr.org/assets/img/2022/11/21/gettyimages-484816706-8838823b36e61ecf9459debab7c14d769ab83205-s800-c85.webp",
+    "url": null,
+    "id": "638a3473307cf7441ffb2ec0"
+  }
+```
+
+### update or delete an event
+- **Path**: /api/events/{event_id}
+- **Method**: Put, Delete
+- **Headers**: {"WWW-Authenticate": "Bearer"}
+Request shape:
+```
 {
-  “events”: [
+  "name": "string",
+  "date": "2022-12-06T22:59:57.083Z",
+  "location": "string",
+  "category": "string",
+  "venue": "string",
+  "rating": "string",
+  "address": "string",
+  "description": "string",
+  "itinerary_id": "string",
+  "image_url": "string",
+  "url": "string"
+}
+```
+Response Shape:
+
+```
 {
- “id”: int,
- “name”: string,
- “date”: string,
- “location”: string,
- }
-]
-   }
+  "name": "string",
+  "date": "2022-12-06T23:02:51.932Z",
+  "location": "string",
+  "category": "string",
+  "venue": "string",
+  "rating": "string",
+  "address": "string",
+  "description": "string",
+  "itinerary_id": "string",
+  "image_url": "string",
+  "url": "string",
+  "id": "string"
+}
 ```
-
-### GET detail of user event
-Endpoint path: /api/event/{id}
-Endpoint method: GET Detail
-Headers:
-	Authorization: Bearer Token
-Response: details of a created event
-Response Shape:
-
-```json
-    {
-	 “id”: int,
- “itinerary: string,
- “name”: string,
- “date”: string,
- “location”: string,
- “description”: string
-    }
+**Method**: Put
+Request body:
 ```
-
-
-### PUT update an event
-Endpoint path: /api/event/{id}
-Endpoint method: PUT
-Headers:
-	Authorization: Bearer Token
-Response: update an event
-Response Shape:
-
-```json
-    {
-	 “id”: int,
- “itinerary: string,
- “name”: string,
- “date”: string,
- “location”: string,
- “description”: string
-    }
+{
+  event_id: string
+}
+```
+Response body:
+```
+{
+  "name": "string",
+  "date": "2022-12-06T23:10:03.115Z",
+  "location": "string",
+  "category": "string",
+  "venue": "string",
+  "rating": "string",
+  "address": "string",
+  "description": "string",
+  "itinerary_id": "string",
+  "image_url": "string",
+  "url": "string",
+  "id": "string"
+}
 ```
 
 
-### DELETE created event
-Endpoint path: /api/event/{id}
-Endpoint method: DELETE
-
-Headers:
-  Authorization: Bearer token
-
-Response: Delete a created event
-Response shape:
-    ```json
-    {
-“Deleted”: bool
-    }

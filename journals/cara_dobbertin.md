@@ -1,3 +1,6 @@
+## 12/6/22
+- working on unit tests and proper structure for each test
+
 ## 12/5/22
 - reviewed deployment and discussed organization of branches for project submission
 - hide "add" buttons on home page if not logged in
