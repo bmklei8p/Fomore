@@ -27,6 +27,8 @@ class Auth(Authenticator):
         return account.email, AccountOut(**account.dict())
 
     def get_session_getter(self, session_repo: SessionQueries = Depends()):
+        print("get session getter session repo")
+        print(session_repo)
         return session_repo
 
     async def jti_created(self, jti, account, session_repo):

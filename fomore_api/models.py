@@ -45,9 +45,7 @@ class ItineraryIn(BaseModel):
    start_date: datetime
    end_date: datetime
    location: str
-   account_id: Optional[str]
-#    events: List[EventOut]
-
+   account_id: str
 
 
 class Itinerary(ItineraryIn):
@@ -63,13 +61,15 @@ class ItineraryList(BaseModel):
 
 class EventIn(BaseModel):
     name: str
-    date: str
+    date: datetime
     location: str
     category: str
-    venue: str
-    description:str
+    venue: Optional[str]
+    rating: Optional[str]
+    address: Optional[str]
+    description: str
     itinerary_id: str
-    image_url: str
+    image_url: Optional[str]
 
 class Event(EventIn):
     id: PydanticObjectId

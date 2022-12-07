@@ -1,3 +1,13 @@
+## 11/21/22
+- Worked on authentication and account creation.
+- Got familiar with jwtdown_fastapi library and did trouble shooting on logging in after creating an account.
+- Front end started working on forms and page layout.
+
+## 11/18/22
+- Started working on the front end. Set up a temporary app.js and a searchevent component.
+- Created a simple table on frontend to show restaurant results from Yelp.
+- Set up three 'search' endpoints for Yelp API: restaurants, attractions and event.
+
 ## 11/17/22
 - Worked on Event APIs: get, create, delete, update
 - Updated routers and query files.
@@ -20,3 +30,8 @@
 - Decided on using Yelp Fusion API to get information on events, restaurants and points of interest.
 - Tested code to get information on Yelp Events API.
 - Worked on End Points documentation. Added end points.
+
+
+## TO - DOs
+- upgrade 'update event form': save event id to store global state (instead of choosing event from a dropdown)
+- Dockercompose Yaml: move signing key and database login info to .env file.

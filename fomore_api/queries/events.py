@@ -1,7 +1,7 @@
 from bson.objectid import ObjectId
 from typing import List
 from .client import Queries
-from models import Event, EventIn, EventOut
+from models import EventIn, EventOut
 from pymongo.collection import ReturnDocument
 
 
@@ -27,6 +27,7 @@ class EventQueries(Queries):
     def get_all(self) -> List[EventOut]:
         result = self.collection.find()
         event_props_list = list(result)
+        print(event_props_list)
         for event_props in event_props_list:
             event_props["id"] = str(event_props["_id"])
             event_props["itinerary_id"] = str(event_props["itinerary_id"])

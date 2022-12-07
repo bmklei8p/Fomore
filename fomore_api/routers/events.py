@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from models import AccountOut, EventIn, Event, EventOut, EventList
+from models import  EventIn, EventOut, EventList
 from queries.events import EventQueries
 from routers.sockets import socket_manager
 from .auth import authenticator
