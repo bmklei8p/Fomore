@@ -1,10 +1,9 @@
 import json
 import sys
 sys.path.append('.')
-from main import app
 from fastapi.testclient import TestClient
 from queries.itineraries import ItineraryQueries
-
+from main import app
 
 client = TestClient(app)
 

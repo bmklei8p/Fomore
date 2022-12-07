@@ -38,7 +38,7 @@ class EventQueries(Queries):
                 "_id": ObjectId(id),
             }
         event = self.collection.find_one(filter)
-        updated_event = self.collection.find_one_and_update(event, {"$set": body},
-        return_document=ReturnDocument.AFTER)
+        updated_event = self.collection.find_one_and_update(event,
+            {"$set": body}, return_document=ReturnDocument.AFTER)
         updated_event["id"] = str(updated_event["_id"])
         return EventOut(**updated_event)

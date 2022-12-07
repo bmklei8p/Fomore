@@ -52,7 +52,7 @@ class ItineraryQueries(Queries):
                 "_id": ObjectId(id),
             }
         itinerary = self.collection.find_one(filter)
-        updated_itinerary = self.collection.find_one_and_update(itinerary, {"$set": body},
-        return_document=ReturnDocument.AFTER)
+        updated_itinerary = self.collection.find_one_and_update(itinerary,
+            {"$set": body}, return_document=ReturnDocument.AFTER)
         updated_itinerary["id"] = str(updated_itinerary["_id"])
         return ItineraryOut(**updated_itinerary)
