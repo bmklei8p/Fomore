@@ -121,7 +121,7 @@ const UpdateItineraryForm = () => {
                   </button>
                 </div>
                 <div>
-                  <Link to="/module3-project-gamma/Itineraries">
+                  <Link to="/Itineraries">
                     <button
                       type="button"
                       className="button"

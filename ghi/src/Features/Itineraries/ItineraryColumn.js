@@ -27,7 +27,7 @@ function ItineraryColumn() {
           >
             <Card.Header as="h6">
               {itinerary.name}{" "}
-              <Link to="/module3-project-gamma/ItineraryDetail">
+              <Link to="/ItineraryDetail">
                 <Button
                   variant="outline-primary"
                   size="sm"
