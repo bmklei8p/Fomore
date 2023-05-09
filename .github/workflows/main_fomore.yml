@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v1
         with:
           node-version: '18.x'
 
@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'fomore'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BE9CBA6DAA7F47A08D0CFDB0D2ED837F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C35BF94BBD5B41B3A6910273EB3BCB94 }}
           package: .
