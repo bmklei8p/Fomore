@@ -61,4 +61,4 @@ jobs:
           app-name: "fomore"
           slot-name: "Production"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C35BF94BBD5B41B3A6910273EB3BCB94 }}
-          package: .
+          package: ./ghi
