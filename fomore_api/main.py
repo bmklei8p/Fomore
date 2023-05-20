@@ -13,7 +13,7 @@ app = FastAPI()
 
 origins = [
     os.environ.get("CORS_HOST", "http://localhost"),
-    "http://localhost:3000",
+   "http://localhost:3000", "http://localhost:8000", "http://localhost:8081", "http://localhost:8080", "http://localhost:3000/", "http://localhost:8000/api", "http://localhost:8000/api/"
 ]
 
 
