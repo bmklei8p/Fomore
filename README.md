@@ -37,3 +37,6 @@ The FOMORE app is targeting people who are looking for events in a city they cur
     5. Run docker compose build
     6. Run docker compose up
     7. Go to localhost:3000 and enjoy the app!!
+
+
+l2f1IiqPUHVk4Iww
