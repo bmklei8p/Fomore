@@ -1,5 +1,5 @@
 import { useGetEventsQuery } from "../../app/eventApi";
-import ErrorNotification from "../../ErrorNotification";
+import ErrorNotification from "../../hooks/ErrorNotification";
 import { Card, Form, Container, Row, Col } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 

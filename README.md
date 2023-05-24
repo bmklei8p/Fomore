@@ -38,5 +38,9 @@ The FOMORE app is targeting people who are looking for events in a city they cur
     6. Run docker compose up
     7. Go to localhost:3000 and enjoy the app!!
 
-
-l2f1IiqPUHVk4Iww
+  ## TO DO
+    1. Guest login button 
+    2. Splash landing page
+    3. Main page mobile responsive - fomore wording does not respond. Nav bar should be have a max width to avoid all content outside the page veiwing area
+    4. Clean up files
+    5. Re-write readme.

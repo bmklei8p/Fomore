@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSignUpMutation } from "../../app/accountApi";
 import { preventDefault } from "../../app/utils";
 import { showModal, updateField, SIGN_UP_MODAL } from "../../app/accountSlice";
-import Notification from "../../Notification";
+import Notification from "../../hooks/Notification";
 
 function SignUpModal() {
   const dispatch = useDispatch();

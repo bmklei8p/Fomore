@@ -1,5 +1,5 @@
 import { useGetEventsQuery, useDeleteEventMutation } from "../../app/eventApi";
-import ErrorNotification from "../../ErrorNotification";
+import ErrorNotification from "../../hooks/ErrorNotification";
 
 function Events() {
   const [deleteEvent] = useDeleteEventMutation();

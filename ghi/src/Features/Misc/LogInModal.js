@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLogInMutation } from "../../app/accountApi";
 import { eventTargetSelector as target, preventDefault } from "../../app/utils";
 import { showModal, updateField, LOG_IN_MODAL } from "../../app/accountSlice";
-import Notification from "../../Notification";
+import Notification from "../../hooks/Notification";
 
 function LogInModal() {
   const dispatch = useDispatch();

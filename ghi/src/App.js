@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./Main";
-import Nav from "./Nav";
+import Nav from "./Features/Nav";
 import ItineraryForm from "./Features/Itineraries/ItineraryForm";
 import EventForm from "./Features/Events/EventForm";
 import Itineraries from "./Features/Itineraries/ListItinerary";

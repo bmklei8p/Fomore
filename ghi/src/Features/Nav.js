@@ -1,16 +1,18 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useGetTokenQuery, useLogOutMutation } from "./app/accountApi";
+import { useGetTokenQuery, useLogOutMutation } from "../app/accountApi";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { showModal, LOG_IN_MODAL, SIGN_UP_MODAL } from "./app/accountSlice";
-import LogInModal from "./Features/Misc/LogInModal";
-import SignUpModal from "./Features/Misc/SignUpModal";
+import { showModal, LOG_IN_MODAL, SIGN_UP_MODAL } from "../app/accountSlice";
+import LogInModal from "./Misc/LogInModal";
+import SignUpModal from "./Misc/SignUpModal";
 import { useEffect } from "react";
-import logo from "./media/fomore-dark.png";
+import logo from "../media/fomore-dark.png";
 import { NavLink } from "react-bootstrap";
-import { updateItinerary } from "./app/itinerarySlice";
+import { updateItinerary } from "../app/itinerarySlice";
+// import { GuestLoginButton } from "./Misc/GuestLoginButton";
+
 
 function LoginButtons(props) {
   const dispatch = useDispatch();
@@ -18,6 +20,7 @@ function LoginButtons(props) {
 
   return (
     <div className={classNames}>
+      {/* <GuestLoginButton /> */}
       <button
         onClick={() => dispatch(showModal(SIGN_UP_MODAL))}
         className="button is-primary"
