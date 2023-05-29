@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import logo from "../media/fomore-dark.png";
 import { NavLink } from "react-bootstrap";
 import { updateItinerary } from "../app/itinerarySlice";
-// import { GuestLoginButton } from "./Misc/GuestLoginButton";
+import { GuestLoginButton } from "./Misc/GuestLoginButton";
 
 
 function LoginButtons(props) {
@@ -20,7 +20,7 @@ function LoginButtons(props) {
 
   return (
     <div className={classNames}>
-      {/* <GuestLoginButton /> */}
+      <GuestLoginButton />
       <button
         onClick={() => dispatch(showModal(SIGN_UP_MODAL))}
         className="button is-primary"
@@ -65,7 +65,7 @@ function FomoreNav() {
   return (
     <>
       <Navbar bg="light" expand="lg">
-        <Container fluid>
+        <Container>
           <NavLink href="/" className="nav-logo">
             <img alt="logo" src={logo}></img>
           </NavLink>

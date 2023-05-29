@@ -104,6 +104,8 @@ code {
   margin-top: 4vh;
   margin-bottom: 2vh;
   color: #9ef8ee;
+  max-width: 5rem;
+  max-height: 2rem;
 }
 
 .welcome-subtitle {
@@ -144,3 +146,43 @@ code {
 .card-body {
   margin: 0px;
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* this is supposed to put a filter through the background video
+  but it isn't working */
+  background-color: rgba(0,0,0,.8);
+}
+
+.Welcome-content{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: black;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  filter: brightness(0.95);
+}
+
+.main{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
