@@ -44,3 +44,4 @@ The FOMORE app is targeting people who are looking for events in a city they cur
     3. Main page mobile responsive - fomore wording does not respond. Nav bar should be have a max width to avoid all content outside the page veiwing area
     4. Clean up files
     5. Re-write readme.
+    6. Date for initial state in store should be today's date -
