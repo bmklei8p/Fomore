@@ -39,9 +39,9 @@ The FOMORE app is targeting people who are looking for events in a city they cur
     7. Go to localhost:3000 and enjoy the app!!
 
   ## TO DO
-    1. Guest login button 
+    1. Guest login button - completed 5/29/23
     2. Splash landing page
     3. Main page mobile responsive - fomore wording does not respond. Nav bar should be have a max width to avoid all content outside the page veiwing area
     4. Clean up files
     5. Re-write readme.
-    6. Date for initial state in store should be today's date -
+    6. Date for initial state in store should be today's date - completed 5/29/23
