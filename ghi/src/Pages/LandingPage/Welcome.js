@@ -20,7 +20,7 @@ function Welcome() {
                 Search events or create your own, and add them to your itinerary.
             </p>
             <div>
-                <button style={{backgroundColor: "darkgreen"}} className="btn btn-primary btn-lg">Explore as guest</button>
+                <button style={{backgroundColor: "darkgreen"}} className="btn btn-primarygit  btn-lg">Explore as guest</button>
                 <button style={{backgroundColor: "darkgreen"}} className="btn btn-primary btn-lg">Sign up</button>
             </div>
         </div>
