@@ -48,6 +48,22 @@ code {
   max-height: 100%;
 }
 
+._container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+@media screen and (max-width: 767px) {
+  ._container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .nav-logo {
   margin-left: 5px;
   margin-right: 10px;
@@ -155,10 +171,10 @@ code {
   height: 100%;
   /* this is supposed to put a filter through the background video
   but it isn't working */
-  background-color: rgba(0,0,0,.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.Welcome-content{
+.Welcome-content {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -167,6 +183,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  text-align: center;
   align-items: center;
   color: black;
 }
@@ -174,15 +191,14 @@ code {
 video {
   width: 100%;
   height: 100%;
-  object-fit:cover;
+  object-fit: cover;
   filter: brightness(0.95);
 }
 
-.main{
+.main {
   width: 100%;
   height: 100vh;
   position: relative;
   top: 0;
   left: 0;
 }
-

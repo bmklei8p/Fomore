@@ -13,26 +13,34 @@ import { NavLink } from "react-bootstrap";
 import { updateItinerary } from "../app/itinerarySlice";
 import { GuestLoginButton } from "./Misc/GuestLoginButton";
 
-
 function LoginButtons(props) {
   const dispatch = useDispatch();
   const classNames = `buttons ${props.show ? "" : "is-hidden"}`;
 
   return (
     <div className={classNames}>
-      <GuestLoginButton />
-      <button
-        onClick={() => dispatch(showModal(SIGN_UP_MODAL))}
-        className="button is-primary"
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          columnGap: "1rem",
+          alignItems: "center",
+        }}
       >
-        <strong>Sign up</strong>
-      </button>
-      <button
-        onClick={() => dispatch(showModal(LOG_IN_MODAL))}
-        className="button is-light"
-      >
-        Log in
-      </button>
+        <GuestLoginButton displayType={true} />
+        <button
+          onClick={() => dispatch(showModal(SIGN_UP_MODAL))}
+          className="button is-primary"
+        >
+          <strong>Sign up</strong>
+        </button>
+        <button
+          onClick={() => dispatch(showModal(LOG_IN_MODAL))}
+          className="button is-light"
+        >
+          Log in
+        </button>
+      </div>
     </div>
   );
 }
@@ -46,7 +54,7 @@ function LogoutButton() {
     const actionId = updateItinerary({ itineraryId: "" });
     dispatch(actionId);
     if (data) {
-      navigate('/');
+      navigate("/");
     }
   });
 
@@ -76,7 +84,6 @@ function FomoreNav() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/">Home</Nav.Link>
               {token ? (
                 <>
                   <Nav.Link href="/ItineraryForm">Create Itinerary</Nav.Link>

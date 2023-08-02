@@ -1,4 +1,4 @@
-import logo from "../../media/fomore-dark.png";
+import { GuestLoginButton } from "../../Features/Misc/GuestLoginButton";
 
 function Welcome() {
   return (
@@ -10,17 +10,16 @@ function Welcome() {
       }}
       className="Welcome-content"
     >
-      <h1 style={{ fontSize: "4rem", marginTop: "2rem" }}>Fomore</h1>
-      <p>Welcome to FOMORE! The quickest way manage your itineraries.</p>
-      <p>To get started, sign up or log in, and create your first itinerary.</p>
-      <p>Search events or create your own, and add them to your itinerary.</p>
-      <div style={{ display: "flex", gap: "1rem" }}>
-        <button
-          style={{ backgroundColor: "darkgreen" }}
-          className="btn btn-primary  btn-lg"
-        >
-          Explore as guest
-        </button>
+      <h1 style={{ fontSize: "5rem", marginTop: "3rem" }}>Fomore</h1>
+      <p style={{ marginTop: "2rem", fontSize: "1.5rem" }}>
+        Welcome to FOMORE! The quickest way manage itineraries
+      </p>
+      <p style={{ fontSize: "1.5rem" }}>
+        To get started, sign up or log in, and create your first itinerary
+      </p>
+      <p style={{ fontSize: "1.5rem" }}>Search events or create your own</p>
+      <div style={{ display: "flex", gap: "1rem", marginTop: "2rem" }}>
+        <GuestLoginButton style={{ color: "white" }} />
         <button
           style={{ backgroundColor: "darkgreen" }}
           className="btn btn-primary btn-lg"

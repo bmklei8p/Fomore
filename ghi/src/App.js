@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Main from "./Main";
+import Main from "./Main";
 import Nav from "./Features/Nav";
 import ItineraryForm from "./Features/Itineraries/ItineraryForm";
 import EventForm from "./Features/Events/EventForm";
@@ -10,7 +10,6 @@ import UpdateEventForm from "./Features/Events/UpdateEventForm";
 import UpdateItineraryForm from "./Features/Itineraries/UpdateItineraryForm";
 import LandingPage from "./Pages/LandingPage/SplashPage";
 
-
 function App() {
   return (
     <div className="bg-color">
@@ -18,7 +17,7 @@ function App() {
         <Nav />
         <div className="container">
           <Routes>
-            {/* <Route path="/" element={<Main />} /> */}
+            <Route path="/main" element={<Main />} />
             <Route path="/" element={<LandingPage />} />
             <Route path="/ItineraryForm" element={<ItineraryForm />} />
             <Route path="/EventForm" element={<EventForm />} />
