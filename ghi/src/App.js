@@ -15,7 +15,7 @@ function App() {
     <div className="bg-color">
       <BrowserRouter>
         <Nav />
-        <div className="container">
+        <div className="">
           <Routes>
             <Route path="/main" element={<Main />} />
             <Route path="/" element={<LandingPage />} />

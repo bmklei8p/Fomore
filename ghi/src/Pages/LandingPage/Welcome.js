@@ -11,6 +11,7 @@ function Welcome() {
         paddingLeft: "1rem",
         paddingRight: "1rem",
         marginInline: "auto",
+        fontWeight: "bold",
       }}
       className="Welcome-content"
     >
