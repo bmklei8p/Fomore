@@ -185,7 +185,6 @@ code {
   justify-content: flex-start;
   text-align: center;
   align-items: center;
-  color: black;
 }
 
 video {
@@ -201,4 +200,27 @@ video {
   position: relative;
   top: 0;
   left: 0;
+}
+
+._sign-up-button {
+  background-color: darkgreen;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 5px;
+  border-style: none;
+  color: white;
+  text-align: center;
+  transition-duration: 0.2s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+@media screen and (max-width: 767px) {
+  ._sign-up-button {
+    font-size: 1.25rem;
+    letter-spacing: 0.05rem;
+  }
 }

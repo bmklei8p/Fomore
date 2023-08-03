@@ -7,6 +7,7 @@ import { useLogInMutation } from "../../app/accountApi";
 export const GuestLoginButton = ({ displayType }) => {
   const dispatch = useDispatch();
   const [logIn] = useLogInMutation();
+  // eslint-disable-next-line
   const field = useCallback(
     (e) =>
       dispatch(updateField({ field: e.target.name, value: e.target.value })),
@@ -15,18 +16,14 @@ export const GuestLoginButton = ({ displayType }) => {
   // check if i can remove this variable field- i think I can? on next push
 
   return (
-    <form
-      style={{ padding: "8px" }}
-      method="POST"
-      onSubmit={preventDefault(logIn, target)}
-    >
+    <form method="POST" onSubmit={preventDefault(logIn, target)}>
       <input
         readOnly
         required
         value="guest@guest.com"
         name="username"
         className="input"
-        type="password"
+        type="username"
         style={{ display: "none" }}
       />
       <input
@@ -38,8 +35,11 @@ export const GuestLoginButton = ({ displayType }) => {
         type="password"
         style={{ display: "none" }}
       />
-      <button className={"button is-primary"}>
-        <strong>Guest Login</strong>
+      <button
+        style={{ fontWeight: "bold" }}
+        className={displayType ? "_sign-up-button" : "button is-primary"}
+      >
+        Guest Login
       </button>
     </form>
   );

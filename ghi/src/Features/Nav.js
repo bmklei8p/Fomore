@@ -27,7 +27,7 @@ function LoginButtons(props) {
           alignItems: "center",
         }}
       >
-        <GuestLoginButton displayType={true} />
+        <GuestLoginButton displayType={false} />
         <button
           onClick={() => dispatch(showModal(SIGN_UP_MODAL))}
           className="button is-primary"
@@ -38,7 +38,7 @@ function LoginButtons(props) {
           onClick={() => dispatch(showModal(LOG_IN_MODAL))}
           className="button is-light"
         >
-          Log in
+          <strong>Log in</strong>
         </button>
       </div>
     </div>
