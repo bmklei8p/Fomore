@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import backgroundTravelVideoDesktop from "./travel_splash_movie_desktop.mov";
-import backgroundTravelVideo from "../../media/mobile2.mov";
+import backgroundTravelVideo from "../../media/mobile10.mov";
 import Welcome from "./Welcome";
 // import MobileVideo from "../../Features/Misc/MobileVideo";
 import { GuestLoginButton } from "../../Features/Misc/GuestLoginButton";
@@ -17,8 +17,8 @@ const LandingPage = () => {
   const handleTimeUpdate = () => {
     const currentTime = videoRef.current.currentTime;
     setShowText1(currentTime > 4);
-    setShowText2(currentTime > 6);
-    setShowText3(currentTime > 7);
+    setShowText2(currentTime > 5);
+    setShowText3(currentTime > 6.3);
   };
 
   const setVideoSpeed = (speed) => {

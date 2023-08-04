@@ -48,7 +48,7 @@ export function ListEvents() {
             >
               <Container>
                 <Row>
-                  <Col>
+                  <Col sm={12} lg={4} style={{ paddingRight: "0" }}>
                     <a
                       href={event.url}
                       target="_blank"
@@ -63,7 +63,7 @@ export function ListEvents() {
                   <Col>
                     <Card.Body>
                       <Row>
-                        <Col sm={10}>
+                        <Col sm={12}>
                           <Card.Title>
                             <a
                               href={event.url}
@@ -71,7 +71,7 @@ export function ListEvents() {
                               className="link-green"
                               rel="noopener noreferrer"
                             >
-                              <h1 style={{ color: "red" }}>{event.name}</h1>
+                              {event.name}
                             </a>
                           </Card.Title>
                         </Col>

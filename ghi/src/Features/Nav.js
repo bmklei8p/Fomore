@@ -30,12 +30,14 @@ function LoginButtons(props) {
         <GuestLoginButton displayType={false} />
         <button
           onClick={() => dispatch(showModal(SIGN_UP_MODAL))}
+          style={{ backgroundColor: "#348888" }}
           className="button is-primary"
         >
           <strong>Sign up</strong>
         </button>
         <button
           onClick={() => dispatch(showModal(LOG_IN_MODAL))}
+          style={{ backgroundColor: "#d7d7d7" }}
           className="button is-light"
         >
           <strong>Log in</strong>
@@ -54,7 +56,7 @@ function LogoutButton() {
     const actionId = updateItinerary({ itineraryId: "" });
     dispatch(actionId);
     if (data) {
-      navigate("/");
+      navigate("/main");
     }
   });
 
@@ -74,7 +76,7 @@ function FomoreNav() {
     <>
       <Navbar bg="light" expand="lg">
         <Container>
-          <NavLink href="/" className="nav-logo">
+          <NavLink href="/main" className="nav-logo">
             <img alt="logo" src={logo}></img>
           </NavLink>
           <Navbar.Toggle aria-controls="navbarScroll" />

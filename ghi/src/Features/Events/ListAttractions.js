@@ -38,7 +38,7 @@ export function ListAttractions() {
             >
               <Container>
                 <Row>
-                  <Col>
+                  <Col sm={12} lg={5} style={{ paddingRight: "0" }}>
                     <a
                       href={attraction.url}
                       target="_blank"
@@ -53,7 +53,7 @@ export function ListAttractions() {
                   <Col>
                     <Card.Body>
                       <Row>
-                        <Col sm={10}>
+                        <Col sm={12}>
                           <Card.Title>
                             <a
                               href={attraction.url}

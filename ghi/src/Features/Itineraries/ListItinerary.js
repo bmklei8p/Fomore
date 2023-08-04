@@ -52,14 +52,14 @@ function Itineraries() {
                   style={{ float: "left" }}
                   onClick={() => deleteItinerary(itinerary.id)}
                 >
-                  delete
+                  Delete
                 </button>
                 <Link to={`/UpdateItineraryForm/?initialid=${itinerary.id}`}>
                   <Button
                     style={{ float: "right" }}
                     className="button is-primary"
                   >
-                    edit Itinerary
+                    Edit Itinerary
                   </Button>
                 </Link>
               </Card.Body>

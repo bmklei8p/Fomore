@@ -34,7 +34,7 @@ export function ListRestaurants() {
           >
             <Container>
               <Row>
-                <Col xs={12} md={4}>
+                <Col sm={12} lg={4} style={{ paddingRight: "0" }}>
                   <a
                     href={restaurant.url}
                     target="_blank"
@@ -49,7 +49,7 @@ export function ListRestaurants() {
                 <Col>
                   <Card.Body>
                     <Row>
-                      <Col>
+                      <Col sm={10}>
                         <Card.Title>
                           <a
                             href={restaurant.url}
@@ -61,7 +61,7 @@ export function ListRestaurants() {
                           </a>
                         </Card.Title>
                       </Col>
-                      <Col>
+                      <Col sm={2}>
                         {token ? (
                           <Col style={{ textAlign: "end" }}>
                             <button className="add-btn">&#10010;</button>{" "}

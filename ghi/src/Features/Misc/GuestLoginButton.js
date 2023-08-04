@@ -36,7 +36,7 @@ export const GuestLoginButton = ({ displayType }) => {
         style={{ display: "none" }}
       />
       <button
-        style={{ fontWeight: "bold" }}
+        style={{ fontWeight: "bold", backgroundColor: "#348888" }}
         className={displayType ? "_sign-up-button" : "button is-primary"}
       >
         Guest Login
