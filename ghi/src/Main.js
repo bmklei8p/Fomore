@@ -6,22 +6,20 @@ import SearchBar from "./Features/Misc/SearchBar";
 import Welcome from "./Features/Misc/Welcome";
 // import { useState } from "react";
 
-
-
 function Main() {
   return (
     <Container>
       <Row>
-        <Welcome/>
+        <Welcome />
       </Row>
       <Row>
-        <Col sm={8}>
+        <Col md={8}>
           <SearchBar />
           <div className="section-border">
             <SearchTabs />
           </div>
         </Col>
-        <Col sm={4}>
+        <Col md={4}>
           <div className="section-border">
             <ItineraryList />
           </div>

@@ -69,13 +69,15 @@ const LandingPage = () => {
               className={`text-container ${showText1 ? "show" : ""}`}
             >
               {" "}
-              <p style={{ marginTop: "1rem", fontSize: "1.5rem" }}>
+              <p
+                style={{
+                  marginTop: "1rem",
+                  fontSize: "1.5rem",
+                  color: "white",
+                }}
+              >
                 Welcome to the quickest way to create and manage itineraries
               </p>
-              {/* <p style={{ fontSize: "1.5rem" }}>
-                To get started, sign up or log in, and create your first
-                itinerary
-              </p> */}
             </div>
           )}{" "}
           {showText3 && (

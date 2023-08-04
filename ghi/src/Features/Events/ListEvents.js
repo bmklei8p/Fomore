@@ -71,23 +71,27 @@ export function ListEvents() {
                               className="link-green"
                               rel="noopener noreferrer"
                             >
-                              {event.name}
+                              <h1 style={{ color: "red" }}>{event.name}</h1>
                             </a>
                           </Card.Title>
                         </Col>
-                        {token ? (
-                          <Col sm={2}>
-                            <button className="add-btn">&#10010;</button>{" "}
-                          </Col>
-                        ) : (
-                          <Col sm={2}>
-                            <button className="d-none">&#10010;</button>{" "}
-                          </Col>
-                        )}
                       </Row>
                       <Row>
                         <Col>
                           <Card.Text>{event.location}</Card.Text>
+                        </Col>
+                        <Col>
+                          {token ? (
+                            <p
+                              sm={2}
+                              style={{
+                                display: "flex",
+                                justifyContent: "flex-end",
+                              }}
+                            >
+                              <button className="add-btn">&#10010;</button>{" "}
+                            </p>
+                          ) : null}
                         </Col>
                       </Row>
                       <Row>

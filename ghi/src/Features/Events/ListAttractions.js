@@ -65,19 +65,17 @@ export function ListAttractions() {
                             </a>
                           </Card.Title>
                         </Col>
-                        {token ? (
-                          <Col sm={2}>
-                            <button className="add-btn">&#10010;</button>{" "}
-                          </Col>
-                        ) : (
-                          <Col sm={2}>
-                            <button className="d-none">&#10010;</button>{" "}
-                          </Col>
-                        )}
                       </Row>
                       <Row>
                         <Col>
                           <Card.Text>{attraction.location}</Card.Text>
+                        </Col>
+                        <Col>
+                          {token ? (
+                            <Col style={{ textAlign: "end" }}>
+                              <button className="add-btn">&#10010;</button>{" "}
+                            </Col>
+                          ) : null}
                         </Col>
                       </Row>
                       <Row>

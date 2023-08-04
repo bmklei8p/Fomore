@@ -27,13 +27,15 @@ function Welcome() {
         <p style={{ color: "#33cccc" }}>FOMO</p>
         <p style={{ color: "#99ffff" }}>RE</p>
       </h1>
-      <p style={{ marginTop: "1rem", fontSize: "1.5rem" }}>
+      <p style={{ marginTop: "1rem", fontSize: "1.5rem", color: "white" }}>
         Welcome to FOMORE! The quickest way manage itineraries
       </p>
-      <p style={{ fontSize: "1.5rem" }}>
+      <p style={{ fontSize: "1.5rem", color: "white" }}>
         To get started, sign up or log in, and create your first itinerary
       </p>
-      <p style={{ fontSize: "1.5rem" }}>Search events or create your own</p>
+      <p style={{ fontSize: "1.5rem", color: "white" }}>
+        Search events or create your own
+      </p>
       <div style={{ display: "flex", gap: "1rem", marginTop: "2rem" }}>
         <GuestLoginButton displayType={true} />
         <button

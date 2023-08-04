@@ -34,7 +34,7 @@ export function ListRestaurants() {
           >
             <Container>
               <Row>
-                <Col>
+                <Col xs={12} md={4}>
                   <a
                     href={restaurant.url}
                     target="_blank"
@@ -49,7 +49,7 @@ export function ListRestaurants() {
                 <Col>
                   <Card.Body>
                     <Row>
-                      <Col sm={10}>
+                      <Col>
                         <Card.Title>
                           <a
                             href={restaurant.url}
@@ -61,24 +61,20 @@ export function ListRestaurants() {
                           </a>
                         </Card.Title>
                       </Col>
-                      {token ? (
-                        <Col sm={2}>
-                          <button className="add-btn">&#10010;</button>{" "}
-                        </Col>
-                      ) : (
-                        <Col sm={2}>
-                          <button className="d-none">&#10010;</button>{" "}
-                        </Col>
-                      )}
+                      <Col>
+                        {token ? (
+                          <Col style={{ textAlign: "end" }}>
+                            <button className="add-btn">&#10010;</button>{" "}
+                          </Col>
+                        ) : null}
+                      </Col>
                     </Row>
                     <Row>
                       <Col>
                         <Card.Text>{restaurant.location}</Card.Text>
                       </Col>
-                      <Col>
-                        <Card.Text style={{ textAlign: "right" }}>
-                          Rating: {restaurant.rating}
-                        </Card.Text>
+                      <Col style={{ textAlign: "right" }}>
+                        <Card.Text>Rating: {restaurant.rating}</Card.Text>
                       </Col>
                     </Row>
                     <Row>
@@ -89,7 +85,9 @@ export function ListRestaurants() {
                       </Col>
                     </Row>
                     <Row>
-                      <Card.Text as="small">{restaurant.address}</Card.Text>
+                      <Col className="d-none d-lg-block">
+                        <Card.Text as="small">{restaurant.address}</Card.Text>
+                      </Col>
                     </Row>
                     <input
                       name="name"
