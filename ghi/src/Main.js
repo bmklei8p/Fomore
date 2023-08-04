@@ -12,16 +12,16 @@ function Main() {
       <Row>
         <Welcome />
       </Row>
-      <Row>
+      <Row style={{ display: "flex", flexDirection: "row-reverse" }}>
+        <Col md={4}>
+          <div className="section-border">
+            <ItineraryList />
+          </div>
+        </Col>
         <Col md={8}>
           <SearchBar />
           <div className="section-border">
             <SearchTabs />
-          </div>
-        </Col>
-        <Col md={4}>
-          <div className="section-border">
-            <ItineraryList />
           </div>
         </Col>
       </Row>
