@@ -31,7 +31,7 @@ export function SearchBar() {
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
-        <InputGroup size="sm" className="me-2">
+        <InputGroup size="xs" className="me-2">
           <InputGroup.Text id="basic-addon3">Dates</InputGroup.Text>
           <Form.Control
             type="date"

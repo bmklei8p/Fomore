@@ -48,8 +48,14 @@ export function ListRestaurants() {
                 </Col>
                 <Col>
                   <Card.Body>
-                    <Row>
-                      <Col sm={10}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <div>
                         <Card.Title>
                           <a
                             href={restaurant.url}
@@ -60,15 +66,15 @@ export function ListRestaurants() {
                             {restaurant.name}
                           </a>
                         </Card.Title>
-                      </Col>
-                      <Col sm={2}>
+                      </div>
+                      <div>
                         {token ? (
                           <Col style={{ textAlign: "end" }}>
                             <button className="add-btn">&#10010;</button>{" "}
                           </Col>
                         ) : null}
-                      </Col>
-                    </Row>
+                      </div>
+                    </div>
                     <Row>
                       <Col>
                         <Card.Text>{restaurant.location}</Card.Text>

@@ -3,8 +3,10 @@ import { useDispatch } from "react-redux";
 import { updateField } from "../../app/accountSlice";
 import { eventTargetSelector as target, preventDefault } from "../../app/utils";
 import { useLogInMutation } from "../../app/accountApi";
+// import { useNavigate } from "react-router-dom";
 
 export const GuestLoginButton = ({ displayType }) => {
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const [logIn] = useLogInMutation();
   // eslint-disable-next-line
@@ -25,6 +27,7 @@ export const GuestLoginButton = ({ displayType }) => {
         className="input"
         type="username"
         style={{ display: "none" }}
+        autoComplete="on"
       />
       <input
         readOnly
@@ -34,10 +37,12 @@ export const GuestLoginButton = ({ displayType }) => {
         className="input"
         type="password"
         style={{ display: "none" }}
+        autoComplete="on"
       />
       <button
         style={{ fontWeight: "bold", backgroundColor: "#348888" }}
         className={displayType ? "_sign-up-button" : "button is-primary"}
+        type="submit"
       >
         Guest Login
       </button>

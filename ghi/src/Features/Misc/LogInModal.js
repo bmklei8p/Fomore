@@ -53,6 +53,7 @@ function LogInModal() {
                   className="input"
                   type="password"
                   placeholder="secret..."
+                  autoComplete="on"
                 />
               </div>
             </div>

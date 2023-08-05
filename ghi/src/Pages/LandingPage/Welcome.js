@@ -1,9 +1,15 @@
 import { GuestLoginButton } from "../../Features/Misc/GuestLoginButton";
 import { useDispatch } from "react-redux";
 import { showModal, SIGN_UP_MODAL } from "../../app/accountSlice";
+import { useNavigate } from "react-router-dom";
+import { useGetTokenQuery } from "../../app/accountApi";
 
 function Welcome() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
+  if (token && !tokenLoading) navigate("/main");
 
   return (
     <div

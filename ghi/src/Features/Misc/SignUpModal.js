@@ -48,6 +48,7 @@ function SignUpModal() {
                   className="input"
                   type="email"
                   placeholder="you@example.com"
+                  autoComplete="on"
                 />
               </div>
             </div>
@@ -62,6 +63,7 @@ function SignUpModal() {
                   className="input"
                   type="password"
                   placeholder="secret..."
+                  autoComplete="on"
                 />
               </div>
             </div>
@@ -76,6 +78,7 @@ function SignUpModal() {
                   className="input"
                   type="text"
                   placeholder="Your Name"
+                  autoComplete="on"
                 />
               </div>
             </div>

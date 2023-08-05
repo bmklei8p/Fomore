@@ -92,9 +92,7 @@ function FomoreNav() {
                   <Nav.Link href="/EventForm">Create Event</Nav.Link>
                   <Nav.Link href="/Itineraries">My Itineraries</Nav.Link>
                 </>
-              ) : (
-                <p className="d-none"></p>
-              )}
+              ) : null}
             </Nav>
             <div className="navbar-end">
               <div className="navbar-item">

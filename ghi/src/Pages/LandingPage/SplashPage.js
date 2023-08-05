@@ -6,9 +6,12 @@ import Welcome from "./Welcome";
 import { GuestLoginButton } from "../../Features/Misc/GuestLoginButton";
 import { useDispatch } from "react-redux";
 import { showModal, SIGN_UP_MODAL } from "../../app/accountSlice";
+import { useNavigate } from "react-router-dom";
+import { useGetTokenQuery } from "../../app/accountApi";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const videoRef = useRef(null);
   const [showText1, setShowText1] = useState(false);
   const [showText2, setShowText2] = useState(false);
@@ -28,6 +31,9 @@ const LandingPage = () => {
   useEffect(() => {
     setVideoSpeed(1.25);
   }, []);
+
+  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
+  if (token && !tokenLoading) navigate("/main");
 
   return (
     <div className="main">
@@ -76,7 +82,7 @@ const LandingPage = () => {
                   color: "white",
                 }}
               >
-                Welcome to the quickest way to create and manage itineraries
+                The quickest way to create and manage itineraries
               </p>
             </div>
           )}{" "}

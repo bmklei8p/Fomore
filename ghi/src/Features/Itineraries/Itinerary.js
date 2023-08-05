@@ -27,12 +27,21 @@ function ItineraryList() {
               style={{ width: "25rem" }}
             >
               <Card.Header as="h6">
-                <Col sm={12}>{event.name} </Col>
-                <Col sm={1}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                >
+                  <Col>{event.name} </Col>
+                </div>
+                <div>
                   <NavLink onClick={() => deleteEvent(event.id)}>
                     <b className="link-delete">&#10005;</b>
                   </NavLink>
-                </Col>
+                </div>
               </Card.Header>
               <Card.Body>
                 <Card.Text className="card-bottom">
