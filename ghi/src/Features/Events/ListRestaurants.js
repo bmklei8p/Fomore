@@ -18,6 +18,25 @@ export function ListRestaurants() {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
+  if (body.data.length === 0) {
+    return (
+      <Card>
+        <Card.Title
+          className="text-muted"
+          style={{
+            display: "flex",
+            textAlign: "center",
+            justifyContent: "center",
+            marginTop: "1rem",
+            marginBottom: "1rem",
+          }}
+        >
+          No restaurants found. Please try another date or city.
+        </Card.Title>
+      </Card>
+    );
+  }
+
   return (
     <div>
       {body.data.map((restaurant) => (

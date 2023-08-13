@@ -11,6 +11,7 @@ function Itineraries() {
   const accountId = tokenData && tokenData.account && tokenData.account.id;
   const [deleteItinerary] = useDeleteItineraryMutation();
   const { data, isLoading } = useGetItinerariesQuery();
+
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
@@ -20,6 +21,7 @@ function Itineraries() {
       <form>
         {data.itineraries
           .filter((itinerary) => itinerary.account_id === accountId)
+          .sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
           .map((itinerary) => (
             <Card
               key={itinerary.id}

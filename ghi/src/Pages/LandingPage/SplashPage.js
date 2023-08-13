@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import backgroundTravelVideoDesktop from "./travel_splash_movie_desktop.mov";
+import backgroundTravelVideoDesktop from "./desktop_bg.mov";
 import backgroundTravelVideo from "../../media/mobile10.mov";
 import Welcome from "./Welcome";
 // import MobileVideo from "../../Features/Misc/MobileVideo";

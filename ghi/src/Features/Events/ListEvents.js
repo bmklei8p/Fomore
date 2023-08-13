@@ -22,12 +22,23 @@ export function ListEvents() {
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
-  if (body.length === 0) {
+
+  if (body.data.length === 0) {
     return (
-      <p>
-        No events to display for this time period. Please try another time or
-        city.
-      </p>
+      <Card>
+        <Card.Title
+          className="text-muted"
+          style={{
+            display: "flex",
+            textAlign: "center",
+            justifyContent: "center",
+            marginTop: "1rem",
+            marginBottom: "1rem",
+          }}
+        >
+          No events found. Please try another date or city.
+        </Card.Title>
+      </Card>
     );
   }
 

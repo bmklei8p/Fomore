@@ -48,9 +48,9 @@ code {
 }
 
 .bg-color {
-  /* background-color: #348888; */
+  background-color: #348888;
   /* background-color: #142e40; */
-  background-color: #617d7d;
+  /* background-color: #617d7d; */
   min-height: 100vh;
   max-height: 100%;
 }
